@@ -11,5 +11,16 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
-  }
+  },
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

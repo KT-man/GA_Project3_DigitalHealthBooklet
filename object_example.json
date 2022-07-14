@@ -2,11 +2,12 @@
   "username": "Parent123",
   "password": "parent123",
   "name": "parent123",
+  "postcode": "1234",
   "isDeleted": "false",
   "children": [
     {
       "name": "Emma",
-      "gender": "female",
+      "isMale": false,
       "DOB": "14 Jun 2017 00:00:00 PDT",
       "logs": [
         {
@@ -28,7 +29,7 @@
           "date": "14 Feb 2021 00:00:00 PDT",
           "location": "Tanjong Pagar",
           "doctorName": "Dr Nick Tan",
-          "upcomming": true,
+          "futureAppt": true,
           "reason": "vaccination"
         }
       ]
