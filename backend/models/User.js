@@ -4,6 +4,8 @@ const UserSchema = new mongoose.Schema(
   {
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    name: {type: String, required: true},
+    postcode: {type: Number, required: true},
     isDeleted: { type: Boolean, default: false },
     children: [
       //NOTE: Will have to figure out how to access nested objects in array. Use "$" operator
