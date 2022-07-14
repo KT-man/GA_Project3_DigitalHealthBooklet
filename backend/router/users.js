@@ -87,14 +87,19 @@ router.patch("/addChild", auth, async (req, res) => {
           DOB: req.body.DOB,
         },
       },
-    }
+    },
+    { new: true }
   );
   return res.json(parent);
 });
 
 router.patch("/addLog", auth, async (req, res) => {});
 
+router.patch("/editLog", auth, async (req, res) => {});
+
 router.patch("/addAppt", auth, async (req, res) => {});
+
+router.patch("/editAppt", auth, async (req, res) => {});
 
 router.get("/users", auth, async (req, res) => {
   // If admin = true, show all users

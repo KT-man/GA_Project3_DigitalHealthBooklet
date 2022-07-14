@@ -1,6 +1,7 @@
 {
   "username": "Parent123",
   "password": "parent123",
+  "name": "parent123",
   "isDeleted": "false",
   "children": [
     {
