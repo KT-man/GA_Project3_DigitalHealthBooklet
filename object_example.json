@@ -1,0 +1,36 @@
+{
+  "username": "Parent123",
+  "password": "parent123",
+  "isDeleted": "false",
+  "children": [
+    {
+      "name": "Emma",
+      "gender": "female",
+      "DOB": "14 Jun 2017 00:00:00 PDT",
+      "logs": [
+        {
+          "date": "14 Jun 2022 00:00:00 PDT",
+          "height": "60",
+          "weight": "25",
+          "headCirc": "45"
+        },
+
+        {
+          "date": "14 Feb 2021 00:00:00 PDT",
+          "height": "55",
+          "weight": "20",
+          "headCirc": "44"
+        }
+      ],
+      "Appointments": [
+        {
+          "date": "14 Feb 2021 00:00:00 PDT",
+          "location": "Tanjong Pagar",
+          "doctorName": "Dr Nick Tan",
+          "upcomming": true,
+          "reason": "vaccination"
+        }
+      ]
+    }
+  ]
+}
