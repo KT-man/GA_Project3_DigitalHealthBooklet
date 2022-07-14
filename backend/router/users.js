@@ -13,7 +13,7 @@ const app = express();
 router.get("/login", async (req, res) => {
   try {
     // ---------- Login ID check
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({ username: req.body.username });
     if (!user) {
       return res
         .status(400)
@@ -34,11 +34,8 @@ router.get("/login", async (req, res) => {
     // ----------- Sending in payload for JWT sign
     const payload = {
       id: user._id,
-      //   email: user.email,
+      username: user.username,
     };
-    // ----------------- Question about the payload
-    // Since payload is used to contain the claim that is being made, we technically only need to provide one claim to be verified? i.e. that whoever is logging in is the user with id = user._id
-    // Email is not required to be included in the payload since there is no need for that additional check, and hence, no need to "expose" the email in the unencrypted payload
 
     const access = jwt.sign(payload, process.env.ACCESS_SECRET, {
       expiresIn: "20m",
@@ -58,7 +55,7 @@ router.get("/login", async (req, res) => {
 
 router.put("/registration", async (req, res) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({ username: req.body.username });
     if (user) {
       return res
         .status(400)
@@ -66,15 +63,10 @@ router.put("/registration", async (req, res) => {
     }
     const hash = await bcrypt.hash(req.body.password, 12);
     const createdUser = await User.create({
-      email: req.body.email,
+      username: req.body.username,
       password: hash,
-      personname: req.body.personname,
-      company: req.body.company,
-      contact: {
-        address: req.body.contact.address,
-        phone: req.body.contact.phone,
-      },
-      isAdmin: req.body.isAdmin,
+      name: req.body.name,
+      postcode: req.body.postcode,
     });
     console.log(`user created : ${createdUser} `);
     res.json({ status: "ok", message: "account created" });
@@ -83,6 +75,26 @@ router.put("/registration", async (req, res) => {
     res.json({ status: "error", message: "error encountered" });
   }
 });
+
+router.patch("/addChild", auth, async (req, res) => {
+  const parent = await User.findOneAndUpdate(
+    { username: req.decoded.username },
+    {
+      $push: {
+        children: {
+          name: req.body.name,
+          isMale: req.body.isMale,
+          DOB: req.body.DOB,
+        },
+      },
+    }
+  );
+  return res.json(parent);
+});
+
+router.patch("/addLog", auth, async (req, res) => {});
+
+router.patch("/addAppt", auth, async (req, res) => {});
 
 router.get("/users", auth, async (req, res) => {
   // If admin = true, show all users
