@@ -1,0 +1,36 @@
+{
+  "username": "string",
+  "password": "string",
+  "isDeleted": "boolean",
+  "children": [
+    {
+      "name": "string",
+      "gender": "boolean",
+      "DOB": "date",
+      "logs": [
+        {
+          "date": "date",
+          "height": "number",
+          "weight": "number",
+          "headCirc": "number"
+        },
+
+        {
+          "date": "date",
+          "height": "number",
+          "weight": "number",
+          "headCirc": "number"
+        }
+      ],
+      "Appointments": [
+        {
+          "date": "number",
+          "location": "string",
+          "doctorName": "string",
+          "upcomming": "boolean",
+          "reason": "string"
+        }
+      ]
+    }
+  ]
+}
