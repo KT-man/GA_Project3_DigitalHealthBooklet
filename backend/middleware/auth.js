@@ -15,7 +15,9 @@ const auth = (req, res, next) => {
         .send({ status: "error", message: "missing Token" });
     }
   } catch (error) {
-    return res.status(401).send({ status: "error", message: "unauthorised" });
+    return res
+      .status(401)
+      .send({ status: "error", message: "unauthorised, please login first!" });
   }
 };
 module.exports = auth;

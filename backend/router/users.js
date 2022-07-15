@@ -10,6 +10,7 @@ const bcrypt = require("bcrypt");
 
 const app = express();
 
+// ---------------- Login route
 router.get("/login", async (req, res) => {
   try {
     // ---------- Login ID check
@@ -22,7 +23,6 @@ router.get("/login", async (req, res) => {
 
     // ---------- Password check
     const result = await bcrypt.compare(req.body.password, user.password);
-    // Must put await here!!!
 
     if (!result) {
       console.log("Password error!");
@@ -45,6 +45,7 @@ router.get("/login", async (req, res) => {
       expiresIn: "30d",
       jwtid: uuid4(),
     });
+
     const response = { access, refresh };
     res.json(response);
   } catch (error) {
@@ -53,6 +54,7 @@ router.get("/login", async (req, res) => {
   }
 });
 
+// ------------------ Registration route
 router.put("/registration", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
@@ -76,6 +78,7 @@ router.put("/registration", async (req, res) => {
   }
 });
 
+// --------------- Add child to existing account route
 router.patch("/addChild", auth, async (req, res) => {
   const parent = await User.findOneAndUpdate(
     { username: req.decoded.username },
@@ -93,6 +96,7 @@ router.patch("/addChild", auth, async (req, res) => {
   return res.json(parent);
 });
 
+// --------------- Add log
 router.patch("/addLog", auth, async (req, res) => {
   const addLog = await User.findOneAndUpdate(
     { username: req.decoded.username, "children.name": req.body.childrenname },
@@ -111,8 +115,10 @@ router.patch("/addLog", auth, async (req, res) => {
   return res.json(addLog);
 });
 
+// ----------------- Edit log on existing log route
 router.patch("/editLog", auth, async (req, res) => {});
 
+// ----------------- Add appt
 router.patch("/addAppt", auth, async (req, res) => {
   const addAppt = await User.findOneAndUpdate(
     { username: req.decoded.username, "children.name": req.body.childrenname },
@@ -132,8 +138,10 @@ router.patch("/addAppt", auth, async (req, res) => {
   return res.json(addAppt);
 });
 
+// ----------------- Edit appt on existing appt route
 router.patch("/editAppt", auth, async (req, res) => {});
 
+// ----------------- Was copied in from the full stack exercise that Desmond had us doing, the below two routes may not be required. Leaving it in for now
 router.get("/users", auth, async (req, res) => {
   // If admin = true, show all users
   const requestUser = await User.findOne({ _id: req.decoded.id });
