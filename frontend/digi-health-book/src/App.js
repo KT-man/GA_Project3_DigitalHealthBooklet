@@ -4,7 +4,7 @@ import "./App.css";
 import SplashPage from "./components/SplashPage";
 import Signup from "./components/Register";
 import { useState } from "react";
-import WelcomePage from "../components/WelcomePage";
+import WelcomePage from "./components/WelcomePage";
 import "./App.css";
 
 
