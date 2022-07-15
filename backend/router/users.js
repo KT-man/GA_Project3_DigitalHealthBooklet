@@ -118,7 +118,28 @@ router.patch("/addLog", auth, async (req, res) => {
 // ----------------- View log route
 
 // ----------------- Edit log on existing log route
-router.patch("/editLog", auth, async (req, res) => {});
+router.patch("/editLog", auth, async (req, res) => {
+  try {
+    const editLog = await User.findOneAndUpdate(
+      {
+        username: req.decoded.username,
+        "children.logs": { $elemMatch: { _id: req.body.childLogId } },
+      },
+      {
+        $set: {
+          "children.$[].logs.$[j].date": req.body.date,
+          "children.$[].logs.$[j].height": req.body.height,
+          "children.$[].logs.$[j].weight": req.body.weight,
+          "children.$[].logs.$[j].headCirc": req.body.headCirc,
+        },
+      },
+      { arrayFilters: [{ "j._id": req.body.childLogId }] }
+    );
+    return res.json(editLog);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 // ----------------- Add appt
 router.patch("/addAppt", auth, async (req, res) => {
