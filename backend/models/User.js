@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema(
       //NOTE: Will have to figure out how to access nested objects in array. Use "$" operator
       // https://www.mongodb.com/docs/manual/reference/operator/update/positional/
       {
-        name: { type: String, required: true, unique: true },
+        name: { type: String, required: true },
         isMale: { type: Boolean, required: true },
         DOB: { type: Date, required: true },
         logs: [

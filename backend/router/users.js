@@ -55,15 +55,18 @@ router.get("/login", async (req, res) => {
 });
 
 // ------------------ Registration route
-router.put("/registration", async (req, res) => {
+router.post("/registration", async (req, res) => {
   try {
+    //await User.collection.drop();
     const user = await User.findOne({ username: req.body.username });
     if (user) {
       return res
         .status(400)
         .json({ status: "error", message: "user account already exists" });
     }
+    console.log(req.body);
     const hash = await bcrypt.hash(req.body.password, 12);
+
     const createdUser = await User.create({
       username: req.body.username,
       password: hash,
@@ -144,7 +147,7 @@ router.patch("/editLog", auth, async (req, res) => {
 // ----------------- Add appt
 router.patch("/addAppt", auth, async (req, res) => {
   const addAppt = await User.findOneAndUpdate(
-    { username: req.decoded.username, "children.name": req.body.childrenname },
+    { username: req.decoded.username, "children.name": req.body.children.name },
     {
       $push: {
         "children.$.Appointments": {
@@ -167,18 +170,11 @@ router.patch("/addAppt", auth, async (req, res) => {
 router.patch("/editAppt", auth, async (req, res) => {});
 
 // ----------------- Was copied in from the full stack exercise that Desmond had us doing, the below two routes may not be required. Leaving it in for now
-router.get("/users", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   // If admin = true, show all users
-  const requestUser = await User.findOne({ _id: req.decoded.id });
+  const requestUsers = await User.find({});
 
-  if (requestUser.isAdmin) {
-    const users = await User.find();
-    return res.json(users);
-  } else {
-    // If admin = false, show only users from same company
-    const companyUsers = await User.find({ company: requestUser.company });
-    return res.json(companyUsers);
-  }
+  return res.json(requestUsers);
 });
 
 router.patch("/user", auth, async (req, res) => {
