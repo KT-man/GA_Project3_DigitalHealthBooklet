@@ -26,7 +26,7 @@ const UserSchema = new mongoose.Schema(
           {
             date: { type: Date, required: true },
             location: { type: String },
-            doctorName: { type: Date },
+            doctorName: { type: String },
             futureAppt: { type: Boolean },
             reason: { type: String },
           },

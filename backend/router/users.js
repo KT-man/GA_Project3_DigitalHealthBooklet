@@ -94,17 +94,43 @@ router.patch("/addChild", auth, async (req, res) => {
 });
 
 router.patch("/addLog", auth, async (req, res) => {
-  const child = await User.findOne({
-    username: req.decoded.username,
-    children: 
-  });
-  console.log(child);
-  return res.json(child);
+  const addLog = await User.findOneAndUpdate(
+    { username: req.decoded.username, "children.name": req.body.childrenname },
+    {
+      $push: {
+        "children.$.logs": {
+          date: req.body.date,
+          height: req.body.height,
+          weight: req.body.weight,
+          headCirc: req.body.headCirc,
+        },
+      },
+    },
+    { new: true }
+  );
+  return res.json(addLog);
 });
 
 router.patch("/editLog", auth, async (req, res) => {});
 
-router.patch("/addAppt", auth, async (req, res) => {});
+router.patch("/addAppt", auth, async (req, res) => {
+  const addAppt = await User.findOneAndUpdate(
+    { username: req.decoded.username, "children.name": req.body.childrenname },
+    {
+      $push: {
+        "children.$.Appointments": {
+          date: req.body.date,
+          location: req.body.location,
+          doctorName: req.body.doctorName,
+          futureAppt: req.body.futureAppt,
+          reason: req.body.reason,
+        },
+      },
+    },
+    { new: true }
+  );
+  return res.json(addAppt);
+});
 
 router.patch("/editAppt", auth, async (req, res) => {});
 
