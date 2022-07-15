@@ -11,12 +11,13 @@ function SplashPage() {
             <button class="px-5 py-1 text-md text-plumish font-semibold rounded-full border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2">
               Login
             </button>
-            <button
+            <a
+              href="/register"
               class="px-5 py-1 text-md text-plumish font-semibold rounded-full border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
               aria-hidden="true"
             >
               Register
-            </button>
+            </a>
           </form>
         </div>
       </header>
@@ -27,31 +28,30 @@ function SplashPage() {
           src="https://img.freepik.com/free-vector/pediatrician-doctor-woman-examining-baby-boy_3446-535.jpg?t=st=1657858868~exp=1657859468~hmac=f2f9e8770eb5abb6673c6cbcaa4d0025b31785423b3b3275804257fbd824428e&w=900"
           alt="pediatrician and baby"
         ></img>
-        <div class="flex">
-          <ul class="flex-col">
-            <li>
-              <a href="#what" class="text-slate-500-2xl">
-                What
-              </a>
-            </li>
-
-            <li>
-              <a href="#why" class="text-slate-500-2xl">
-                Why
-              </a>
-            </li>
-
-            <li>
-              <a href="#how">How</a>
-            </li>
-
-            <li>
-              <a href="#contact">More Info</a>
-            </li>
-          </ul>
-        </div>
       </div>
+      <div class="flex">
+        <ul class="flex-col">
+          <li>
+            <a href="#what" class="text-slate-500-2xl">
+              What
+            </a>
+          </li>
 
+          <li>
+            <a href="#why" class="text-slate-500-2xl">
+              Why
+            </a>
+          </li>
+
+          <li>
+            <a href="#how">How</a>
+          </li>
+
+          <li>
+            <a href="#contact">More Info</a>
+          </li>
+        </ul>
+      </div>
       <SplashText />
     </div>
   );
