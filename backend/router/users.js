@@ -93,7 +93,14 @@ router.patch("/addChild", auth, async (req, res) => {
   return res.json(parent);
 });
 
-router.patch("/addLog", auth, async (req, res) => {});
+router.patch("/addLog", auth, async (req, res) => {
+  const child = await User.findOne({
+    username: req.decoded.username,
+    children: 
+  });
+  console.log(child);
+  return res.json(child);
+});
 
 router.patch("/editLog", auth, async (req, res) => {});
 
