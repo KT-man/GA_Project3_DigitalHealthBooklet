@@ -8,8 +8,6 @@ const UserSchema = new mongoose.Schema(
     postcode: { type: Number, required: true },
     isDeleted: { type: Boolean, default: false },
     children: [
-      //NOTE: Will have to figure out how to access nested objects in array. Use "$" operator
-      // https://www.mongodb.com/docs/manual/reference/operator/update/positional/
       {
         name: { type: String, required: true },
         isMale: { type: Boolean, required: true },
@@ -22,7 +20,7 @@ const UserSchema = new mongoose.Schema(
             headCirc: { type: Number, required: true },
           },
         ],
-        Appointments: [
+        appointments: [
           {
             date: { type: Date, required: true },
             location: { type: String },
