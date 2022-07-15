@@ -115,6 +115,8 @@ router.patch("/addLog", auth, async (req, res) => {
   return res.json(addLog);
 });
 
+// ----------------- View log route
+
 // ----------------- Edit log on existing log route
 router.patch("/editLog", auth, async (req, res) => {});
 
@@ -137,6 +139,8 @@ router.patch("/addAppt", auth, async (req, res) => {
   );
   return res.json(addAppt);
 });
+
+// ----------------- View appt route
 
 // ----------------- Edit appt on existing appt route
 router.patch("/editAppt", auth, async (req, res) => {});
