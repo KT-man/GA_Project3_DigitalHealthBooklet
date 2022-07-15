@@ -3,8 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import SplashPage from "./components/SplashPage";
 import Signup from "./components/Register";
-import { useState, useEffect } from "react";
-import WelcomePage from "../components/WelcomePage";
+import { useState } from "react";
+import WelcomePage from "./components/WelcomePage";
+import "./App.css";
 
 function App() {
   const [childData, setChildData] = useState("");
