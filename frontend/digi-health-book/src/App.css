@@ -7,7 +7,7 @@
 }
 
 header {
-  min-height: 40vh;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,19 @@ h1 {
   color: aliceblue;
   font-size: xxx-large;
 }
-
+.image {
+  display: inline-block;
+  width: 60vw;
+}
+.nav {
+  display: inline-block;
+  width: 30vw;
+  height: 150px;
+}
+.nav > ul > li {
+  width: 30vw;
+  height: 50px;
+}
 p {
   align-items: center;
   margin: 1em;
@@ -37,6 +49,7 @@ h3 {
   color: #7d4183;
   font-weight: bold;
   font-size: 16;
+  margin: 10px auto;
 }
 
 div > ul {

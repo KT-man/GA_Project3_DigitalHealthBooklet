@@ -4,13 +4,14 @@ function SplashText() {
   return (
     <div class="container">
       <div>
-        <h2 id="what">What can we do with digiBook?</h2>
+        <h2 id="what">What can you do with digiBook?</h2>
         <p>
           <h3>Log Your Child's Growth</h3>
           <br />
-          The digi Book Health App will help to log your childs growth data like
-          height and weight over time. Your child will be mapped onto a graph to
-          see where they fit in weight and height percentiles.
+          The digi Book Health App will help to log your child's growth data
+          like height and weight at any age. Your child will be mapped onto a
+          graph to see where they fit in weight and height percentiles.
+          <br />
           <h3>Keep Up With Appointments</h3>
           <br />
           Keep track of upcoming appointments by storing the time, date and
@@ -20,7 +21,7 @@ function SplashText() {
         </p>
       </div>
       <div>
-        <h2 id="why">Why go online?</h2>
+        <h2 id="why">Why go digital?</h2>
         <p>
           Every parent who has a child in Singapore recieves a Health booklet to
           keep track of the childs growth, vaccinations and health specifics
@@ -45,7 +46,6 @@ function SplashText() {
           <h3>Add Your Child's Information</h3>
           Once registered, you can create a profile for each of your children.
           Use your current health bookelet as a guide for entering new logs
-          <br />
           <h3>Making Appointments</h3>
           Add new appointments for your child's vaccinations and doctor visits
           All the information about upcoming appointments will be displayed on
