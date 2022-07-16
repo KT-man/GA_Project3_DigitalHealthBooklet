@@ -1,26 +1,70 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Appointment from "./ModalComponents/Appointment";
 import Log from "./ModalComponents/Log";
+import AddChild from "./ModalComponents/AddChild";
+import ChildData from './ModalComponents/ChildData';
+
 
 const WelcomePage = (props) => {
 
+  const [showLogModal, setShowLogModal] = useState(false);
+  const toSetShowLogModal = () => {
+    setShowLogModal(!showLogModal);
+  };
+
+  const [showApptModal, setShowApptModal] = useState(false);
+  const toSetShowApptModal = () => {
+    setShowApptModal(!showApptModal);
+  };
+
+  const [showAddChildModal, setShowAddChildModal] = useState(false);
+  const toSetShowAddChildModal = () => {
+    setShowAddChildModal(!showAddChildModal);
+  };
+
+  const [showChildDataModal, setShowChildDataModal] = useState(false);
+  const toSetShowChildDataModal = () => {
+    setShowChildDataModal(!showChildDataModal);
+  };
+
     let childData = props.childData.map((d, i) => {
         return (
-        <>
+        <div onClick={toSetShowChildDataModal}>
           <h1> Child {i}</h1>
           <h2 key = {i}>{d.name} </h2>
-          <button>Add New Log</button>
-          <button>Add New Appoinment</button>
-        </>
+          <button onClick = {toSetShowLogModal}>Add New Log</button>
+          <button onClick = {toSetShowApptModal}>Add New Appoinment</button>
+        </div>
         );
       });
     return (
         <div>
             <h1>Welcome to your Digital Child Booklet</h1>
             //route to add child
-            <button onClick = {() => props.onClick()}>Add Child</button>
+            <button onClick = {toSetShowAddChildModal}>Add Child</button>
             <br />
             {childData}
+
+            {showLogModal && (
+              <Log
+                toSetShowLogModal={toSetShowLogModal}
+              ></Log>
+            )}
+            {showApptModal && (
+              <Appointment
+                toSetShowApptModal={toSetShowApptModal}
+              ></Appointment>
+            )}
+            {showAddChildModal && (
+              <AddChild
+                toSetShowAddChildModal={toSetShowAddChildModal}
+              ></AddChild>
+            )}
+            {showChildDataModal && (
+              <ChildData
+                toSetShowChildDataModal={toSetShowChildDataModal}
+              ></ChildData>
+            )}
             
         </div>
     );

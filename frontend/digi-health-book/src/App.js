@@ -6,6 +6,7 @@ import Signup from "./components/Register";
 import { useState } from "react";
 import WelcomePage from "./components/WelcomePage";
 import "./App.css";
+import ChildData from "./components/ModalComponents/ChildData";
 
 
 
@@ -85,6 +86,7 @@ inputChildLog(url, config);
   return (
   <div className="App">
     <WelcomePage childData = {childData}></WelcomePage>
+    <ChildData childData = {childData}></ChildData>
     <Routes>
       <Route path="/" element={<SplashPage />} />
       <Route path="/register" element={<Signup />} />

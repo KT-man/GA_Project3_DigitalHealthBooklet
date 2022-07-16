@@ -9,13 +9,13 @@ const [ editLog, setEditLog ] = useState({
     date: '',
     height: '',
     weight: '',
-    headCircum: '',
+    headCirc: '',
     _id: null
 });
 const [ dateInput, setDateInput ] = useState('');
 const [ heightInput, setHeightInput ] = useState('');
 const [ weightInput, setWeightInput ] = useState('');
-const [ headCircumInput, setHeadCircumInput ] = useState('');
+const [ headCircInput, setHeadCircInput ] = useState('');
 
 
 
@@ -30,8 +30,8 @@ const handleHeightChange = (e) => {
 const handleWeightChange = (e) => {
     setWeightnput(e.target.value);
 };
-const handleHeadCircumChange = (e) => {
-    setHeadCircumInput(e.target.value);
+const handleHeadCircChange = (e) => {
+    setHeadCircInput(e.target.value);
 };
 
 useEffect(
@@ -39,7 +39,7 @@ useEffect(
         setDateInput(editLog.date);
         setHeightInput(editLog.height);
         setWeightInput(editLog.weight);
-        setHeadCircumInput(editLog.headCircum);
+        setHeadCircInput(editLog.headCirc);
     },
     [ editLog ]
 );
@@ -49,7 +49,7 @@ const handleSubmit = (e) => {
         date: dateInput,
         height: heightInput,
         weight: weightInput,
-        headCircum: headCircumInput
+        headCirc: headCircInput
     };
 // input body into the api here
 
@@ -91,18 +91,18 @@ return (
                             required
                         />
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formHeadCircum">
+                    <Form.Group className="mb-3" controlId="formHeadCirc">
                         <Form.Label>Head Circumference</Form.Label>
                         <Form.Control
                             type="number"
                             min="0"
                             placeholder="Enter product quantity"
-                            value={headCircumInput}
-                            onChange={handleHeadCircumChange}
+                            value={headCircInput}
+                            onChange={handleHeadCircChange}
                             required
                         />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" onClick = {handleSubmit}>
                         Submit
                     </Button>
                 </Form>
