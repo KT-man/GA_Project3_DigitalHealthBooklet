@@ -164,15 +164,18 @@ router.get("/login", async (req, res) => {
 });
 
 // ------------------ Registration route
-router.put("/registration", async (req, res) => {
+router.post("/registration", async (req, res) => {
   try {
+    //await User.collection.drop();
     const user = await User.findOne({ username: req.body.username });
     if (user) {
       return res
         .status(400)
         .json({ status: "error", message: "user account already exists" });
     }
+    console.log(req.body);
     const hash = await bcrypt.hash(req.body.password, 12);
+
     const createdUser = await User.create({
       username: req.body.username,
       password: hash,
@@ -407,6 +410,7 @@ router.post("/viewAppt", auth, async (req, res) => {
 });
 
 // ----------------- Edit appt on existing appt route
+
 router.patch("/editAppt", auth, async (req, res) => {
   try {
     const editAppt = await User.findOneAndUpdate(

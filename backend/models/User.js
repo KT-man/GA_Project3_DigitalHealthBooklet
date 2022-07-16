@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema(
     isDeleted: { type: Boolean, default: false },
     children: [
       {
-        name: { type: String, required: true, unique: true },
+        name: { type: String, required: true },
         isMale: { type: Boolean, required: true },
         DOB: { type: Date, required: true },
         logs: [
