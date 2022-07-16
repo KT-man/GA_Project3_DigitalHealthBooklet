@@ -7,6 +7,7 @@ const { v4: uuid4 } = require("uuid");
 const auth = require("../middleware/auth");
 const router = express.Router();
 const bcrypt = require("bcrypt");
+const dayjs = require("dayjs");
 
 const app = express();
 
@@ -118,7 +119,7 @@ router.get("/seed", async (req, res) => {
 });
 
 // ---------------- Login route
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     // ---------- Login ID check, checking if user exists
     const user = await User.findOne({ username: req.body.username });
@@ -153,6 +154,12 @@ router.get("/login", async (req, res) => {
     const refresh = jwt.sign(payload, process.env.REFRESH_SECRET, {
       expiresIn: "30d",
       jwtid: uuid4(),
+    });
+
+    res.cookie("jwt", access, {
+      secure: false,
+      httpOnly: true,
+      expires: dayjs().add(30, "days").toDate(),
     });
 
     const response = { access, refresh };

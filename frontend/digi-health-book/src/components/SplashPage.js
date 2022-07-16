@@ -8,9 +8,12 @@ function SplashPage() {
         <h1 class="text-slate-600 p-static">digi Health Book SG</h1>
         <div class="max-w-sm">
           <form>
-            <button class="px-5 py-1 text-md text-plumish font-semibold rounded-full border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2">
+            <a
+              href="/login"
+              class="px-5 py-1 text-md text-plumish font-semibold rounded-full border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+            >
               Login
-            </button>
+            </a>
             <a
               href="/register"
               class="px-5 py-1 text-md text-plumish font-semibold rounded-full border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"

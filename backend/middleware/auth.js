@@ -2,7 +2,8 @@ const jwt = require("jsonwebtoken");
 
 const auth = (req, res, next) => {
   try {
-    const token = req.headers["authorization"].replace("Bearer ", "");
+    console.log(req.cookies);
+    const token = req.cookies.jwt;
 
     if (token) {
       const decoded = jwt.verify(token, process.env.ACCESS_SECRET);
@@ -15,6 +16,7 @@ const auth = (req, res, next) => {
         .send({ status: "error", message: "missing Token" });
     }
   } catch (error) {
+    console.log(error);
     return res
       .status(401)
       .send({ status: "error", message: "unauthorised, please login first!" });
