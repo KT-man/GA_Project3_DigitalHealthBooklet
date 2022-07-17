@@ -13,12 +13,12 @@ header {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #74bdcb;
 }
 h1 {
-  color: aliceblue;
   font-size: xxx-large;
 }
+
 .image {
   display: inline-block;
   width: 60vw;

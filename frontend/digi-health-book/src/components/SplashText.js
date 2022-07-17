@@ -5,14 +5,17 @@ function SplashText() {
     <div class="container">
       <div>
         <h2 id="what">What can you do with digiBook?</h2>
+        <h3>Log Your Child's Growth</h3>
         <p>
-          <h3>Log Your Child's Growth</h3>
           <br />
           The digi Book Health App will help to log your child's growth data
           like height and weight at any age. Your child will be mapped onto a
           graph to see where they fit in weight and height percentiles.
           <br />
-          <h3>Keep Up With Appointments</h3>
+        </p>
+
+        <h3>Keep Up With Appointments</h3>
+        <p>
           <br />
           Keep track of upcoming appointments by storing the time, date and
           location for each child. You can even opt to add the Doctor's name if
@@ -40,16 +43,23 @@ function SplashText() {
       </div>
       <div>
         <h2 id="how">How does it work? </h2>
+        <h3>Register</h3>
         <p>
-          <h3>Register</h3>
           All you need to register is enter your name and password.
-          <h3>Add Your Child's Information</h3>
+          <br />
+        </p>
+        <h3>Add Your Child's Information</h3>
+        <p>
           Once registered, you can create a profile for each of your children.
           Use your current health bookelet as a guide for entering new logs
-          <h3>Making Appointments</h3>
+          <br />
+        </p>
+        <h3>Making Appointments</h3>
+        <p>
           Add new appointments for your child's vaccinations and doctor visits
           All the information about upcoming appointments will be displayed on
           the cards.
+          <br />
         </p>
       </div>
       <div>
@@ -57,9 +67,9 @@ function SplashText() {
         <p>
           By now you must be thinking.. What a great idea! Who came up with this
           life hack and how can I get in touch! Send us a message to get in
-          touch with
+          touch with us
           <a href="https://github.com/KT-man/GA_Project3_DigitalHealthBooklet">
-            the developers
+            - the developers -
           </a>
           from GA today or contribute taking the digi Health Booklet App to the
           next level!

@@ -37,6 +37,7 @@ const WelcomePage = (props) => {
   });
   return (
     <div>
+      <header class="bg-aquamarine"></header>
       <h1>Welcome to your Digital Child Booklet</h1>
       {/* //route to add child */}
       <button onClick={toSetShowAddChildModal}>Add Child</button>
