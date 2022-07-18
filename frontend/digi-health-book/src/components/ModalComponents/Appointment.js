@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import ReactDOM from "react-dom";
 import Overlay from "react-bootstrap/Overlay";
 
@@ -23,7 +21,7 @@ const Appointment = () => {
     setDateInput(e.target.value);
   };
 
-  const handlleLocationInput = (e) => {
+  const handleLocationInput = (e) => {
     setLocationInput(e.target.value);
   };
   const handleDoctorNameInput = (e) => {
@@ -44,78 +42,84 @@ const Appointment = () => {
     setFutureApptInput(editAppointment.futureAppt);
     setReasonInput(editAppointment.reason);
   }, [editAppointment]);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = {
+    const data = {
       date: dateInput,
       location: locationInput,
       doctorName: doctorNameInput,
       futureAppt: futureApptInput,
       reason: reasonInput,
     };
+    
+    const url = "/users/addAppt";
+    const res = await fetch (url, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: { "content-type": "application/json" },
+    });
+    const addApptData = await res.json();
+
+    if (addApptData.status === "error") {
+      alert(`Please enter Appointment details correctly`);
+    }
     // input body into the api here
   };
   return (
     <>
       {ReactDOM.createPortal(
         <Overlay>
-          <React.Fragment>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3" controlId="formDate">
-                <Form.Label>Date</Form.Label>
-                <Form.Control
+            <form onSubmit={handleSubmit}>
+              <div class="block">
+                <label>Date</label>
+                <input
                   type="date"
                   placeholder="Enter date of appointment"
                   value={dateInput}
                   onChange={handleDateChange}
-                  required
                 />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formLocation">
-                <Form.Label>Location of Appointment</Form.Label>
-                <Form.Control
+              </div>
+              <div class="block">
+                <label>Location of Appointment</label>
+                <input
                   type="text"
-                  placeholder="Enter location of clinic"
+                  placeholder="Enter location of appointment"
                   value={locationInput}
-                  onChange={handlleLocationInput}
-                  required
+                  onChange={handleLocationInput}
                 />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formDoctorName">
-                <Form.Label>Doctor's Name</Form.Label>
-                <Form.Control
+              </div>
+              <div class="block">
+                <label>Doctor</label>
+                <input
                   type="text"
-                  placeholder="Enter doctor's name"
+                  placeholder="Enter Doctor's Name"
                   value={doctorNameInput}
                   onChange={handleDoctorNameInput}
-                  required
                 />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formFutureAppt">
-                <Form.Label>Future Appointment </Form.Label>
-                <Form.Control
-                  type="boolean"
-                  placeholder="Is this a future appointment?"
+              </div>
+              <div class="block">
+                <label>Future Appointment</label>
+                <input
+                  type="text"
+                  placeholder="Future Appointment"
                   value={futureApptInput}
                   onChange={handleFutureApptInput}
-                  required
                 />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formReason">
-                <Form.Label>Reason for Visit</Form.Label>
-                <Form.Control
+              </div>
+              <div class="block">
+                <label>Reason of Appointment</label>
+                <input
                   type="text"
-                  placeholder="Enter reason for visit"
+                  placeholder="Reason for Visit"
                   value={reasonInput}
                   onChange={handleReasonInput}
-                  required
                 />
-              </Form.Group>
-              <Button variant="primary" type="submit" onClick={handleSubmit}>
+              </div>
+              <button type="submit" onClick={handleSubmit}>
                 Submit
-              </Button>
-            </Form>
-          </React.Fragment>
+              </button>
+            </form>
         </Overlay>,
         document.querySelector("#modal-root")
       )}

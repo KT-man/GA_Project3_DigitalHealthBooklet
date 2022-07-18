@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
 import ReactDOM from "react-dom";
 import Overlay from "react-bootstrap/Overlay";
 import Button from "react-bootstrap/Button";
@@ -37,69 +36,74 @@ const Log = () => {
     setWeightInput(editLog.weight);
     setHeadCircInput(editLog.headCirc);
   }, [editLog]);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = {
+
+    const data = {
       date: dateInput,
       height: heightInput,
       weight: weightInput,
       headCirc: headCircInput,
     };
+
+    const url = "/users/addLog";
+    const res = await fetch(url, {
+      method:"PUT",
+      body:JSON.stringify(data),
+      headers: { "content-type": "application/json" },
+    });
+
+    const addLogData = await res.json();
+
+    if (addLogData.status === 'error') {
+      alert (`Please input the correct log data`);
+    }
     // input body into the api here
   };
   return (
     <>
       {ReactDOM.createPortal(
         <Overlay>
-          <React.Fragment>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3" controlId="formDate">
-                <Form.Label>Date</Form.Label>
-                <Form.Control
+            <div class="block">
+                <label>Future Date</label>
+                <input
                   type="date"
-                  placeholder="Enter date of entry"
+                  placeholder="Date of Input"
                   value={dateInput}
                   onChange={handleDateChange}
-                  required
                 />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formHeight">
-                <Form.Label>Height</Form.Label>
-                <Form.Control
+              </div>
+              <div class="block">
+                <label>Height</label>
+                <input
                   type="number"
-                  placeholder="Enter child's height"
+                  placeholder="Height"
                   value={heightInput}
                   onChange={handleHeightChange}
-                  required
                 />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formWeight">
-                <Form.Label>Weight</Form.Label>
-                <Form.Control
+              </div>
+              <div class="block">
+                <label>Weight</label>
+                <input
                   type="number"
-                  min="0"
-                  placeholder="Enter product price"
+                  placeholder="weight"
                   value={weightInput}
                   onChange={handleWeightChange}
-                  required
                 />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formHeadCirc">
-                <Form.Label>Head Circumference</Form.Label>
-                <Form.Control
+              </div>
+              <div class="block">
+                <label>Head Circumference</label>
+                <input
                   type="number"
-                  min="0"
-                  placeholder="Enter product quantity"
+                  placeholder="head circumference"
                   value={headCircInput}
                   onChange={handleHeadCircChange}
-                  required
                 />
-              </Form.Group>
-              <Button variant="primary" type="submit" onClick={handleSubmit}>
+              </div>
+              <button type="submit" onClick={handleSubmit}>
                 Submit
-              </Button>
-            </Form>
-          </React.Fragment>
+              </button>
         </Overlay>,
         document.querySelector("#modal-root")
       )}

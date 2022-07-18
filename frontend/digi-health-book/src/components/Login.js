@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-function Login() {
+function Login(props) {
   const [loginFailed, setLoginFailed] = useState(false);
   const usernameRef = useRef();
   const passwordRef = useRef();
@@ -44,7 +44,7 @@ function Login() {
         body: JSON.stringify(),
         headers: { "content-type": "application/json" },
       });
-      const loginData = await res.json(req.body.children);
+      const loginData = await res.json(props.childData);
 
       res.render("users/children");
       console.log(loginData);

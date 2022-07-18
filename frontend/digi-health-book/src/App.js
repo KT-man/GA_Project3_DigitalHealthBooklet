@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import SplashPage from "./components/SplashPage";
-import Signup from "./components/Register";
+import Register from "./components/Register";
 import { useState, useEffect } from "react";
 import WelcomePage from "./components/WelcomePage";
 import "./App.css";
@@ -40,34 +40,6 @@ function App() {
     fetchChildData(url, config);
   }, []);
 
-  const inputChildLog = async (url, config) => {
-    try {
-      const res = await fetch(url, config);
-
-      if (res.status !== 200) {
-        throw new Error("Couldnt fetch child data");
-      }
-
-      const data = await res.json();
-      setChildData(data.children);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  useEffect((input) => {
-    //=> to doublecheck on url
-    const url = `/users/adddLog`; //=> to doublecheck
-    const config = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: {},
-    };
-    // inputChildLog(url, config);
-  }, []);
-
   return (
     <div className="App">
       <Routes>
@@ -80,8 +52,8 @@ function App() {
           element={<ChildData childData={childData}></ChildData>}
         />
         <Route path="/" element={<SplashPage />} />
-        <Route path="/register" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login childData={childData} />} />
       </Routes>
     </div>
   );

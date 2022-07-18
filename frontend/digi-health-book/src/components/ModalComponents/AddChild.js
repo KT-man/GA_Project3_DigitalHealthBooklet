@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
 import ReactDOM from "react-dom";
 import Overlay from "react-bootstrap/Overlay";
-import Button from "react-bootstrap/Button";
 
 const AddChild = () => {
   const [editChild, setEditChild] = useState({
@@ -31,56 +29,66 @@ const AddChild = () => {
     setIsMaleInput(editChild.isMale);
     setDOBInput(editChild.DOB);
   }, [editChild]);
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = {
+
+    const data = {
       name: nameInput,
       isMale: isMaleInput,
       DOB: DOBInput,
     };
+
+    const url = '/users/addChild';
+    const res = await fetch(url, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers : { "content-type": "application/json" },
+    });
+    const addChildData = await res.json();
+
+    if (addChildData.status === "error") {
+      alert(`Please input the child data correctly`);
+    }
     // input body into the api here
   };
   return (
     <>
       {ReactDOM.createPortal(
         <Overlay>
-          <React.Fragment>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3" controlId="formName">
-                <Form.Label>Name of Child</Form.Label>
-                <Form.Control
+            <form onSubmit={handleSubmit}>
+              <div class = "block">
+                <label>Name of Child</label>
+                <input
                   type="text"
                   placeholder="Enter your Child's name"
                   value={nameInput}
                   onChange={handleNameChange}
-                  required
                 />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formIsMale">
-                <Form.Label>Gender</Form.Label>
-                <Form.Control
-                  type="booleanr"
-                  placeholder=""
+              </div>
+              <div class = "block">
+                <label>Gender</label>
+                <input
+                  type="text"
+                  placeholder="Enter your Child's gender"
                   value={isMaleInput}
                   onChange={handleIsMaleChange}
-                  required
                 />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formDOB">
-                <Form.Label>Date of Birth</Form.Label>
-                <Form.Control
-                  type="date"
-                  placeholder="Enter your child's Birthday"
+              </div>
+              <div class = "block">
+                <label>Date of Birth</label>
+                <input
+                  type="text"
+                  placeholder="Enter your Child's Date of Birth"
                   value={DOBInput}
                   onChange={handleDOBChange}
-                  required
                 />
-              </Form.Group>
-              <Button variant="primary" type="submit" onClick={handleSubmit}>
+              </div>
+              <button type="submit" onClick={handleSubmit}>
                 Submit
-              </Button>
-            </Form>
-          </React.Fragment>
+              </button>
+            </form>
         </Overlay>,
         document.querySelector("#modal-root")
       )}
