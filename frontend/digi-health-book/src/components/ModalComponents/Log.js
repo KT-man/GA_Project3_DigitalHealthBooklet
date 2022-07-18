@@ -1,4 +1,4 @@
-import React, { useState, use } from "react";
+import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
 import styles from "./modal.module.css";
 import Button from "./Button";
