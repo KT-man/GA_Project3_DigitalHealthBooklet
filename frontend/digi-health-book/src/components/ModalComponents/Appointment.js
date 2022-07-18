@@ -4,7 +4,7 @@ import styles from "./modal.module.css";
 import Button from "./Button";
 
 
-const Appointment = () => {
+const Appointment = (props) => {
 
   const dateRef = useRef();
   const locationRef = useRef();
@@ -89,7 +89,7 @@ const Appointment = () => {
                   ref={reasonRef}
                 />
               </div>
-              <Button type="submit">
+              <Button type="submit" onClick={() => props.okayClicked()}>
                 Submit
               </Button>
             </form>,

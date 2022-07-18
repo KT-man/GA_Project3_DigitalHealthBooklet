@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import styles from "./modal.module.css";
 import Button from "./Button";
 
-const Log = () => {
+const Log = (props) => {
   const dateRef = useRef();
   const heightRef = useRef();
   const weightRef = useRef();
@@ -78,7 +78,7 @@ const Log = () => {
                   ref={headCircRef}
                 />
               </div>
-              <Button type="submit">
+              <Button type="submit" onClick={() => props.okayClicked()}>
                 Submit
               </Button>
             </form>

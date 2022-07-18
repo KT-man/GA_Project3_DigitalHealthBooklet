@@ -45,9 +45,17 @@ const WelcomePage = (props) => {
       <br />
       {childData}
 
-      {showLogModal && <Log toSetShowLogModal={toSetShowLogModal}></Log>}
+      {showLogModal && (
+        <Log
+          toSetShowLogModal={toSetShowLogModal}
+          okayClicked={toSetShowLogModal}
+        ></Log>
+      )}
       {showApptModal && (
-        <Appointment toSetShowApptModal={toSetShowApptModal}></Appointment>
+        <Appointment
+          toSetShowApptModal={toSetShowApptModal}
+          okayClicked={toSetShowApptModal}
+        ></Appointment>
       )}
       {showAddChildModal && (
         <AddChild
@@ -58,6 +66,7 @@ const WelcomePage = (props) => {
       {showChildDataModal && (
         <ChildData
           toSetShowChildDataModal={toSetShowChildDataModal}
+          okayClicked={toSetShowChildDataModal}
         ></ChildData>
       )}
     </div>

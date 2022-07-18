@@ -6,7 +6,7 @@ import Button from "./Button";
 const AddChild = (props) => {
   const nameRef = useRef();
   const DOBRef = useRef();
-  const [isMale, setIsMale] = useState();
+  const [isMale, setIsMale] = useState(true);
 
   function onChangeValue(e) {
     setIsMale(e.target.value);
@@ -36,8 +36,6 @@ const AddChild = (props) => {
     } else if (addChildData.status === "ok") {
       console.log(`${addChildData.message}`);
     }
-
-    // input body into the api here
   };
 
   return (
@@ -59,32 +57,24 @@ const AddChild = (props) => {
               </div>
               <div onChange={onChangeValue}>
                 <label>Gender:</label>
-                <input
-                  type="radio"
-                  name="isMale"
-                  value={true}
-                  checked={isMale === true}
-                />
+                <input type="radio" name="isMale" value={true} />
                 <label for="radio-one">Male</label>
-                <input
-                  type="radio"
-                  name="isMale"
-                  value={false}
-                  checked={isMale === false}
-                />
+                <input type="radio" name="isMale" value={false} />
                 <label for="radio-two">Female</label>
               </div>
               <div>
                 <label>Date of Birth:</label>
                 <input
                   className={`${styles.input}`}
-                  type="text"
+                  type="date"
                   name="DOB"
                   placeholder="Enter your Child's Date of Birth"
                   ref={DOBRef}
                 />
               </div>
-              <Button type="submit">Submit</Button>
+              <Button type="submit" onClick={() => props.okayClicked()}>
+                Submit
+              </Button>
             </form>
           </div>
         </div>,

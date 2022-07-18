@@ -17,6 +17,7 @@
     top: 30vh;
     left: 10%;
     width: 80%;
+    height: 60vh;
     z-index: 100;
     overflow: hidden;
   }
@@ -28,6 +29,7 @@
     padding: 1rem;
     font-size: 15px;
     border-color: black;
+    border-width: 1px;
     width: 300px
   }
 
