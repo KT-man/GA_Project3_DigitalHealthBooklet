@@ -10,7 +10,7 @@ const bcrypt = require("bcrypt");
 const dayjs = require("dayjs");
 
 const app = express();
-
+const { body, validationResult } = require("express-validator");
 // ---------------- Seeding Data
 router.get("/seed", async (req, res) => {
   await User.deleteMany();
@@ -171,34 +171,53 @@ router.post("/login", async (req, res) => {
 });
 
 // ------------------ Registration route
-router.post("/registration", async (req, res) => {
-  try {
-    //await User.collection.drop();
-    const user = await User.findOne({ username: req.body.username });
-    if (user) {
-      return res
-        .status(400)
-        .json({ status: "error", message: "user account already exists" });
-    }
-    console.log(req.body);
-    const hash = await bcrypt.hash(req.body.password, 12);
+router.put(
+  "/registration",
+  body("password").isStrongPassword({
+    minLength: 12,
+    minUppercase: 0,
+    minSymbols: 0,
+  }),
+  async (req, res) => {
+    const errors = validationResult(req);
+    console.log(errors);
 
-    const createdUser = await User.create({
-      username: req.body.username,
-      password: hash,
-      name: req.body.name,
-      postcode: req.body.postcode,
-    });
-    console.log(`user created : ${createdUser} `);
-    res.json({
-      status: "ok",
-      message: `account ${createdUser.username} created`,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(400).json({ status: "error", message: "error encountered" });
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        status: "error",
+        message:
+          "Please ensure password is at least 12 characters long, with one number and one lower case character",
+      });
+    }
+
+    try {
+      // await User.collection.drop();
+      const user = await User.findOne({ username: req.body.username });
+      if (user) {
+        return res
+          .status(400)
+          .json({ status: "error", message: "user account already exists" });
+      }
+      console.log(req.body);
+      const hash = await bcrypt.hash(req.body.password, 12);
+
+      const createdUser = await User.create({
+        username: req.body.username,
+        password: hash,
+        name: req.body.name,
+        postcode: req.body.postcode,
+      });
+      console.log(`user created : ${createdUser} `);
+      res.json({
+        status: "ok",
+        message: `account ${createdUser.username} created`,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(400).json({ status: "error", message: "error encountered" });
+    }
   }
-});
+);
 
 // --------------- Add child to existing account route
 router.patch("/addChild", auth, async (req, res) => {
