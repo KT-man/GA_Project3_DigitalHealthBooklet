@@ -75,7 +75,6 @@ const AddChild = (props) => {
               <Button type="submit" onClick={() => props.okayClicked()}>
                 Submit
               </Button>
-              <Button type="submit">Submit</Button>
             </form>
           </div>
         </div>,

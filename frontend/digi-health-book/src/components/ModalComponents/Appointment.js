@@ -30,7 +30,7 @@ const Appointment = (props) => {
 
     const url = "/users/addAppt";
     const res = await fetch(url, {
-      method: "PUT",
+      method: "PATCH",
       body: JSON.stringify(data),
       headers: { "content-type": "application/json" },
     });
@@ -41,14 +41,14 @@ const Appointment = (props) => {
     }
     // input body into the api here
   };
+
   return (
     <>
       {ReactDOM.createPortal(
-
         <div className={styles.backdrop}>
-        <div className={`${styles.board} ${styles.modal}`}>
+        <div className={`${styles.board} ${styles.modalAppt}`}>
           <h2 className={styles.header}>Input Your Child's New Appointment here!</h2>
-            <form onClick={handleSubmit}>
+            <form onSubmit={handleSubmit}>
               <div>
                 <label className={`${styles.label}`}>Date</label>
                 <input
@@ -59,7 +59,7 @@ const Appointment = (props) => {
                 />
               </div>
               <div>
-                <label>Location of Appointment</label>
+                <label className={`${styles.label} `}>Location of Appointment</label>
                 <input
                   className={`${styles.inputName}`}
                   type="text"
@@ -95,7 +95,7 @@ const Appointment = (props) => {
               <Button type="submit" onClick={() => props.okayClicked()}>
                 Submit
               </Button>
-            </form>,
+            </form>
             </div>
         </div>,
         document.querySelector("#modal-root")

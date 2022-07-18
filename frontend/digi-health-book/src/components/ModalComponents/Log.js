@@ -21,7 +21,7 @@ const Log = (props) => {
 
     const url = "/users/addLog";
     const res = await fetch(url, {
-      method: "PUT",
+      method: "PATCH",
       body: JSON.stringify(data),
       headers: { "content-type": "application/json" },
     });
@@ -37,53 +37,50 @@ const Log = (props) => {
     <>
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
-          <div className={`${styles.board} ${styles.modal}`}>
+          <div className={`${styles.board} ${styles.modalLog}`}>
             <h2 className={styles.header}>
               Input Your Child's New Growth here!
             </h2>
             <form onSubmit={handleSubmit}>
               <div>
-                <label>Future Date</label>
+                <label className={`${styles.label} `}>Date:</label>
                 <input
-                   className={`${styles.inputName}`}
+                   className={`${styles.inputLog}`}
                   type="date"
                   placeholder="Date of Input"
                   ref={dateRef}
                 />
               </div>
               <div>
-                <label>Height</label>
+                <label className={`${styles.label} `}>Height in cm:</label>
                 <input
-                  className={`${styles.inputName}`}
+                  className={`${styles.inputLog}`}
                   type="number"
                   placeholder="Height"
                   ref={heightRef}
                 />
               </div>
               <div>
-                <label>Weight</label>
+                <label className={`${styles.label} `}>Weight in kg:</label>
                 <input
-                  className={`${styles.inputName}`}
+                  className={`${styles.inputLog}`}
                   type="number"
                   placeholder="Weight"
                   ref={weightRef}
                 />
               </div>
               <div>
-                <label>Head Circumference</label>
+                <labe className={`${styles.label} `}>Head Circumference in cm:</labe>
                 <input
-                  className={`${styles.inputName}`}
+                  className={`${styles.inputLog}`}
                   type="number"
                   placeholder="Head circumference"
                   ref={headCircRef}
                 />
               </div>
-
               <Button type="submit" onClick={() => props.okayClicked()}>
                 Submit
               </Button>
-
-
             </form>
           </div>
         </div>,
