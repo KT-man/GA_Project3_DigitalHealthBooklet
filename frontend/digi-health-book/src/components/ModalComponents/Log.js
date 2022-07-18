@@ -36,8 +36,8 @@ const Log = () => {
     setWeightInput(editLog.weight);
     setHeadCircInput(editLog.headCirc);
   }, [editLog]);
-  
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = {
@@ -49,15 +49,15 @@ const Log = () => {
 
     const url = "/users/addLog";
     const res = await fetch(url, {
-      method:"PUT",
-      body:JSON.stringify(data),
+      method: "PUT",
+      body: JSON.stringify(data),
       headers: { "content-type": "application/json" },
     });
 
     const addLogData = await res.json();
 
-    if (addLogData.status === 'error') {
-      alert (`Please input the correct log data`);
+    if (addLogData.status === "error") {
+      alert(`Please input the correct log data`);
     }
     // input body into the api here
   };
@@ -65,45 +65,45 @@ const Log = () => {
     <>
       {ReactDOM.createPortal(
         <Overlay>
-            <div class="block">
-                <label>Future Date</label>
-                <input
-                  type="date"
-                  placeholder="Date of Input"
-                  value={dateInput}
-                  onChange={handleDateChange}
-                />
-              </div>
-              <div class="block">
-                <label>Height</label>
-                <input
-                  type="number"
-                  placeholder="Height"
-                  value={heightInput}
-                  onChange={handleHeightChange}
-                />
-              </div>
-              <div class="block">
-                <label>Weight</label>
-                <input
-                  type="number"
-                  placeholder="weight"
-                  value={weightInput}
-                  onChange={handleWeightChange}
-                />
-              </div>
-              <div class="block">
-                <label>Head Circumference</label>
-                <input
-                  type="number"
-                  placeholder="head circumference"
-                  value={headCircInput}
-                  onChange={handleHeadCircChange}
-                />
-              </div>
-              <button type="submit" onClick={handleSubmit}>
-                Submit
-              </button>
+          <div class="block">
+            <label>Future Date</label>
+            <input
+              type="date"
+              placeholder="Date of Input"
+              value={dateInput}
+              onChange={handleDateChange}
+            />
+          </div>
+          <div class="block">
+            <label>Height</label>
+            <input
+              type="number"
+              placeholder="Height"
+              value={heightInput}
+              onChange={handleHeightChange}
+            />
+          </div>
+          <div class="block">
+            <label>Weight</label>
+            <input
+              type="number"
+              placeholder="weight"
+              value={weightInput}
+              onChange={handleWeightChange}
+            />
+          </div>
+          <div class="block">
+            <label>Head Circumference</label>
+            <input
+              type="number"
+              placeholder="head circumference"
+              value={headCircInput}
+              onChange={handleHeadCircChange}
+            />
+          </div>
+          <button type="submit" onClick={handleSubmit}>
+            Submit
+          </button>
         </Overlay>,
         document.querySelector("#modal-root")
       )}

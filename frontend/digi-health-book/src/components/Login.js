@@ -5,9 +5,9 @@ function Login(props) {
   const usernameRef = useRef();
   const passwordRef = useRef();
 
-  useEffect(() => {
-    loginAttempt();
-  }, [loginFailed]);
+  // useEffect(() => {
+  //   loginAttempt();
+  // }, [loginFailed]);
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -27,28 +27,28 @@ function Login(props) {
 
     if (loginData.status === "error") {
       alert(`Please enter username and password`);
-      setLoginFailed(true);
+      // setLoginFailed(true);
     } else {
-      setLoginFailed(false);
+      // setLoginFailed(false);
     }
-  };
-  const loginAttempt = async (req, res, children) => {
-    if (loginFailed === false && children.length === 0) {
-      //redirect to addChildren
-    } else if (loginFailed === false && children.length !== 0) {
-      //show childData
-      //yet to be tested
-      const url = "/users/children";
-      const res = await fetch(url, {
-        method: "GET",
-        body: JSON.stringify(),
-        headers: { "content-type": "application/json" },
-      });
-      const loginData = await res.json(props.childData);
+    // };
+    // const loginAttempt = async (req, res, children) => {
+    //   if (loginFailed === false && children.length === 0) {
+    //     //redirect to addChildren
+    //   } else if (loginFailed === false && children.length !== 0) {
+    //     //show childData
+    //     //yet to be tested
+    //     const url = "/users/children";
+    //     const res = await fetch(url, {
+    //       method: "GET",
+    //       body: JSON.stringify(),
+    //       headers: { "content-type": "application/json" },
+    //     });
+    //     const loginData = await res.json(props.childData);
 
-      res.render("users/children");
-      console.log(loginData);
-    }
+    //     res.render("users/children");
+    //     console.log(loginData);
+    //   }
   };
 
   return (

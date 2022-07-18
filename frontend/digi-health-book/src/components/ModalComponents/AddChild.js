@@ -30,8 +30,7 @@ const AddChild = () => {
     setDOBInput(editChild.DOB);
   }, [editChild]);
 
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = {
@@ -40,11 +39,11 @@ const AddChild = () => {
       DOB: DOBInput,
     };
 
-    const url = '/users/addChild';
+    const url = "/users/addChild";
     const res = await fetch(url, {
       method: "PUT",
       body: JSON.stringify(data),
-      headers : { "content-type": "application/json" },
+      headers: { "content-type": "application/json" },
     });
     const addChildData = await res.json();
 
@@ -57,38 +56,38 @@ const AddChild = () => {
     <>
       {ReactDOM.createPortal(
         <Overlay>
-            <form onSubmit={handleSubmit}>
-              <div class = "block">
-                <label>Name of Child</label>
-                <input
-                  type="text"
-                  placeholder="Enter your Child's name"
-                  value={nameInput}
-                  onChange={handleNameChange}
-                />
-              </div>
-              <div class = "block">
-                <label>Gender</label>
-                <input
-                  type="text"
-                  placeholder="Enter your Child's gender"
-                  value={isMaleInput}
-                  onChange={handleIsMaleChange}
-                />
-              </div>
-              <div class = "block">
-                <label>Date of Birth</label>
-                <input
-                  type="text"
-                  placeholder="Enter your Child's Date of Birth"
-                  value={DOBInput}
-                  onChange={handleDOBChange}
-                />
-              </div>
-              <button type="submit" onClick={handleSubmit}>
-                Submit
-              </button>
-            </form>
+          <form onSubmit={handleSubmit}>
+            <div class="block">
+              <label>Name of Child</label>
+              <input
+                type="text"
+                placeholder="Enter your Child's name"
+                value={nameInput}
+                onChange={handleNameChange}
+              />
+            </div>
+            <div class="block">
+              <label>Gender</label>
+              <input
+                type="text"
+                placeholder="Enter your Child's gender"
+                value={isMaleInput}
+                onChange={handleIsMaleChange}
+              />
+            </div>
+            <div class="block">
+              <label>Date of Birth</label>
+              <input
+                type="text"
+                placeholder="Enter your Child's Date of Birth"
+                value={DOBInput}
+                onChange={handleDOBChange}
+              />
+            </div>
+            <button type="submit" onClick={handleSubmit}>
+              Submit
+            </button>
+          </form>
         </Overlay>,
         document.querySelector("#modal-root")
       )}
