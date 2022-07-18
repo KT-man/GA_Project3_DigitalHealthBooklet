@@ -26,17 +26,6 @@ const WelcomePage = (props) => {
     setShowChildDataModal(!showChildDataModal);
   };
 
-  let childData = props.childData.map((d, i) => {
-    return (
-      <div onClick={toSetShowChildDataModal}>
-        <h1> Child {i}</h1>
-        <h2 key={i}>{d.name} </h2>
-        <button onClick={toSetShowLogModal}>Add New Log</button>
-        <button onClick={toSetShowApptModal}>Add New Appoinment</button>
-      </div>
-    );
-  });
-
   return (
     <div>
       <header class="bg-aquamarine"></header>
@@ -44,7 +33,16 @@ const WelcomePage = (props) => {
       {/* //route to add child */}
       <button onClick={toSetShowAddChildModal}>Add Child</button>
       <br />
-      {childData}
+      {props.childData.map((d, i) => {
+        return (
+          <div key={d._id} onClick={toSetShowChildDataModal}>
+            <h1> Child {i + 1}</h1>
+            <h2>{d.name} </h2>
+            <button onClick={toSetShowLogModal}>Add New Log</button>
+            <button onClick={toSetShowApptModal}>Add New Appoinment</button>
+          </div>
+        );
+      })}
 
       {showLogModal && (
         <Log

@@ -12,7 +12,7 @@ const ChildData = (props) => {
     return (
       <>
         <h1> Your Child's Data</h1>
-        <h2 key={i}>{d.name} </h2>
+        <h2 key={i + 1}>{d.name} </h2>
         <li>
           <ul>Gender : {gender}</ul>
           <ul>Date of Birth : {d.DOB}</ul>

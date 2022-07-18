@@ -33,6 +33,7 @@ function Login(props) {
     } else {
       setLoginFailed(false);
       console.log(`Login success ${loginFailed}`);
+
       console.log(props.childData);
     }
   };
@@ -79,7 +80,8 @@ function Login(props) {
             Login
           </button>
         </form>
-        <div>{props.childData}</div>
+        {/* <div>{props.childData}</div> */}
+        {/* Removed this div. Commented out for now. I don't think it's doing anything here except messing up all the codes  */}
       </div>
     </div>
   );
