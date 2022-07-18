@@ -24,31 +24,25 @@ function Login(props) {
       headers: { "content-type": "application/json" },
     });
     const loginData = await res.json();
-    console.log(loginData);
 
     if (loginData.status === "error") {
       alert(`Please enter username and password`);
       setLoginFailed(true);
+      console.log(`Login denied ${loginFailed}`);
+      console.log(props.childData);
     } else {
       setLoginFailed(false);
+      console.log(`Login success ${loginFailed}`);
+      console.log(props.childData);
     }
   };
-  const loginAttempt = async (req, res, children) => {
-    if (loginFailed === false && children.length === 0) {
-      // <Redirect path="./dashboard" />;
-    } else if (loginFailed === false && children.length !== 0) {
-      //show childData
-      //yet to be tested
-      const url = "/users/children";
-      const res = await fetch(url, {
-        method: "GET",
-        body: JSON.stringify(),
-        headers: { "content-type": "application/json" },
-      });
-      const loginData = await res.json(props.childData);
-
-      res.render("users/children");
-      console.log(loginData);
+  const loginAttempt = async (req, res) => {
+    if (loginFailed === false) {
+      res.json("users/dashboard");
+      console.log(`loggin attempt add kids`);
+    } else if (loginFailed === false && props.childData.length !== 0) {
+      res.json(props.childData);
+      console.log(`loggin attempt display kids`);
     }
   };
 
@@ -85,6 +79,7 @@ function Login(props) {
             Login
           </button>
         </form>
+        <div>{props.childData}</div>
       </div>
     </div>
   );

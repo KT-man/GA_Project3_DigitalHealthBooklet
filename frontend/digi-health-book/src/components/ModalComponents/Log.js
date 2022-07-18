@@ -9,8 +9,6 @@ const Log = (props) => {
   const weightRef = useRef();
   const headCircRef = useRef();
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -40,8 +38,10 @@ const Log = (props) => {
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modal}`}>
-            <h3 className={styles.header}>Input Your Child's New Growth here!</h3>
-            <form onSubmit = {handleSubmit}>
+            <h3 className={styles.header}>
+              Input Your Child's New Growth here!
+            </h3>
+            <form onSubmit={handleSubmit}>
               <div>
                 <label>Future Date</label>
                 <input
@@ -78,9 +78,12 @@ const Log = (props) => {
                   ref={headCircRef}
                 />
               </div>
+
               <Button type="submit" onClick={() => props.okayClicked()}>
                 Submit
               </Button>
+
+
             </form>
           </div>
         </div>,
