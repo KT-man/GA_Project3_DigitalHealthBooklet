@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import Overlay from "react-bootstrap/Overlay";
-import Button from "react-bootstrap/Button";
+import styles from "./modal.module.css";
+import Button from "./Button";
 
 const Log = () => {
   const [editLog, setEditLog] = useState({
@@ -64,47 +64,56 @@ const Log = () => {
   return (
     <>
       {ReactDOM.createPortal(
-        <Overlay>
-          <div class="block">
-            <label>Future Date</label>
-            <input
-              type="date"
-              placeholder="Date of Input"
-              value={dateInput}
-              onChange={handleDateChange}
-            />
+        <div className={styles.backdrop}>
+          <div className={`${styles.board} ${styles.modal}`}>
+            <h3 className={styles.header}>Input Your Child's New Growth here!</h3>
+            <form>
+              <div>
+                <label>Future Date</label>
+                <input
+                  className={`${styles.input}`}
+                  type="date"
+                  placeholder="Date of Input"
+                  value={dateInput}
+                  onChange={handleDateChange}
+                />
+              </div>
+              <div>
+                <label>Height</label>
+                <input
+                  className={`${styles.input}`}
+                  type="number"
+                  placeholder="Height"
+                  value={heightInput}
+                  onChange={handleHeightChange}
+                />
+              </div>
+              <div>
+                <label>Weight</label>
+                <input
+                  className={`${styles.input}`}
+                  type="number"
+                  placeholder="weight"
+                  value={weightInput}
+                  onChange={handleWeightChange}
+                />
+              </div>
+              <div>
+                <label>Head Circumference</label>
+                <input
+                  className={`${styles.input}`}
+                  type="number"
+                  placeholder="head circumference"
+                  value={headCircInput}
+                  onChange={handleHeadCircChange}
+                />
+              </div>
+              <Button type="submit" onClick={handleSubmit}>
+                Submit
+              </Button>
+            </form>
           </div>
-          <div class="block">
-            <label>Height</label>
-            <input
-              type="number"
-              placeholder="Height"
-              value={heightInput}
-              onChange={handleHeightChange}
-            />
-          </div>
-          <div class="block">
-            <label>Weight</label>
-            <input
-              type="number"
-              placeholder="weight"
-              value={weightInput}
-              onChange={handleWeightChange}
-            />
-          </div>
-          <div class="block">
-            <label>Head Circumference</label>
-            <input
-              type="number"
-              placeholder="head circumference"
-              value={headCircInput}
-              onChange={handleHeadCircChange}
-            />
-          </div>
-          <button type="submit" onClick={handleSubmit}>
-            Submit
-          </button>
-        </Overlay>,
+        </div>,
         document.querySelector("#modal-root")
       )}
     </>

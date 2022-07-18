@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import Overlay from "react-bootstrap/Overlay";
+import styles from "./modal.module.css";
+import Button from "./Button";
 
-const AddChild = () => {
+const AddChild = (props) => {
   const [editChild, setEditChild] = useState({
     name: "",
     isMale: "",
@@ -51,44 +52,55 @@ const AddChild = () => {
       alert(`Please input the child data correctly`);
     }
     // input body into the api here
+
+    props.okayClicked();
   };
+
   return (
     <>
       {ReactDOM.createPortal(
-        <Overlay>
-          <form onSubmit={handleSubmit}>
-            <div class="block">
-              <label>Name of Child</label>
-              <input
-                type="text"
-                placeholder="Enter your Child's name"
-                value={nameInput}
-                onChange={handleNameChange}
-              />
-            </div>
-            <div class="block">
-              <label>Gender</label>
-              <input
-                type="text"
-                placeholder="Enter your Child's gender"
-                value={isMaleInput}
-                onChange={handleIsMaleChange}
-              />
-            </div>
-            <div class="block">
-              <label>Date of Birth</label>
-              <input
-                type="text"
-                placeholder="Enter your Child's Date of Birth"
-                value={DOBInput}
-                onChange={handleDOBChange}
-              />
-            </div>
-            <button type="submit" onClick={handleSubmit}>
-              Submit
-            </button>
-          </form>
-        </Overlay>,
+
+
+        <div className={styles.backdrop}>
+          <div className={`${styles.board} ${styles.modal}`}>
+            <h3 className={styles.header}>Input Your Childs Data here!</h3>
+            <form>
+              <div>
+                <label>Name of Child:</label>
+                <input
+                className = {`${styles.input}`}
+                  type="text"
+                  placeholder="Enter your Child's name"
+                  value={nameInput}
+                  onChange={handleNameChange}
+                />
+              </div>
+              <div>
+                <label>Gender:</label>
+                <input 
+                className = {`${styles.input}`}
+                  type="text"
+                  placeholder="Enter your Child's gender"
+                  value={isMaleInput}
+                  onChange={handleIsMaleChange}
+                />
+              </div>
+              <div>
+                <label>Date of Birth:</label>
+                <input
+                className = {`${styles.input}`}
+                  type="text"
+                  placeholder="Enter your Child's Date of Birth"
+                  value={DOBInput}
+                  onChange={handleDOBChange}
+                />
+              </div>
+              <Button type="submit" onClick={handleSubmit}>
+                Submit
+              </Button>
+            </form>
+          </div>
+        </div>,
         document.querySelector("#modal-root")
       )}
     </>

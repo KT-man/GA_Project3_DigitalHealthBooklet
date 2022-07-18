@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import Overlay from "react-bootstrap/Overlay";
+import styles from "./modal.module.css";
+import Button from "./Button";
+
 
 const Appointment = () => {
   const [editAppointment, setEditAppointment] = useState({
@@ -69,58 +71,67 @@ const Appointment = () => {
   return (
     <>
       {ReactDOM.createPortal(
-        <Overlay>
-          <form onSubmit={handleSubmit}>
-            <div class="block">
-              <label>Date</label>
-              <input
-                type="date"
-                placeholder="Enter date of appointment"
-                value={dateInput}
-                onChange={handleDateChange}
-              />
+
+        <div className={styles.backdrop}>
+        <div className={`${styles.board} ${styles.modal}`}>
+          <h3 className={styles.header}>Input Your Child's New Appointment here!</h3>
+            <form>
+              <div>
+                <label>Date</label>
+                <input
+                 className = {`${styles.input}`}
+                  type="date"
+                  placeholder="Enter date of appointment"
+                  value={dateInput}
+                  onChange={handleDateChange}
+                />
+              </div>
+              <div>
+                <label>Location of Appointment</label>
+                <input
+                 className = {`${styles.input}`}
+                  type="text"
+                  placeholder="Enter location of appointment"
+                  value={locationInput}
+                  onChange={handleLocationInput}
+                />
+              </div>
+              <div>
+                <label>Doctor</label>
+                <input
+                 className = {`${styles.input}`}
+                  type="text"
+                  placeholder="Enter Doctor's Name"
+                  value={doctorNameInput}
+                  onChange={handleDoctorNameInput}
+                />
+              </div>
+              <div>
+                <label>Future Appointment</label>
+                <input
+                 className = {`${styles.input}`}
+                  type="text"
+                  placeholder="Future Appointment"
+                  value={futureApptInput}
+                  onChange={handleFutureApptInput}
+                />
+              </div>
+              <div>
+                <label>Reason of Appointment</label>
+                <input
+                 className = {`${styles.input}`}
+                  type="text"
+                  placeholder="Reason for Visit"
+                  value={reasonInput}
+                  onChange={handleReasonInput}
+                />
+              </div>
+              <Button type="submit" onClick={handleSubmit}>
+                Submit
+              </Button>
+            </form>,
             </div>
-            <div class="block">
-              <label>Location of Appointment</label>
-              <input
-                type="text"
-                placeholder="Enter location of appointment"
-                value={locationInput}
-                onChange={handleLocationInput}
-              />
-            </div>
-            <div class="block">
-              <label>Doctor</label>
-              <input
-                type="text"
-                placeholder="Enter Doctor's Name"
-                value={doctorNameInput}
-                onChange={handleDoctorNameInput}
-              />
-            </div>
-            <div class="block">
-              <label>Future Appointment</label>
-              <input
-                type="text"
-                placeholder="Future Appointment"
-                value={futureApptInput}
-                onChange={handleFutureApptInput}
-              />
-            </div>
-            <div class="block">
-              <label>Reason of Appointment</label>
-              <input
-                type="text"
-                placeholder="Reason for Visit"
-                value={reasonInput}
-                onChange={handleReasonInput}
-              />
-            </div>
-            <button type="submit" onClick={handleSubmit}>
-              Submit
-            </button>
-          </form>
-        </Overlay>,
+        </div>,
         document.querySelector("#modal-root")
       )}
     </>

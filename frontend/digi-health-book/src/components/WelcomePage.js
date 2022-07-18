@@ -17,6 +17,7 @@ const WelcomePage = (props) => {
 
   const [showAddChildModal, setShowAddChildModal] = useState(false);
   const toSetShowAddChildModal = () => {
+    console.log(`button is clickced`);
     setShowAddChildModal(!showAddChildModal);
   };
 
@@ -43,12 +44,16 @@ const WelcomePage = (props) => {
       <button onClick={toSetShowAddChildModal}>Add Child</button>
       <br />
       {childData}
+
       {showLogModal && <Log toSetShowLogModal={toSetShowLogModal}></Log>}
       {showApptModal && (
         <Appointment toSetShowApptModal={toSetShowApptModal}></Appointment>
       )}
       {showAddChildModal && (
-        <AddChild toSetShowAddChildModal={toSetShowAddChildModal}></AddChild>
+        <AddChild
+          toSetShowAddChildModal={toSetShowAddChildModal}
+          okayClicked={toSetShowAddChildModal}
+        ></AddChild>
       )}
       {showChildDataModal && (
         <ChildData
