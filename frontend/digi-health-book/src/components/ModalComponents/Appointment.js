@@ -9,8 +9,13 @@ const Appointment = (props) => {
   const dateRef = useRef();
   const locationRef = useRef();
   const doctorNameRef = useRef();
-  const futureApptRef = useRef();
+  const [futureAppt, setFutureAppt] = useState(true);
   const reasonRef = useRef();
+
+  function onChangeValue(e) {
+    setFutureAppt(e.target.value);
+    console.log(e.target.value);
+  }
 
 
   const handleSubmit = async (e) => {
@@ -19,7 +24,7 @@ const Appointment = (props) => {
       date: dateRef,
       location: locationRef,
       doctorName: doctorNameRef,
-      futureAppt: futureApptRef,
+      futureAppt: futureAppt,
       reason: reasonRef,
     };
 
@@ -71,14 +76,12 @@ const Appointment = (props) => {
                   ref={doctorNameRef}
                 />
               </div>
-              <div>
+              <div onChange={onChangeValue}>
                 <label>Future Appointment</label>
-                <input
-                 className = {`${styles.input}`}
-                  type="text"
-                  placeholder="Future Appointment"
-                  ref={futureApptRef}
-                />
+                <input type="radio" name="futureAppt" value={true} />
+                <label for="radio-one">Yes</label>
+                <input type="radio" name="futureAppt" value={false} />
+                <label for="radio-two">No</label>
               </div>
               <div>
                 <label>Reason of Appointment</label>
