@@ -118,6 +118,16 @@ router.get("/seed", async (req, res) => {
   );
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const viewAllData = await User.find({});
+    return res.json(viewAllData);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ status: "error", message: "error encountered" });
+  }
+});
+
 // ---------------- Login route
 router.post("/login", async (req, res) => {
   try {
