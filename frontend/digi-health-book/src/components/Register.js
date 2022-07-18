@@ -18,14 +18,17 @@ function Register() {
     };
     const url = "/users/registration";
     const res = await fetch(url, {
-      method: "POST",
+      method: "PUT",
       body: JSON.stringify(data),
       headers: { "content-type": "application/json" },
     });
     const regoData = await res.json();
+    console.log(regoData);
 
     if (regoData.status === "error") {
-      alert(`Please enter username and password`);
+      alert(`${regoData.message}`);
+    } else if (regoData.status === "ok") {
+      console.log(`${regoData.message}`);
     }
     //page redirection to AddChild (users/children)
   };
