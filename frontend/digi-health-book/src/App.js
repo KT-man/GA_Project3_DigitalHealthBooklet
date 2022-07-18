@@ -40,34 +40,6 @@ function App() {
     fetchChildData(url, config);
   }, []);
 
-  const inputChildLog = async (url, config) => {
-    try {
-      const res = await fetch(url, config);
-
-      if (res.status !== 200) {
-        throw new Error("Couldnt fetch child data");
-      }
-
-      const data = await res.json();
-      setChildData(data.children);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  useEffect((input) => {
-    //=> to doublecheck on url
-    const url = `/users/adddLog`; //=> to doublecheck
-    const config = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: {},
-    };
-    // inputChildLog(url, config);
-  }, []);
-
   return (
     <div className="App">
       <Routes>
