@@ -23,10 +23,10 @@ const WelcomePage = (props) => {
     setShowAddChildModal(!showAddChildModal);
   };
 
-  const [showChildDataModal, setShowChildDataModal] = useState(false);
-  const toSetShowChildDataModal = () => {
-    setShowChildDataModal(!showChildDataModal);
-  };
+  // const [showChildDataModal, setShowChildDataModal] = useState(false);
+  // const toSetShowChildDataModal = () => {
+  //   setShowChildDataModal(!showChildDataModal);
+  // };
 
   return (
     <div>
@@ -37,12 +37,14 @@ const WelcomePage = (props) => {
       <br />
       {props.childData.map((d, i) => {
         return (
-          <div key={d._id}>
-            <h1> Child {i + 1}</h1>
-            <h2 onClick={toSetShowChildDataModal}>{d.name} </h2>
-            <button onClick={toSetShowLogModal}>Add New Log</button>
-            <button onClick={toSetShowApptModal}>Add New Appoinment</button>
-          </div>
+          <ChildRow
+            index={i}
+            key={d._id}
+            childData={d}
+            // toSetShowChildDataModal={toSetShowChildDataModal}
+            toSetShowLogModal={toSetShowLogModal}
+            toSetShowApptModal={toSetShowApptModal}
+          ></ChildRow>
         );
       })}
 
@@ -64,13 +66,13 @@ const WelcomePage = (props) => {
           okayClicked={toSetShowAddChildModal}
         ></AddChild>
       )}
-      {showChildDataModal && (
+      {/* {showChildDataModal && (
         <ChildData
           childData={props.childData}
           toSetShowChildDataModal={toSetShowChildDataModal}
           okayClicked={toSetShowChildDataModal}
         ></ChildData>
-      )}
+      )} */}
     </div>
   );
 };

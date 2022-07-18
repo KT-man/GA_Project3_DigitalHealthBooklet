@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import styles from "./modal.module.css";
 import Button from "./Button";
 
-
 const Appointment = (props) => {
+  console.log(props);
 
   const dateRef = useRef();
   const locationRef = useRef();
@@ -16,7 +16,6 @@ const Appointment = (props) => {
     setFutureAppt(e.target.value);
     console.log(e.target.value);
   }
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,8 +45,10 @@ const Appointment = (props) => {
     <>
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
-        <div className={`${styles.board} ${styles.modalAppt}`}>
-          <h2 className={styles.header}>Input Your Child's New Appointment here!</h2>
+          <div className={`${styles.board} ${styles.modalAppt}`}>
+            <h2 className={styles.header}>
+              Input Your Child's New Appointment here!
+            </h2>
             <form onSubmit={handleSubmit}>
               <div>
                 <label className={`${styles.label}`}>Date</label>
@@ -59,7 +60,9 @@ const Appointment = (props) => {
                 />
               </div>
               <div>
-                <label className={`${styles.label} `}>Location of Appointment</label>
+                <label className={`${styles.label} `}>
+                  Location of Appointment
+                </label>
                 <input
                   className={`${styles.inputName}`}
                   type="text"
@@ -78,13 +81,29 @@ const Appointment = (props) => {
               </div>
               <div onChange={onChangeValue}>
                 <label className={`${styles.label} `}>Future Appointment</label>
-                <input className = {`${styles.inputGender}`} type="radio" name="futureAppt" value={true} />
-                <label className = {`${styles.inputGender}`} for="radio-one">Yes</label>
-                <input className = {`${styles.inputGender}`} type="radio" name="futureAppt" value={false} />
-                <label className = {`${styles.inputGender}`} for="radio-two">No</label>
+                <input
+                  className={`${styles.inputGender}`}
+                  type="radio"
+                  name="futureAppt"
+                  value={true}
+                />
+                <label className={`${styles.inputGender}`} for="radio-one">
+                  Yes
+                </label>
+                <input
+                  className={`${styles.inputGender}`}
+                  type="radio"
+                  name="futureAppt"
+                  value={false}
+                />
+                <label className={`${styles.inputGender}`} for="radio-two">
+                  No
+                </label>
               </div>
               <div>
-                <label className={`${styles.label} `}>Reason of Appointment</label>
+                <label className={`${styles.label} `}>
+                  Reason of Appointment
+                </label>
                 <input
                   className={`${styles.inputName}`}
                   type="text"
@@ -96,7 +115,7 @@ const Appointment = (props) => {
                 Submit
               </Button>
             </form>
-            </div>
+          </div>
         </div>,
         document.querySelector("#modal-root")
       )}
