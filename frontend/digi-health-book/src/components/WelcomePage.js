@@ -35,9 +35,9 @@ const WelcomePage = (props) => {
       <br />
       {props.childData.map((d, i) => {
         return (
-          <div key={d._id} onClick={toSetShowChildDataModal}>
+          <div key={d._id}>
             <h1> Child {i + 1}</h1>
-            <h2>{d.name} </h2>
+            <h2 onClick={toSetShowChildDataModal}>{d.name} </h2>
             <button onClick={toSetShowLogModal}>Add New Log</button>
             <button onClick={toSetShowApptModal}>Add New Appoinment</button>
           </div>
@@ -64,6 +64,7 @@ const WelcomePage = (props) => {
       )}
       {showChildDataModal && (
         <ChildData
+          childData={props.childData}
           toSetShowChildDataModal={toSetShowChildDataModal}
           okayClicked={toSetShowChildDataModal}
         ></ChildData>
