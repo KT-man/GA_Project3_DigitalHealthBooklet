@@ -36,6 +36,7 @@ const WelcomePage = (props) => {
       </div>
     );
   });
+
   return (
     <div>
       <header class="bg-aquamarine"></header>

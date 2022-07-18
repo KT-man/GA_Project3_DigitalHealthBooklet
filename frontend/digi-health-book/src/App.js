@@ -17,14 +17,16 @@ function App() {
     try {
       const res = await fetch(url, config);
       const data = await res.json();
+      // console.log(`data ${data}`);
+      // console.log("line 20");
+      // console.log(data);
+      // console.log(data[0].children);
 
       if (res.status !== 200 && data.message === "no children found!") {
         throw new Error("Couldnt fetch child data");
       }
 
-      const data = await res.json();
-      console.log(data);
-      setChildData(data.children);
+      setChildData(data[0].children);
     } catch (err) {
       setError(err.message);
     }
