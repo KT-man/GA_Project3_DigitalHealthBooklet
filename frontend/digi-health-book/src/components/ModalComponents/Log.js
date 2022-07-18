@@ -38,14 +38,14 @@ const Log = (props) => {
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modal}`}>
-            <h3 className={styles.header}>
+            <h2 className={styles.header}>
               Input Your Child's New Growth here!
-            </h3>
+            </h2>
             <form onSubmit={handleSubmit}>
               <div>
                 <label>Future Date</label>
                 <input
-                  className={`${styles.input}`}
+                   className={`${styles.inputName}`}
                   type="date"
                   placeholder="Date of Input"
                   ref={dateRef}
@@ -54,7 +54,7 @@ const Log = (props) => {
               <div>
                 <label>Height</label>
                 <input
-                  className={`${styles.input}`}
+                  className={`${styles.inputName}`}
                   type="number"
                   placeholder="Height"
                   ref={heightRef}
@@ -63,18 +63,18 @@ const Log = (props) => {
               <div>
                 <label>Weight</label>
                 <input
-                  className={`${styles.input}`}
+                  className={`${styles.inputName}`}
                   type="number"
-                  placeholder="weight"
+                  placeholder="Weight"
                   ref={weightRef}
                 />
               </div>
               <div>
                 <label>Head Circumference</label>
                 <input
-                  className={`${styles.input}`}
+                  className={`${styles.inputName}`}
                   type="number"
-                  placeholder="head circumference"
+                  placeholder="Head circumference"
                   ref={headCircRef}
                 />
               </div>

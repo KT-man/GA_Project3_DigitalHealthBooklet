@@ -1,14 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
-// import { Redirect } from "react-router-dom";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login(props) {
-  const [loginFailed, setLoginFailed] = useState(false);
   const usernameRef = useRef();
   const passwordRef = useRef();
 
-  useEffect(() => {
-    loginAttempt();
-  }, [loginFailed]);
+  const navigate = useNavigate();
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -24,27 +21,15 @@ function Login(props) {
       headers: { "content-type": "application/json" },
     });
     const loginData = await res.json();
+    console.log(res);
 
     if (loginData.status === "error") {
       alert(`Please enter username and password`);
-      setLoginFailed(true);
-      console.log(`Login denied ${loginFailed}`);
-      console.log(props.childData);
-    } else {
-      setLoginFailed(false);
-      console.log(`Login success ${loginFailed}`);
-
-      console.log(props.childData);
     }
-  };
-  const loginAttempt = async (req, res) => {
-    if (loginFailed === false) {
-      res.json("users/dashboard");
-      console.log(`loggin attempt add kids`);
-    } else if (loginFailed === false && props.childData.length !== 0) {
-      res.json(props.childData);
-      console.log(`loggin attempt display kids`);
-    }
+    console.log(props.childData.length);
+    props.childData.length === 0
+      ? navigate("/dashboard")
+      : navigate("/children");
   };
 
   return (
@@ -80,8 +65,6 @@ function Login(props) {
             Login
           </button>
         </form>
-        {/* <div>{props.childData}</div> */}
-        {/* Removed this div. Commented out for now. I don't think it's doing anything here except messing up all the codes  */}
       </div>
     </div>
   );

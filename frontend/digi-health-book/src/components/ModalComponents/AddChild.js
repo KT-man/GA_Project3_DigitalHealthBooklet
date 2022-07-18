@@ -43,12 +43,12 @@ const AddChild = (props) => {
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modal}`}>
-            <h3 className={styles.header}>Input Your Childs Data here!</h3>
+            <h2 className={styles.header}>Input Your Childs Data here!</h2>
             <form onSubmit={handleSubmit}>
               <div>
-                <label>Name of Child:</label>
+                <label className={`${styles.label} `}>Name of Child:</label>
                 <input
-                  className={`${styles.input}`}
+                  className={`${styles.inputName}`}
                   type="text"
                   name="name"
                   placeholder="Enter your Child's name"
@@ -56,16 +56,16 @@ const AddChild = (props) => {
                 />
               </div>
               <div onChange={onChangeValue}>
-                <label>Gender:</label>
-                <input type="radio" name="isMale" value={true} />
-                <label for="radio-one">Male</label>
-                <input type="radio" name="isMale" value={false} />
-                <label for="radio-two">Female</label>
+                <label className={`${styles.label} `}>Gender:</label>
+                <input  className = {`${styles.inputGender}`} type="radio" name="isMale" value={true} />
+                <label className = {`${styles.inputGender}`} for="radio-one">Male</label>
+                <input className = {`${styles.inputGender}`} type="radio" name="isMale" value={false} />
+                <label className = {`${styles.inputGender}`} for="radio-two">Female</label>
               </div>
               <div>
-                <label>Date of Birth:</label>
+                <label className={`${styles.label} `}>Date of Birth:</label>
                 <input
-                  className={`${styles.input}`}
+                  className={`${styles.inputDOB}`}
                   type="date"
                   name="DOB"
                   placeholder="Enter your Child's Date of Birth"
@@ -75,6 +75,7 @@ const AddChild = (props) => {
               <Button type="submit" onClick={() => props.okayClicked()}>
                 Submit
               </Button>
+              <Button type="submit">Submit</Button>
             </form>
           </div>
         </div>,

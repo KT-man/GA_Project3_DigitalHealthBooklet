@@ -47,12 +47,12 @@ const Appointment = (props) => {
 
         <div className={styles.backdrop}>
         <div className={`${styles.board} ${styles.modal}`}>
-          <h3 className={styles.header}>Input Your Child's New Appointment here!</h3>
+          <h2 className={styles.header}>Input Your Child's New Appointment here!</h2>
             <form onClick={handleSubmit}>
               <div>
-                <label>Date</label>
+                <label className={`${styles.label}`}>Date</label>
                 <input
-                 className = {`${styles.input}`}
+                  className={`${styles.inputDOB}`}
                   type="date"
                   placeholder="Enter date of appointment"
                   ref={dateRef}
@@ -61,32 +61,32 @@ const Appointment = (props) => {
               <div>
                 <label>Location of Appointment</label>
                 <input
-                 className = {`${styles.input}`}
+                  className={`${styles.inputName}`}
                   type="text"
                   placeholder="Enter location of appointment"
                   ref={locationRef}
                 />
               </div>
               <div>
-                <label>Doctor</label>
+                <label className={`${styles.label} `}>Doctor</label>
                 <input
-                 className = {`${styles.input}`}
+                  className={`${styles.inputName}`}
                   type="text"
                   placeholder="Enter Doctor's Name"
                   ref={doctorNameRef}
                 />
               </div>
               <div onChange={onChangeValue}>
-                <label>Future Appointment</label>
-                <input type="radio" name="futureAppt" value={true} />
-                <label for="radio-one">Yes</label>
-                <input type="radio" name="futureAppt" value={false} />
-                <label for="radio-two">No</label>
+                <label className={`${styles.label} `}>Future Appointment</label>
+                <input className = {`${styles.inputGender}`} type="radio" name="futureAppt" value={true} />
+                <label className = {`${styles.inputGender}`} for="radio-one">Yes</label>
+                <input className = {`${styles.inputGender}`} type="radio" name="futureAppt" value={false} />
+                <label className = {`${styles.inputGender}`} for="radio-two">No</label>
               </div>
               <div>
-                <label>Reason of Appointment</label>
+                <label className={`${styles.label} `}>Reason of Appointment</label>
                 <input
-                 className = {`${styles.input}`}
+                  className={`${styles.inputName}`}
                   type="text"
                   placeholder="Reason for Visit"
                   ref={reasonRef}
