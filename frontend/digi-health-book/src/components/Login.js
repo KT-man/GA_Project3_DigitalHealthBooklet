@@ -1,8 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login(props) {
-  // const [loginFailed, setLoginFailed] = useState(false);
   const usernameRef = useRef();
   const passwordRef = useRef();
 
@@ -26,25 +25,7 @@ function Login(props) {
 
     if (loginData.status === "error") {
       alert(`Please enter username and password`);
-      setLoginFailed(true);
-      console.log(`Login denied ${loginFailed}`);
-      console.log(props.childData);
-    } else {
-      setLoginFailed(false);
-      console.log(`Login success ${loginFailed}`);
-
-      console.log(props.childData);
     }
-  };
-  const loginAttempt = async (req, res) => {
-    if (loginFailed === false) {
-      res.json("users/dashboard");
-      console.log(`loggin attempt add kids`);
-    } else if (loginFailed === false && props.childData.length !== 0) {
-      res.json(props.childData);
-      console.log(`loggin attempt display kids`);
-    }
-
     console.log(props.childData.length);
     props.childData.length === 0
       ? navigate("/dashboard")
