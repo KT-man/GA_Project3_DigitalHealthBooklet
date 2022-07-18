@@ -1,58 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
 import styles from "./modal.module.css";
 import Button from "./Button";
 
 
 const Appointment = () => {
-  const [editAppointment, setEditAppointment] = useState({
-    date: "",
-    location: "",
-    doctorName: "",
-    futureAppt: "",
-    reason: "",
-    _id: null,
-  });
-  const [dateInput, setDateInput] = useState("");
-  const [locationInput, setLocationInput] = useState("");
-  const [doctorNameInput, setDoctorNameInput] = useState("");
-  const [futureApptInput, setFutureApptInput] = useState("");
-  const [reasonInput, setReasonInput] = useState("");
 
-  const handleDateChange = (e) => {
-    setDateInput(e.target.value);
-  };
+  const dateRef = useRef();
+  const locationRef = useRef();
+  const doctorNameRef = useRef();
+  const futureApptRef = useRef();
+  const reasonRef = useRef();
 
-  const handleLocationInput = (e) => {
-    setLocationInput(e.target.value);
-  };
-  const handleDoctorNameInput = (e) => {
-    setDoctorNameInput(e.target.value);
-  };
-  const handleFutureApptInput = (e) => {
-    setFutureApptInput(e.target.value);
-  };
-
-  const handleReasonInput = (e) => {
-    setReasonInput(e.target.value);
-  };
-
-  useEffect(() => {
-    setDateInput(editAppointment.date);
-    setLocationInput(editAppointment.location);
-    setDoctorNameInput(editAppointment.doctorName);
-    setFutureApptInput(editAppointment.futureAppt);
-    setReasonInput(editAppointment.reason);
-  }, [editAppointment]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      date: dateInput,
-      location: locationInput,
-      doctorName: doctorNameInput,
-      futureAppt: futureApptInput,
-      reason: reasonInput,
+      date: dateRef,
+      location: locationRef,
+      doctorName: doctorNameRef,
+      futureAppt: futureApptRef,
+      reason: reasonRef,
     };
 
     const url = "/users/addAppt";
@@ -75,15 +43,14 @@ const Appointment = () => {
         <div className={styles.backdrop}>
         <div className={`${styles.board} ${styles.modal}`}>
           <h3 className={styles.header}>Input Your Child's New Appointment here!</h3>
-            <form>
+            <form onClick={handleSubmit}>
               <div>
                 <label>Date</label>
                 <input
                  className = {`${styles.input}`}
                   type="date"
                   placeholder="Enter date of appointment"
-                  value={dateInput}
-                  onChange={handleDateChange}
+                  ref={dateRef}
                 />
               </div>
               <div>
@@ -92,8 +59,7 @@ const Appointment = () => {
                  className = {`${styles.input}`}
                   type="text"
                   placeholder="Enter location of appointment"
-                  value={locationInput}
-                  onChange={handleLocationInput}
+                  ref={locationRef}
                 />
               </div>
               <div>
@@ -102,8 +68,7 @@ const Appointment = () => {
                  className = {`${styles.input}`}
                   type="text"
                   placeholder="Enter Doctor's Name"
-                  value={doctorNameInput}
-                  onChange={handleDoctorNameInput}
+                  ref={doctorNameRef}
                 />
               </div>
               <div>
@@ -112,8 +77,7 @@ const Appointment = () => {
                  className = {`${styles.input}`}
                   type="text"
                   placeholder="Future Appointment"
-                  value={futureApptInput}
-                  onChange={handleFutureApptInput}
+                  ref={futureApptRef}
                 />
               </div>
               <div>
@@ -122,11 +86,10 @@ const Appointment = () => {
                  className = {`${styles.input}`}
                   type="text"
                   placeholder="Reason for Visit"
-                  value={reasonInput}
-                  onChange={handleReasonInput}
+                  ref={reasonRef}
                 />
               </div>
-              <Button type="submit" onClick={handleSubmit}>
+              <Button type="submit">
                 Submit
               </Button>
             </form>,

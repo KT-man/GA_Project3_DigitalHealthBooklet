@@ -1,48 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
 import styles from "./modal.module.css";
 import Button from "./Button";
 
 const AddChild = (props) => {
-  const [editChild, setEditChild] = useState({
-    name: "",
-    isMale: "",
-    DOB: "",
-    _id: null,
-  });
-  const [nameInput, setNameInput] = useState("");
-  const [isMaleInput, setIsMaleInput] = useState("");
-  const [DOBInput, setDOBInput] = useState("");
+  const nameRef = useRef();
+  const isMaleRef = useRef();
+  const DOBRef = useRef();
 
-  const handleNameChange = (e) => {
-    setNameInput(e.target.value);
-  };
 
-  const handleIsMaleChange = (e) => {
-    setIsMaleInput(e.target.value);
-  };
-  const handleDOBChange = (e) => {
-    setDOBInput(e.target.value);
-  };
-
-  useEffect(() => {
-    setNameInput(editChild.name);
-    setIsMaleInput(editChild.isMale);
-    setDOBInput(editChild.DOB);
-  }, [editChild]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = {
-      name: nameInput,
-      isMale: isMaleInput,
-      DOB: DOBInput,
+      name: nameRef.current.value,
+      isMale: isMaleRef.current.value,
+      DOB: DOBRef.current.value,
     };
 
-    const url = "/users/addChild";
+    const url = "/addChild";
     const res = await fetch(url, {
-      method: "PUT",
+      method: "PATCH",
       body: JSON.stringify(data),
       headers: { "content-type": "application/json" },
     });
@@ -53,26 +32,24 @@ const AddChild = (props) => {
     }
     // input body into the api here
 
-    props.okayClicked();
+    
   };
 
   return (
     <>
       {ReactDOM.createPortal(
-
-
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modal}`}>
             <h3 className={styles.header}>Input Your Childs Data here!</h3>
-            <form>
+            <form onClick={handleSubmit}>
               <div>
                 <label>Name of Child:</label>
                 <input
                 className = {`${styles.input}`}
                   type="text"
+                  name="name"
                   placeholder="Enter your Child's name"
-                  value={nameInput}
-                  onChange={handleNameChange}
+                  ref={nameRef}
                 />
               </div>
               <div>
@@ -80,9 +57,9 @@ const AddChild = (props) => {
                 <input 
                 className = {`${styles.input}`}
                   type="text"
+                  name="gender"
                   placeholder="Enter your Child's gender"
-                  value={isMaleInput}
-                  onChange={handleIsMaleChange}
+                  ref={isMaleRef}
                 />
               </div>
               <div>
@@ -90,12 +67,12 @@ const AddChild = (props) => {
                 <input
                 className = {`${styles.input}`}
                   type="text"
+                  name="DOB"
                   placeholder="Enter your Child's Date of Birth"
-                  value={DOBInput}
-                  onChange={handleDOBChange}
+                  ref={DOBRef}
                 />
               </div>
-              <Button type="submit" onClick={handleSubmit}>
+              <Button type="submit">
                 Submit
               </Button>
             </form>
