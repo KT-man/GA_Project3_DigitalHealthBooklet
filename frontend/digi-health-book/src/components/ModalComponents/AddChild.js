@@ -5,34 +5,39 @@ import Button from "./Button";
 
 const AddChild = (props) => {
   const nameRef = useRef();
-  const isMaleRef = useRef();
   const DOBRef = useRef();
+  const [isMale, setIsMale] = useState();
 
-
+  function onChangeValue(e) {
+    setIsMale(e.target.value);
+    console.log(e.target.value);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = {
       name: nameRef.current.value,
-      isMale: isMaleRef.current.value,
+      isMale: isMale,
       DOB: DOBRef.current.value,
     };
 
-    const url = "/addChild";
+    const url = "/users/addChild";
     const res = await fetch(url, {
       method: "PATCH",
       body: JSON.stringify(data),
       headers: { "content-type": "application/json" },
     });
     const addChildData = await res.json();
+    console.log(addChildData);
 
     if (addChildData.status === "error") {
-      alert(`Please input the child data correctly`);
+      alert(`${addChildData.message}`);
+    } else if (addChildData.status === "ok") {
+      console.log(`${addChildData.message}`);
     }
-    // input body into the api here
 
-    
+    // input body into the api here
   };
 
   return (
@@ -41,40 +46,45 @@ const AddChild = (props) => {
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modal}`}>
             <h3 className={styles.header}>Input Your Childs Data here!</h3>
-            <form onClick={handleSubmit}>
+            <form onSubmit={handleSubmit}>
               <div>
                 <label>Name of Child:</label>
                 <input
-                className = {`${styles.input}`}
+                  className={`${styles.input}`}
                   type="text"
                   name="name"
                   placeholder="Enter your Child's name"
                   ref={nameRef}
                 />
               </div>
-              <div>
+              <div onChange={onChangeValue}>
                 <label>Gender:</label>
-                <input 
-                className = {`${styles.input}`}
-                  type="text"
-                  name="gender"
-                  placeholder="Enter your Child's gender"
-                  ref={isMaleRef}
+                <input
+                  type="radio"
+                  name="isMale"
+                  value={true}
+                  checked={isMale === true}
                 />
+                <label for="radio-one">Male</label>
+                <input
+                  type="radio"
+                  name="isMale"
+                  value={false}
+                  checked={isMale === false}
+                />
+                <label for="radio-two">Female</label>
               </div>
               <div>
                 <label>Date of Birth:</label>
                 <input
-                className = {`${styles.input}`}
+                  className={`${styles.input}`}
                   type="text"
                   name="DOB"
                   placeholder="Enter your Child's Date of Birth"
                   ref={DOBRef}
                 />
               </div>
-              <Button type="submit">
-                Submit
-              </Button>
+              <Button type="submit">Submit</Button>
             </form>
           </div>
         </div>,
