@@ -19,7 +19,7 @@ router.get("/seed", async (req, res) => {
     [
       {
         username: "Batman",
-        password: await bcrypt.hash("123456", 12),
+        password: await bcrypt.hash("123456abcdef", 12),
         name: "Parent1",
         postcode: "123456",
         children: [
@@ -57,7 +57,7 @@ router.get("/seed", async (req, res) => {
       },
       {
         username: "Spongebob",
-        password: await bcrypt.hash("123456", 12),
+        password: await bcrypt.hash("123456abcdef", 12),
         name: "Parent2",
         postcode: "654321",
         children: [
@@ -100,7 +100,7 @@ router.get("/seed", async (req, res) => {
       },
       {
         username: "LousyParent",
-        password: await bcrypt.hash("123456", 12),
+        password: await bcrypt.hash("123456abcdef", 12),
         name: "Parent3",
         postcode: "654",
       },
