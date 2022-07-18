@@ -28,8 +28,10 @@ function Login(props) {
     }
     console.log(props.childData.length);
     props.childData.length === 0
-      ? navigate("/dashboard")
-      : navigate("/children");
+      ? console.log("Hello")
+      : navigate("/dashboard");
+
+    // : navigate("/children");
   };
 
   return (
