@@ -3,7 +3,7 @@ import Appointment from "./ModalComponents/Appointment";
 import Log from "./ModalComponents/Log";
 import AddChild from "./ModalComponents/AddChild";
 import ChildData from "./ModalComponents/ChildData";
-import Button from "./ModalComponents/Button"
+import ChildRow from "./ChildRow";
 
 const WelcomePage = (props) => {
   const [showLogModal, setShowLogModal] = useState(false);
@@ -37,12 +37,11 @@ const WelcomePage = (props) => {
       <br />
       {props.childData.map((d, i) => {
         return (
-
-          <div key={d._id} >
+          <div key={d._id}>
             <h1> Child {i + 1}</h1>
-            <h2>{d.name} </h2>
-            <Button onClick={toSetShowLogModal}>Add New Log</Button>
-            <Button onClick={toSetShowApptModal}>Add New Appoinment</Button>
+            <h2 onClick={toSetShowChildDataModal}>{d.name} </h2>
+            <button onClick={toSetShowLogModal}>Add New Log</button>
+            <button onClick={toSetShowApptModal}>Add New Appoinment</button>
           </div>
         );
       })}
