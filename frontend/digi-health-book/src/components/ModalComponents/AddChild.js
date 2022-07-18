@@ -57,6 +57,7 @@ const AddChild = (props) => {
               </div>
               <div onChange={onChangeValue}>
                 <label>Gender:</label>
+
                 <input type="radio" name="isMale" value={true} />
                 <label for="radio-one">Male</label>
                 <input type="radio" name="isMale" value={false} />
@@ -75,6 +76,7 @@ const AddChild = (props) => {
               <Button type="submit" onClick={() => props.okayClicked()}>
                 Submit
               </Button>
+              <Button type="submit">Submit</Button>
             </form>
           </div>
         </div>,
