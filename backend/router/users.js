@@ -264,14 +264,14 @@ router.patch("/addChild", auth, async (req, res) => {
 router.get("/children", auth, async (req, res) => {
   // Check if there are any children first
   try {
+    console.log(req.decoded.username);
+
     const childExists = await User.find({
       username: req.decoded.username,
       "children.0": { $exists: true },
       // MongoDB dot notation. This checks for whether the zero-th (first) element in array children exists
       // https://www.mongodb.com/docs/manual/core/document/#dot-notation
     });
-
-    console.log(childExists);
 
     if (childExists.length === 0) {
       return res

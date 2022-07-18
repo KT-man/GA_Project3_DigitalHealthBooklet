@@ -16,12 +16,14 @@ function App() {
   const fetchChildData = async (url, config) => {
     try {
       const res = await fetch(url, config);
+      const data = await res.json();
 
-      if (res.status !== 200) {
+      if (res.status !== 200 && data.message === "no children found!") {
         throw new Error("Couldnt fetch child data");
       }
 
       const data = await res.json();
+      console.log(data);
       setChildData(data.children);
     } catch (err) {
       setError(err.message);
@@ -37,6 +39,7 @@ function App() {
         "Content-Type": "application/json",
       },
     };
+
     fetchChildData(url, config);
   }, []);
 

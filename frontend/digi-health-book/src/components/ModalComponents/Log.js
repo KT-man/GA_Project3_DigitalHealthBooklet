@@ -1,4 +1,4 @@
-import React, { useState, use } from "react";
+import React, { useState, use, useRef } from "react";
 import ReactDOM from "react-dom";
 import styles from "./modal.module.css";
 import Button from "./Button";
@@ -8,8 +8,6 @@ const Log = () => {
   const heightRef = useRef();
   const weightRef = useRef();
   const headCircRef = useRef();
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,8 +38,10 @@ const Log = () => {
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modal}`}>
-            <h3 className={styles.header}>Input Your Child's New Growth here!</h3>
-            <form onSubmit = {handleSubmit}>
+            <h3 className={styles.header}>
+              Input Your Child's New Growth here!
+            </h3>
+            <form onSubmit={handleSubmit}>
               <div>
                 <label>Future Date</label>
                 <input
@@ -78,9 +78,7 @@ const Log = () => {
                   ref={headCircRef}
                 />
               </div>
-              <Button type="submit">
-                Submit
-              </Button>
+              <Button type="submit">Submit</Button>
             </form>
           </div>
         </div>,
