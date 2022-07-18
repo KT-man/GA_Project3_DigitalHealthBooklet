@@ -15,12 +15,9 @@ function App() {
 
   const fetchChildData = async (url, config) => {
     try {
+      console.log("running fetchChildData");
       const res = await fetch(url, config);
       const data = await res.json();
-      // console.log(`data ${data}`);
-      // console.log("line 20");
-      // console.log(data);
-      // console.log(data[0].children);
 
       if (res.status !== 200 && data.message === "no children found!") {
         throw new Error("Couldnt fetch child data");
