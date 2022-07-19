@@ -4,7 +4,6 @@ import styles from "./modal.module.css";
 import Button from "./Button";
 
 const Log = (props) => {
-  console.log(props);
   const dateRef = useRef();
   const heightRef = useRef();
   const weightRef = useRef();
@@ -16,10 +15,14 @@ const Log = (props) => {
     const data = {
       childrenname: props.childData.name,
       date: dateRef.current.value,
-      height: heightRef.current.value,
-      weight: weightRef.current.value,
-      headCirc: headCircRef.current.value,
+      height: heightRef.current.value ? heightRef.current.value : NaN,
+      weight: weightRef.current.value ? weightRef.current.value : NaN,
+      headCirc: headCircRef.current.value ? headCircRef.current.value : NaN,
     };
+
+    if (dateRef.current.value === "") {
+      return alert(`Error! Please ensure "Date" field is filled in`);
+    }
 
     const url = "/users/addLog";
     const res = await fetch(url, {
@@ -31,7 +34,8 @@ const Log = (props) => {
     const addLogData = await res.json();
 
     if (addLogData.status === "error") {
-      alert(`Please input the correct log data`);
+      console.log(addLogData);
+      return alert(`Please input the correct log data`);
     }
     props.toSetShowLogModal(!props.showLogModal);
     alert("New Log Added!");

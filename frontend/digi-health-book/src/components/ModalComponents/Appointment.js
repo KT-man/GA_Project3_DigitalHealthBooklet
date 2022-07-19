@@ -4,8 +4,6 @@ import styles from "./modal.module.css";
 import Button from "./Button";
 
 const Appointment = (props) => {
-  console.log(props);
-
   const dateRef = useRef();
   const locationRef = useRef();
   const doctorNameRef = useRef();
@@ -22,11 +20,17 @@ const Appointment = (props) => {
     const data = {
       childrenname: props.childData.name,
       date: dateRef.current.value,
-      location: locationRef.current.value,
-      doctorName: doctorNameRef.current.value,
+      location: locationRef.current.value ? locationRef.current.value : "Empty",
+      doctorName: doctorNameRef.current.value
+        ? doctorNameRef.current.value
+        : "Empty",
       futureAppt: futureAppt.current,
-      reason: reasonRef.current.value,
+      reason: reasonRef.current.value ? reasonRef.current.value : "Empty",
     };
+
+    if (dateRef.current.value === "") {
+      return alert(`Error! Please ensure "Date" field is filled in`);
+    }
 
     const url = "/users/addAppt";
     const res = await fetch(url, {
@@ -90,7 +94,7 @@ const Appointment = (props) => {
                   name="futureAppt"
                   value={true}
                 />
-                <label className={`${styles.inputGender}`} for="radio-one">
+                <label className={`${styles.inputGender}`} htmlFor="radio-one">
                   Yes
                 </label>
                 <input
@@ -99,7 +103,7 @@ const Appointment = (props) => {
                   name="futureAppt"
                   value={false}
                 />
-                <label className={`${styles.inputGender}`} for="radio-two">
+                <label className={`${styles.inputGender}`} htmlFor="radio-two">
                   No
                 </label>
               </div>
