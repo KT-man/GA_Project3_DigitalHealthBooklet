@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [regoFailed, setRegoFaliled] = useState(false);
@@ -6,6 +7,8 @@ function Register() {
   const usernameRef = useRef();
   const passwordRef = useRef();
   const postcodeRef = useRef();
+
+  const navigate = useNavigate();
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +32,8 @@ function Register() {
       alert(`${regoData.message}`);
     } else if (regoData.status === "ok") {
       console.log(`${regoData.message}`);
+
+      navigate("/dashboard");
     }
     //page redirection to AddChild (users/children)
   };

@@ -15,30 +15,34 @@
 }
 .modal {
   position: fixed;
-  top: 5vh;
+
+  top: 30vh;
   left: 10%;
   width: 80%;
-  height: 80vh;
+  height: 40vh;
+
   z-index: 100;
   overflow: hidden;
 }
 
 .modalLog {
   position: fixed;
-  top: 5vh;
+  top: 30vh;
   left: 10%;
   width: 80%;
-  height: 85vh;
+  height: 60vh;
+
   z-index: 100;
   overflow: hidden;
 }
 
 .modalAppt {
   position: fixed;
-  top: 5vh;
+
+  top: 30vh;
   left: 10%;
   width: 80%;
-  height:90vh;
+  height: 60vh;
   z-index: 100;
   overflow: hidden;
 }
@@ -71,6 +75,7 @@
 .label {
   font-size: 20px;
   color: white;
+  padding-left: 50px;
 }
 
 .inputGender {

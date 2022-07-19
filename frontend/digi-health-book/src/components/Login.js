@@ -1,12 +1,18 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login(props) {
+  const [failedLogin, setFailedLogin] = useState(true);
   const usernameRef = useRef();
   const passwordRef = useRef();
 
   const navigate = useNavigate();
 
+  const loginSuccess = () => {
+    if (failedLogin === false) {
+      return props.childData;
+    }
+  };
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
@@ -36,7 +42,9 @@ function Login(props) {
 
   return (
     <div>
-      <header class="bg-aquamarine"></header>
+      <header class="bg-aquamarine flex">
+        <img src="./logo.png" alt="digiHealth logo"></img>
+      </header>
       <h1 class="text-3xl text-slate-600"> Welcome!</h1>
       <h2>Please Login </h2>
 
