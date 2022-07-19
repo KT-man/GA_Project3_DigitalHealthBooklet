@@ -32,8 +32,8 @@ function Register() {
       alert(`${regoData.message}`);
     } else if (regoData.status === "ok") {
       // console.log(`${regoData.message}`);
-      // setRegoFailed(!regoFaliled);
-      setRegoFailed ? navigate("/dashboard") : console.log("Complete fields");
+      setRegoFailed(!regoFaliled);
+      setRegoFailed ? navigate("/login") : console.log("Complete fields");
     }
     //page redirection to AddChild (users/children)
   };
