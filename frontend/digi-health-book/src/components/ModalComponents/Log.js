@@ -82,7 +82,7 @@ const Log = (props) => {
                 />
               </div>
               <div>
-                <label className={`${styles.chicken} `}>
+                <label className={`${styles.label} `}>
                   Head Circumference in cm:
                 </label>
                 <input
