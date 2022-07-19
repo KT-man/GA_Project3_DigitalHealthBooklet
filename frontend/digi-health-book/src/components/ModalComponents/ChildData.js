@@ -129,7 +129,7 @@ const ChildData = (props) => {
               >
                 Show {props.childData.name}'s' Head Circ Chart
               </button>
-              >>>>>>> aa134bdf6d0055d7c159648c56e81b56cb20bfb9
+
             </div>
             <br></br>
             <Button onClick={props.toSetShowChildDataModal} type="submit">
