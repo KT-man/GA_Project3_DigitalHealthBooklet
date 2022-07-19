@@ -5,9 +5,11 @@ import Button from "./Button";
 import HeightDisplay from "./HeightDisplay";
 import WeightDisplay from "./WeightDisplay";
 import HeadCircDisplay from "./HeadCircDisplay";
-import EditLog from "./EditLog";
-import ButtonE from "./ButtonE";
-import ButtonDelete from "./ButtonDelete";
+// import EditLog from "./EditLog";
+// import ButtonE from "./ButtonE";
+// import ButtonDelete from "./ButtonDelete";
+import ChildDataLogRows from "./ChildDataLogRows";
+import ChildDataApptRows from "./ChildDataApptRows";
 
 const ChildData = (props) => {
   const [showHeightModal, setShowHeightModal] = useState(false);
@@ -40,81 +42,72 @@ const ChildData = (props) => {
             <hr></hr>
             <br></br>
             <div>
-              Upcoming Appointments:
-              {props.childData.appointments.length === 0 ? (
-                "Please add an appointment first!"
-              ) : (
-                <table>
-                  <thead>
-                    <tr>
-                      <td>Date</td>
-                      <td>Location</td>
-                      <td>Reason</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {props.childData.appointments.map((appt) => {
-                      return (
-                        <tr key={appt._id}>
-                          <td>{appt.date.split("T")[0]}</td>
-                          <td>{appt.location}</td>
-                          <td>{appt.reason}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              )}
-            </div>
-            <br></br>
-            <hr></hr>
-            {/* Stretch goals afterwards to make the appointments / logs show most recent 5, then to scroll next page */}
-            <br></br>
-            <div>
-              Growth Logs:
-              {props.childData.logs.length === 0 ? (
-                <p>"Please add a log first!"</p>
-              ) : (
-                <table>
-                  <thead>
-                    <tr>
-                      <td>Date</td>
-                      <td>Height</td>
-                      <td>Weight</td>
-                      <td>Head Circumference</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {props.childData.logs.map((log) => {
-                      return (
-                        <tr key={log._id}>
-                          <td>{log.date.split("T")[0]}</td>
-                          <td>{log.height}</td>
-                          <td>{log.weight}</td>
-                          <td>{log.headCirc}</td>
-                          <td>
-                            <ButtonDelete
-                              id={log._id}
-                              toSetDeleteCounter={props.toSetDeleteCounter}
-                            >
-                              Delete
-                            </ButtonDelete>
-                            <ButtonE
-                              toSetShowEditLogModal={
-                                props.toSetShowEditLogModal
-                              }
-                              showEditLogModal={props.showEditLogModal}
-                              id={log._id}
-                            >
-                              Edit
-                            </ButtonE>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              )}
+              <div>
+                Upcoming Appointments:
+                {props.childData.appointments.length === 0 ? (
+                  "Please add an appointment first!"
+                ) : (
+                  <table>
+                    <thead>
+                      <tr>
+                        <td>Date</td>
+                        <td>Location</td>
+                        <td>Reason</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {props.childData.appointments.map((appt) => {
+                        return (
+                          <ChildDataApptRows
+                            key={appt._id}
+                            id={appt._id}
+                            date={appt.date}
+                            location={appt.location}
+                            reason={appt.reason}
+                            toSetDeleteCounter={props.toSetDeleteCounter}
+                          ></ChildDataApptRows>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                )}
+              </div>
+              <br></br>
+              <hr></hr>
+              {/* Stretch goals afterwards to make the appointments / logs show most recent 5, then to scroll next page */}
+              <br></br>
+              <div>
+                Growth Logs:
+                {props.childData.logs.length === 0 ? (
+                  <p>"Please add a log first!"</p>
+                ) : (
+                  <table>
+                    <thead>
+                      <tr>
+                        <td>Date</td>
+                        <td>Height</td>
+                        <td>Weight</td>
+                        <td>Head Circumference</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {props.childData.logs.map((log) => {
+                        return (
+                          <ChildDataLogRows
+                            key={log._id}
+                            id={log._id}
+                            date={log.date}
+                            height={log.height}
+                            weight={log.weight}
+                            headCirc={log.headCirc}
+                            toSetDeleteCounter={props.toSetDeleteCounter}
+                          ></ChildDataLogRows>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                )}
+              </div>
               <br />
               <button
                 onClick={toSetShowHeightModal}

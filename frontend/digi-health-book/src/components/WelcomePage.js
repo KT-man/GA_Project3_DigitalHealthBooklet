@@ -14,20 +14,20 @@ const WelcomePage = (props) => {
     console.log(`button is clickced`);
     setShowAddChildModal(!showAddChildModal);
   };
-  const [showLogModal, setShowLogModal] = useState(false);
-  const toSetShowLogModal = () => {
-    console.log(`button is clickced`);
-    setShowLogModal(!showLogModal);
-  };
-  const [showApptModal, setShowApptModal] = useState(false);
-  const toSetShowApptModal = () => {
-    setShowApptModal(!showApptModal);
-  };
+  // const [showLogModal, setShowLogModal] = useState(false);
+  // const toSetShowLogModal = () => {
+  //   console.log(`button is clickced`);
+  //   setShowLogModal(!showLogModal);
+  // };
+  // const [showApptModal, setShowApptModal] = useState(false);
+  // const toSetShowApptModal = () => {
+  //   setShowApptModal(!showApptModal);
+  // };
 
-  const [showEditLogModal, setShowEditLogModal] = useState(false);
-  const toSetShowEditLogModal = () => {
-    setShowEditLogModal(!showEditLogModal);
-  };
+  // const [showEditLogModal, setShowEditLogModal] = useState(false);
+  // const toSetShowEditLogModal = () => {
+  //   setShowEditLogModal(!showEditLogModal);
+  // };
 
   const [deleteCounter, setDeleteCounter] = useState(0);
   const toSetDeleteCounter = () => {
@@ -65,14 +65,7 @@ const WelcomePage = (props) => {
 
     fetchChildData(url, config);
     childDataRef.current = childData;
-  }, [
-    childDataRef,
-    showEditLogModal,
-    showAddChildModal,
-    showLogModal,
-    showApptModal,
-    deleteCounter,
-  ]);
+  }, [childDataRef, showAddChildModal, deleteCounter]);
 
   return (
     <>
@@ -94,12 +87,6 @@ const WelcomePage = (props) => {
               index={i}
               key={d._id}
               childData={d}
-              showLogModal={showLogModal}
-              showApptModal={showApptModal}
-              showEditLogModal={showEditLogModal}
-              toSetShowApptModal={toSetShowApptModal}
-              toSetShowLogModal={toSetShowLogModal}
-              toSetShowEditLogModal={toSetShowEditLogModal}
               toSetDeleteCounter={toSetDeleteCounter}
             ></ChildRow>
           );
