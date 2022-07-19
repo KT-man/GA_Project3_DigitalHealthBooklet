@@ -5,10 +5,10 @@ import Button from "./Button";
 import HeightDisplay from "./HeightDisplay";
 import WeightDisplay from "./WeightDisplay";
 import HeadCircDisplay from "./HeadCircDisplay";
+import EditLog from "./EditLog";
+import ButtonE from "./ButtonE";
 
 const ChildData = (props) => {
-  console.log(props);
-
   const [showHeightModal, setShowHeightModal] = useState(false);
   const toSetShowHeightModal = () => {
     setShowHeightModal(!showHeightModal);
@@ -91,6 +91,20 @@ const ChildData = (props) => {
                           <td>{log.height}</td>
                           <td>{log.weight}</td>
                           <td>{log.headCirc}</td>
+                          <td>
+                            <button>Delete</button>
+                          </td>
+                          <td>
+                            <ButtonE
+                              toSetShowEditLogModal={
+                                props.toSetShowEditLogModal
+                              }
+                              showEditLogModal={props.showEditLogModal}
+                              id={log._id}
+                            >
+                              Edit
+                            </ButtonE>
+                          </td>
                         </tr>
                       );
                     })}

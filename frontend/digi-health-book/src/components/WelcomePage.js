@@ -25,6 +25,13 @@ const WelcomePage = (props) => {
     setShowApptModal(!showApptModal);
   };
 
+  const [showEditLogModal, setShowEditLogModal] = useState(false);
+  const toSetShowEditLogModal = () => {
+    setShowEditLogModal(!showEditLogModal);
+  };
+
+  // showeditmodalstate
+
   const fetchChildData = async (url, config) => {
     try {
       console.log("running fetchChildData");
@@ -54,7 +61,7 @@ const WelcomePage = (props) => {
 
     fetchChildData(url, config);
     childDataRef.current = childData;
-  }, [childDataRef, showAddChildModal, showLogModal, showApptModal]);
+  }, [childDataRef, showEditLogModal, showAddChildModal, showLogModal, showApptModal]);
 
   return (
     <>
@@ -77,8 +84,10 @@ const WelcomePage = (props) => {
               childData={d}
               showLogModal={showLogModal}
               showApptModal={showApptModal}
+              showEditLogModal = {showEditLogModal}
               toSetShowApptModal={toSetShowApptModal}
               toSetShowLogModal={toSetShowLogModal}
+              toSetShowEditLogModal={toSetShowEditLogModal}
             ></ChildRow>
           );
         })}

@@ -96,7 +96,11 @@ const AddChild = (props) => {
                 />
               </div>
               <Button type="submit">Add Child</Button>
+<<<<<<< Updated upstream
               <Button onClick={hideModal}>Close X</Button>
+=======
+
+>>>>>>> Stashed changes
             </form>
           </div>
         </div>,

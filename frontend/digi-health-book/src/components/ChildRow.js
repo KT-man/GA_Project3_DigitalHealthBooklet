@@ -34,6 +34,8 @@ const ChildRow = (props) => {
         <ChildData
           childData={props.childData}
           toSetShowChildDataModal={toSetShowChildDataModal}
+          toSetShowEditLogModal={props.toSetShowEditLogModal}
+          showEditLogModal = {props.showEditLogModal}
         ></ChildData>
       )}
 
