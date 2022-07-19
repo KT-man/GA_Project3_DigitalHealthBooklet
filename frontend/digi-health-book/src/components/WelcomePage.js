@@ -1,40 +1,93 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Appointment from "./ModalComponents/Appointment";
 import Log from "./ModalComponents/Log";
 import AddChild from "./ModalComponents/AddChild";
-import ChildData from "./ModalComponents/ChildData";
+
 import ChildRow from "./ChildRow";
 
 const WelcomePage = (props) => {
+  const [childData, setChildData] = useState([]);
+  const childDataRef = useRef([]);
+  const [error, setError] = useState(null);
+
   const [showAddChildModal, setShowAddChildModal] = useState(false);
   const toSetShowAddChildModal = () => {
     console.log(`button is clickced`);
     setShowAddChildModal(!showAddChildModal);
   };
+  const [showLogModal, setShowLogModal] = useState(false);
+  const toSetShowLogModal = () => {
+    console.log(`button is clickced`);
+    setShowLogModal(!showLogModal);
+  };
+  const [showApptModal, setShowApptModal] = useState(false);
+  const toSetShowApptModal = () => {
+    setShowApptModal(!showApptModal);
+  };
+
+  const fetchChildData = async (url, config) => {
+    try {
+      console.log("running fetchChildData");
+      const res = await fetch(url, config);
+      const data = await res.json();
+
+      if (res.status !== 200 && data.message === "no children found!") {
+        throw new Error("Couldnt fetch child data");
+      }
+      console.log(data);
+      setChildData(data[0].children);
+    } catch (err) {
+      setError(err.message);
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    //=> to doublecheck on url
+    const url = `/users/children`; //=> to doublecheck
+    const config = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    fetchChildData(url, config);
+    childDataRef.current = childData;
+  }, [childDataRef, showAddChildModal, showLogModal, showApptModal]);
 
   return (
-    <div>
-      <header class="bg-aquamarine"></header>
-      <h1>Welcome to your Digital Child Booklet</h1>
+    <>
+      <div>
+        <header class="bg-aquamarine"></header>
+        <h1>Welcome to your Digital Child Booklet</h1>
 
-      <button
-        onClick={toSetShowAddChildModal}
-        class="my-8 px-5 py-1 text-md text-white bg-plumish font-semibold rounded-full border border-plumish/40 hover:text-white hover:bg-white hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
-      >
-        Add Child
-      </button>
-      <br />
-      {props.childData.map((d, i) => {
-        return <ChildRow index={i} key={d._id} childData={d}></ChildRow>;
-      })}
+        <button
+          onClick={toSetShowAddChildModal}
+          class="my-8 px-5 py-1 text-md text-white bg-plumish font-semibold rounded-full border border-plumish/40 hover:text-white hover:bg-white hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+        >
+          Add Child
+        </button>
+        <br />
+        {childData.map((d, i) => {
+          return (
+            <ChildRow
+              index={i}
+              key={d._id}
+              childData={d}
+              showLogModal={showLogModal}
+              showApptModal={showApptModal}
+              toSetShowApptModal={toSetShowApptModal}
+              toSetShowLogModal={toSetShowLogModal}
+            ></ChildRow>
+          );
+        })}
 
-      {showAddChildModal && (
-        <AddChild
-          toSetShowAddChildModal={toSetShowAddChildModal}
-          okayClicked={toSetShowAddChildModal}
-        ></AddChild>
-      )}
-    </div>
+        {showAddChildModal && (
+          <AddChild toSetShowAddChildModal={toSetShowAddChildModal}></AddChild>
+        )}
+      </div>
+    </>
   );
 };
 

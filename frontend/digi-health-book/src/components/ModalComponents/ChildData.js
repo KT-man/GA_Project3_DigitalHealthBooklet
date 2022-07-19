@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import styles from "./modal.module.css";
 import Button from "./Button";
 import HeightDisplay from "./HeightDisplay";
+import WeightDisplay from "./WeightDisplay";
+import HeadCircDisplay from "./HeadCircDisplay";
 
 const ChildData = (props) => {
   console.log(props);
@@ -10,6 +12,16 @@ const ChildData = (props) => {
   const [showHeightModal, setShowHeightModal] = useState(false);
   const toSetShowHeightModal = () => {
     setShowHeightModal(!showHeightModal);
+  };
+
+  const [showWeightModal, setShowWeightModal] = useState(false);
+  const toSetShowWeightModal = () => {
+    setShowWeightModal(!showWeightModal);
+  };
+
+  const [showHeadCircModal, setShowHeadCircModal] = useState(false);
+  const toSetShowHeadCircModal = () => {
+    setShowHeadCircModal(!showHeadCircModal);
   };
 
   return (
@@ -85,13 +97,25 @@ const ChildData = (props) => {
                   </tbody>
                 </table>
               )}
-              <br />
               <button
                 onClick={toSetShowHeightModal}
-                class="my-8 px-5 py-1 text-md bg-plumish text-white font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+                class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
               >
                 Show {props.childData.name}'s' Height Chart
               </button>
+              <button
+                onClick={toSetShowWeightModal}
+                class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+              >
+                Show {props.childData.name}'s' Weight Chart
+              </button>
+              <button
+                onClick={toSetShowHeadCircModal}
+                class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+              >
+                Show {props.childData.name}'s' Head Circ Chart
+              </button>
+              >>>>>>> aa134bdf6d0055d7c159648c56e81b56cb20bfb9
             </div>
             <br></br>
             <Button onClick={props.toSetShowChildDataModal} type="submit">
@@ -106,6 +130,19 @@ const ChildData = (props) => {
           childData={props.childData}
           toSetShowHeightModal={toSetShowHeightModal}
         ></HeightDisplay>
+      )}
+
+      {showWeightModal && (
+        <WeightDisplay
+          childData={props.childData}
+          toSetShowWeightModal={toSetShowWeightModal}
+        ></WeightDisplay>
+      )}
+      {showHeadCircModal && (
+        <HeadCircDisplay
+          childData={props.childData}
+          toSetShowHeadCircModal={toSetShowHeadCircModal}
+        ></HeadCircDisplay>
       )}
     </>
   );

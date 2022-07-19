@@ -224,7 +224,9 @@ router.put(
       });
     } catch (error) {
       console.log(error);
-      res.status(400).json({ status: "error", message: "error encountered" });
+      res
+        .status(400)
+        .json({ status: "error", message: "error encountered", error: error });
     }
   }
 );
