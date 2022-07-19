@@ -22,6 +22,10 @@ const AddChild = (props) => {
       DOB: DOBRef.current.value,
     };
 
+    if (nameRef.current.value === "" || DOBRef.current.value === "") {
+      return alert("Error! Please ensure Name and DOB is filled in");
+    }
+
     const url = "/users/addChild";
     const res = await fetch(url, {
       method: "PATCH",
@@ -64,7 +68,7 @@ const AddChild = (props) => {
                   name="isMale"
                   value={true}
                 />
-                <label className={`${styles.inputGender}`} for="radio-one">
+                <label className={`${styles.inputGender}`} htmlFor="radio-one">
                   Male
                 </label>
                 <input
@@ -73,7 +77,7 @@ const AddChild = (props) => {
                   name="isMale"
                   value={false}
                 />
-                <label className={`${styles.inputGender}`} for="radio-two">
+                <label className={`${styles.inputGender}`} htmlFor="radio-two">
                   Female
                 </label>
               </div>
