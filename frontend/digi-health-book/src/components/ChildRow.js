@@ -8,15 +8,6 @@ const ChildRow = (props) => {
   const toSetShowChildDataModal = () => {
     setShowChildDataModal(!showChildDataModal);
   };
-  const [showLogModal, setShowLogModal] = useState(false);
-  const toSetShowLogModal = () => {
-    console.log(`button is clickced`);
-    setShowLogModal(!showLogModal);
-  };
-  const [showApptModal, setShowApptModal] = useState(false);
-  const toSetShowApptModal = () => {
-    setShowApptModal(!showApptModal);
-  };
 
   return (
     <div>
@@ -24,7 +15,7 @@ const ChildRow = (props) => {
       <h2 onClick={toSetShowChildDataModal}>{props.childData.name} </h2>
       <div>
         <button
-          onClick={toSetShowLogModal}
+          onClick={props.toSetShowLogModal}
           class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
         >
           Add New Log
@@ -32,7 +23,7 @@ const ChildRow = (props) => {
       </div>
       <div>
         <button
-          onClick={toSetShowApptModal}
+          onClick={props.toSetShowApptModal}
           class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
         >
           Add New Appoinment
@@ -43,23 +34,20 @@ const ChildRow = (props) => {
         <ChildData
           childData={props.childData}
           toSetShowChildDataModal={toSetShowChildDataModal}
-          okayClicked={toSetShowChildDataModal}
         ></ChildData>
       )}
 
-      {showLogModal && (
+      {props.showLogModal && (
         <Log
           childData={props.childData}
-          showLogModal={showLogModal}
-          toSetShowLogModal={toSetShowLogModal}
-          okayClicked={toSetShowLogModal}
+          showLogModal={props.showLogModal}
+          toSetShowLogModal={props.toSetShowLogModal}
         ></Log>
       )}
-      {showApptModal && (
+      {props.showApptModal && (
         <Appointment
           childData={props.childData}
-          toSetShowApptModal={toSetShowApptModal}
-          okayClicked={toSetShowApptModal}
+          toSetShowApptModal={props.toSetShowApptModal}
         ></Appointment>
       )}
     </div>
