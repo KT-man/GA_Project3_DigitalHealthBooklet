@@ -25,20 +25,20 @@
 
 .modalLog {
   position: fixed;
-  top: 30vh;
+  top: 5vh;
   left: 10%;
   width: 80%;
-  height: 60vh;
+  height: 85vh;
   z-index: 100;
   overflow: hidden;
 }
 
 .modalAppt {
   position: fixed;
-  top: 30vh;
+  top: 5vh;
   left: 10%;
   width: 80%;
-  height: 60vh;
+  height:90vh;
   z-index: 100;
   overflow: hidden;
 }
