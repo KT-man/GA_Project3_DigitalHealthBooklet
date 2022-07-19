@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
-  const [regoFailed, setRegoFaliled] = useState(false);
+  const [regoFaliled, setRegoFailed] = useState(false);
   const nameRef = useRef();
   const usernameRef = useRef();
   const passwordRef = useRef();
@@ -31,9 +31,9 @@ function Register() {
     if (regoData.status === "error") {
       alert(`${regoData.message}`);
     } else if (regoData.status === "ok") {
-      console.log(`${regoData.message}`);
-
-      navigate("/dashboard");
+      // console.log(`${regoData.message}`);
+      // setRegoFailed(!regoFaliled);
+      setRegoFailed ? navigate("/dashboard") : console.log("Complete fields");
     }
     //page redirection to AddChild (users/children)
   };

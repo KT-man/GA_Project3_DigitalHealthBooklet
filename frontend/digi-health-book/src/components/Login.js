@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login(props) {
@@ -8,11 +8,6 @@ function Login(props) {
 
   const navigate = useNavigate();
 
-  const loginSuccess = () => {
-    if (failedLogin === false) {
-      return props.childData;
-    }
-  };
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
@@ -27,17 +22,16 @@ function Login(props) {
       headers: { "content-type": "application/json" },
     });
     const loginData = await res.json();
-    console.log(res);
+    console.log(res.status);
+    console.log(loginData);
 
     if (loginData.status === "error") {
-      alert(`Please enter username and password`);
+      console.log(loginData.message);
+      alert(`Unauthorized. Please try again`);
+    } else {
+      setFailedLogin(!failedLogin);
+      failedLogin ? navigate("/dashboard") : console.log("No change");
     }
-    console.log(props.childData.length);
-    props.childData.length === 0
-      ? console.log("Hello")
-      : navigate("/dashboard");
-
-    // : navigate("/children");
   };
 
   return (
