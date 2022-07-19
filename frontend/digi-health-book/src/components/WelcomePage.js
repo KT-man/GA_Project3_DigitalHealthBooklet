@@ -32,8 +32,13 @@ const WelcomePage = (props) => {
     <div>
       <header class="bg-aquamarine"></header>
       <h1>Welcome to your Digital Child Booklet</h1>
-      {/* //route to add child */}
-      <button onClick={toSetShowAddChildModal}>Add Child</button>
+
+      <button
+        onClick={toSetShowAddChildModal}
+        class="my-8 px-5 py-1 text-md text-white bg-plumish font-semibold rounded-full border border-plumish/40 hover:text-white hover:bg-white hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+      >
+        Add Child
+      </button>
       <br />
       {props.childData.map((d, i) => {
         return (

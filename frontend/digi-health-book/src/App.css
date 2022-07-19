@@ -4,10 +4,11 @@
 
 .App {
   text-align: center;
+  font-size: large;
 }
 
 header {
-  min-height: 30vh;
+  /* min-height: 20vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,14 +20,10 @@ h1 {
   font-size: xxx-large;
 }
 
-.image {
-  display: inline-block;
-  width: 60vw;
-}
 .nav {
-  display: inline-block;
+  text-align: right;
   width: 30vw;
-  height: 50vh;
+  margin: 80px auto;
 }
 .nav > ul > li {
   float: left;
@@ -35,7 +32,7 @@ h1 {
 }
 p {
   align-items: center;
-  margin: 1em;
+  margin: 2em 5em;
   width: 90vw;
 }
 h2 {
