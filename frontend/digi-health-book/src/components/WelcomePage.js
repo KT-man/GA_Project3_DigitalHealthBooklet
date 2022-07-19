@@ -38,6 +38,7 @@ const WelcomePage = (props) => {
       setChildData(data[0].children);
     } catch (err) {
       setError(err.message);
+      console.log(err);
     }
   };
 
@@ -56,35 +57,37 @@ const WelcomePage = (props) => {
   }, [childDataRef, showAddChildModal, showLogModal, showApptModal]);
 
   return (
-    <div>
-      <header class="bg-aquamarine"></header>
-      <h1>Welcome to your Digital Child Booklet</h1>
+    <>
+      <div>
+        <header class="bg-aquamarine"></header>
+        <h1>Welcome to your Digital Child Booklet</h1>
 
-      <button
-        onClick={toSetShowAddChildModal}
-        class="my-8 px-5 py-1 text-md text-white bg-plumish font-semibold rounded-full border border-plumish/40 hover:text-white hover:bg-white hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
-      >
-        Add Child
-      </button>
-      <br />
-      {childData.map((d, i) => {
-        return (
-          <ChildRow
-            index={i}
-            key={d._id}
-            childData={d}
-            showLogModal={showLogModal}
-            showApptModal={showApptModal}
-            toSetShowApptModal={toSetShowApptModal}
-            toSetShowLogModal={toSetShowLogModal}
-          ></ChildRow>
-        );
-      })}
+        <button
+          onClick={toSetShowAddChildModal}
+          class="my-8 px-5 py-1 text-md text-white bg-plumish font-semibold rounded-full border border-plumish/40 hover:text-white hover:bg-white hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+        >
+          Add Child
+        </button>
+        <br />
+        {childData.map((d, i) => {
+          return (
+            <ChildRow
+              index={i}
+              key={d._id}
+              childData={d}
+              showLogModal={showLogModal}
+              showApptModal={showApptModal}
+              toSetShowApptModal={toSetShowApptModal}
+              toSetShowLogModal={toSetShowLogModal}
+            ></ChildRow>
+          );
+        })}
 
-      {showAddChildModal && (
-        <AddChild toSetShowAddChildModal={toSetShowAddChildModal}></AddChild>
-      )}
-    </div>
+        {showAddChildModal && (
+          <AddChild toSetShowAddChildModal={toSetShowAddChildModal}></AddChild>
+        )}
+      </div>
+    </>
   );
 };
 

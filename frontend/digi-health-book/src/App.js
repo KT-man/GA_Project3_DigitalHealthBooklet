@@ -13,20 +13,11 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route
-          path="/dashboard"
-          element={<WelcomePage></WelcomePage>}
-          // childData={childData}
-        />
-        <Route
-          path="/children"
-          element={<ChildData></ChildData>}
-          // childData={childData}
-        />
+        <Route path="/dashboard" element={<WelcomePage></WelcomePage>} />
+        <Route path="/children" element={<ChildData></ChildData>} />
         <Route path="/" element={<SplashPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        {/* childData={childData}  */}
       </Routes>
     </div>
   );
