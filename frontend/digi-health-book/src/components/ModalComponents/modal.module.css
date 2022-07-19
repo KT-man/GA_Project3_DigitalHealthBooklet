@@ -13,13 +13,17 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 10px;
 }
+
+.chart {
+  color: black
+}
 .modal {
   position: fixed;
 
-  top: 30vh;
+  top: 10vh;
   left: 10%;
   width: 80%;
-  height: 90vh;
+  height: 70vh;
 
   z-index: 100;
   overflow: hidden;
@@ -27,7 +31,7 @@
 
 .modalLog {
   position: fixed;
-  top: 30vh;
+  top: 10vh;
   left: 10%;
   width: 80%;
   height: 60vh;
@@ -39,7 +43,7 @@
 .modalAppt {
   position: fixed;
 
-  top: 30vh;
+  top: 10vh;
   left: 10%;
   width: 80%;
   height: 60vh;
