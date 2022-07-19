@@ -15,10 +15,12 @@
 }
 .modal {
   position: fixed;
+
   top: 30vh;
   left: 10%;
   width: 80%;
   height: 40vh;
+
   z-index: 100;
   overflow: hidden;
 }
@@ -29,12 +31,14 @@
   left: 10%;
   width: 80%;
   height: 60vh;
+
   z-index: 100;
   overflow: hidden;
 }
 
 .modalAppt {
   position: fixed;
+
   top: 30vh;
   left: 10%;
   width: 80%;

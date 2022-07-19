@@ -34,9 +34,10 @@ function Login(props) {
     }
     console.log(props.childData.length);
     props.childData.length === 0
-      ? navigate("/dashboard")
-      : navigate("/addChild");
-    loginSuccess();
+      ? console.log("Hello")
+      : navigate("/dashboard");
+
+    // : navigate("/children");
   };
 
   return (

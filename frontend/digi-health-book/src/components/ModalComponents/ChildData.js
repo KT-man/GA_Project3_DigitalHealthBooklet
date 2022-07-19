@@ -4,54 +4,7 @@ import styles from "./modal.module.css";
 import Button from "./Button";
 
 const ChildData = (props) => {
-  const [showChildDataModal, setShowChildDataModal] = useState(false);
-  const toSetShowChildDataModal = () => {
-    setShowChildDataModal(!showChildDataModal);
-  };
-
   console.log(props);
-  // let childDetails = props.childData.map((d, i) => {
-  //   let gender = "";
-  //   if (d.isMale) {
-  //     gender = "Male";
-  //   } else {
-  //     gender = "Female";
-  //   }
-
-  //   return (
-  //     <>
-  //       <h1> Your Child's Data</h1>
-  //       <h2 key={i + 1}>{d.name} </h2>
-  //       <li>
-  //         <ul>Gender : {gender}</ul>
-  //         <ul>Date of Birth : {d.DOB}</ul>
-  //       </li>
-  //     </>
-  //   );
-  // });
-
-  // let childGrowth = props.childGrowth.map((d, i) => {
-  //   return (
-  //     <>
-  //       <li>{d.date}</li>
-  //       <li>{d.height}</li>
-  //       <li>{d.weight}</li>
-  //       <li>{d.headCirc}</li>
-  //     </>
-  //   );
-  // });
-
-  // let childAppt = props.childAppt.map((d, i) => {
-  //   return (
-  //     <>
-  //       <li>{d.date}</li>
-  //       <li>{d.location}</li>
-  //       <li>{d.doctorName}</li>
-  //       <li>{d.futureAppt}</li>
-  //       <li>{d.reason}</li>
-  //     </>
-  //   );
-  // });
 
   return (
     <>
@@ -64,9 +17,73 @@ const ChildData = (props) => {
               {props.childData.name}'s Birthday:{" "}
               {props.childData.DOB.split("T")[0]}
             </div>
-            <div>Upcoming Appointments: </div>
-            <div>Growth Logs:</div>
-            <Button type="submit">Submit</Button>,
+            <br></br>
+            <hr></hr>
+            <br></br>
+            <div>
+              Upcoming Appointments:
+              {props.childData.appointments.length === 0 ? (
+                "Please add an appointment first!"
+              ) : (
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Date</td>
+                      <td>Location</td>
+                      <td>Reason</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {props.childData.appointments.map((appt) => {
+                      return (
+                        <tr key={appt._id}>
+                          <td>{appt.date.split("T")[0]}</td>
+                          <td>{appt.location}</td>
+                          <td>{appt.reason}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              )}
+            </div>
+            <br></br>
+            <hr></hr>
+            {/* Stretch goals afterwards to make the appointments / logs show most recent 5, then to scroll next page */}
+            <br></br>
+            <div>
+              Growth Logs:
+              {props.childData.logs.length === 0 ? (
+                "Please add a log first!"
+              ) : (
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Date</td>
+                      <td>Height</td>
+                      <td>Weight</td>
+                      <td>Head Circumference</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {props.childData.logs.map((log) => {
+                      return (
+                        <tr key={log._id}>
+                          <td>{log.date.split("T")[0]}</td>
+                          <td>{log.height}</td>
+                          <td>{log.weight}</td>
+                          <td>{log.headCirc}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              )}
+            </div>
+            <br></br>
+            <Button onClick={props.toSetShowChildDataModal} type="submit">
+              Close
+            </Button>
           </div>
         </div>,
         document.querySelector("#modal-root")
