@@ -24,7 +24,7 @@ const ChildRow = (props) => {
       <h2 onClick={toSetShowChildDataModal}>{props.childData.name} </h2>
       <div>
         <button
-          onClick={props.toSetShowLogModal}
+          onClick={toSetShowLogModal}
           class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
         >
           Add New Log
@@ -32,7 +32,7 @@ const ChildRow = (props) => {
       </div>
       <div>
         <button
-          onClick={props.toSetShowApptModal}
+          onClick={toSetShowApptModal}
           class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
         >
           Add New Appoinment
