@@ -13,6 +13,7 @@ module.exports = {
         fresia: "#EFE7BC",
         aquamarine: "#74BDCB",
         babyblue: "#E7F2F8",
+        blueberry: "#4d5896",
       },
     },
   },

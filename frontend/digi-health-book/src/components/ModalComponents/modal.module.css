@@ -9,24 +9,25 @@
 }
 
 .board {
-  background: #8e4d96;
+  background: #a9c5d4;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 10px;
 }
 
 .chart {
-  color: black
+  color: black;
 }
+
+/* ========== MODALS */
 .modal {
   position: fixed;
-
   top: 10vh;
   left: 10%;
   width: 80%;
-  height: 70vh;
-
+  height: 60vh;
+  padding-left: 20px;
   z-index: 100;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .modalLog {
@@ -37,25 +38,31 @@
   height: 60vh;
 
   z-index: 100;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .modalAppt {
   position: fixed;
-
   top: 10vh;
   left: 10%;
   width: 80%;
-  height: 60vh;
+  height: 70vh;
+  padding: 5em;
+
   z-index: 100;
-  overflow: hidden;
+  overflow: scroll;
 }
 .header {
   background: #74bdcb;
   color: #7d4183;
-  padding: 0.5rem;
+  padding: 2rem;
+  width: 100%;
   height: 5vh;
+  border-radius: 5px;
+  display: inline-block;
 }
+
+/* ======= INPUTS */
 
 .inputName {
   padding: 1rem;
@@ -68,17 +75,17 @@
 .inputLog {
   position: flex;
   right: 10px;
-  padding: 1rem;
+  padding: 2px;
   font-size: 20px;
   border-color: black;
   border-width: 1px;
   width: 300px;
-  margin: 2rem;
+  margin: 1rem;
 }
 
-.label {
+.inputDate {
   font-size: 20px;
-  color: white;
+  color: black;
   padding-left: 50px;
 }
 
@@ -100,11 +107,14 @@
 }
 
 .input {
-  padding: 1rem;
+  position: static;
+  padding: 2px;
   font-size: 20px;
   border-color: black;
   border-width: 1px;
   width: 300px;
+  margin: 0 auto;
+  padding-left: 50px;
 }
 
 @media (min-width: 600px) {

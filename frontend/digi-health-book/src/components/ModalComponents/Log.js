@@ -9,6 +9,10 @@ const Log = (props) => {
   const weightRef = useRef();
   const headCircRef = useRef();
 
+  const hideModal = () => {
+    props.toSetShowLogModal(!props.showLogModal);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -37,7 +41,7 @@ const Log = (props) => {
       console.log(addLogData);
       return alert(`Please input the correct log data`);
     }
-    props.toSetShowLogModal(!props.showLogModal);
+    hideModal();
     alert("New Log Added!");
   };
 
@@ -78,7 +82,7 @@ const Log = (props) => {
                 />
               </div>
               <div>
-                <label className={`${styles.label} `}>
+                <label className={`${styles.chicken} `}>
                   Head Circumference in cm:
                 </label>
                 <input
@@ -89,6 +93,7 @@ const Log = (props) => {
                 />
               </div>
               <Button type="submit">Submit</Button>
+              <Button onClick={hideModal}>Close X</Button>
             </form>
           </div>
         </div>,

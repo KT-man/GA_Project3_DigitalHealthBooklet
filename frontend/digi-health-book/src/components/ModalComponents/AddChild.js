@@ -12,6 +12,9 @@ const AddChild = (props) => {
   function onChangeValue(e) {
     setIsMale(e.target.value);
   }
+  const hideModal = () => {
+    props.toSetShowAddChildModal(!props.showAddChildModal);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +43,8 @@ const AddChild = (props) => {
     } else if (addChildData.status === "ok") {
       console.log(`${addChildData.message}`);
     }
-    props.toSetShowAddChildModal(!props.showAddChildModal);
+
+    hideModal();
   };
 
   return (
@@ -92,6 +96,7 @@ const AddChild = (props) => {
                 />
               </div>
               <Button type="submit">Add Child</Button>
+              <Button onClick={hideModal}>Close X</Button>
             </form>
           </div>
         </div>,

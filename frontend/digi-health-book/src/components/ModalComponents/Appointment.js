@@ -14,6 +14,9 @@ const Appointment = (props) => {
     setFutureAppt(e.target.value);
     console.log(e.target.value);
   }
+  const hideApptModal = () => {
+    props.toSetShowApptModal(!props.showApptModal);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,7 +47,7 @@ const Appointment = (props) => {
       alert(`Please enter Appointment details correctly`);
     }
     // input body into the api here
-    props.toSetShowApptModal(!props.showApptModal);
+    hideApptModal();
     alert("New appointment added!");
   };
 
@@ -56,6 +59,7 @@ const Appointment = (props) => {
             <h2 className={styles.header}>
               Input Your Child's New Appointment here!
             </h2>
+
             <form onSubmit={handleSubmit}>
               <div>
                 <label className={`${styles.label}`}>Date</label>
@@ -67,9 +71,7 @@ const Appointment = (props) => {
                 />
               </div>
               <div>
-                <label className={`${styles.label} `}>
-                  Location of Appointment
-                </label>
+                <label className={`${styles.label} `}>Location</label>
                 <input
                   className={`${styles.inputName}`}
                   type="text"
@@ -108,9 +110,7 @@ const Appointment = (props) => {
                 </label>
               </div>
               <div>
-                <label className={`${styles.label} `}>
-                  Reason of Appointment
-                </label>
+                <label className={`${styles.label} `}>Reason</label>
                 <input
                   className={`${styles.inputName}`}
                   type="text"
@@ -119,6 +119,7 @@ const Appointment = (props) => {
                 />
               </div>
               <Button type="submit">Submit</Button>
+              <Button onClick={hideApptModal}>Close X</Button>
             </form>
           </div>
         </div>,

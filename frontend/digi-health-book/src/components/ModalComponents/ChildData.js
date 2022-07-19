@@ -84,28 +84,29 @@ const ChildData = (props) => {
                     })}
                   </tbody>
                 </table>
-                
               )}
-                    <button
-          onClick={toSetShowHeightModal}
-          class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
-        >
-          Show {props.childData.name}'s' Height Chart
-        </button>
+              <br />
+              <button
+                onClick={toSetShowHeightModal}
+                class="my-8 px-5 py-1 text-md bg-plumish text-white font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+              >
+                Show {props.childData.name}'s' Height Chart
+              </button>
             </div>
             <br></br>
             <Button onClick={props.toSetShowChildDataModal} type="submit">
-              Close
+              Close X
             </Button>
           </div>
         </div>,
         document.querySelector("#modal-root")
       )}
-                  {showHeightModal && (
-              <HeightDisplay
-              childData={props.childData}
-              toSetShowHeightModal = {toSetShowHeightModal}></HeightDisplay>
-            )}
+      {showHeightModal && (
+        <HeightDisplay
+          childData={props.childData}
+          toSetShowHeightModal={toSetShowHeightModal}
+        ></HeightDisplay>
+      )}
     </>
   );
 };
