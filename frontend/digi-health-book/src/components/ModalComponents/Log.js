@@ -4,6 +4,7 @@ import styles from "./modal.module.css";
 import Button from "./Button";
 
 const Log = (props) => {
+  console.log(props);
   const dateRef = useRef();
   const heightRef = useRef();
   const weightRef = useRef();
@@ -13,10 +14,11 @@ const Log = (props) => {
     e.preventDefault();
 
     const data = {
-      date: dateRef,
-      height: heightRef,
-      weight: weightRef,
-      headCirc: headCircRef,
+      childrenname: props.childData.name,
+      date: dateRef.current.value,
+      height: heightRef.current.value,
+      weight: weightRef.current.value,
+      headCirc: headCircRef.current.value,
     };
 
     const url = "/users/addLog";
@@ -31,21 +33,23 @@ const Log = (props) => {
     if (addLogData.status === "error") {
       alert(`Please input the correct log data`);
     }
-    // input body into the api here
+    props.toSetShowLogModal(!props.showLogModal);
+    alert("New Log Added!");
   };
+
   return (
     <>
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modalLog}`}>
             <h2 className={styles.header}>
-              Input Your Child's New Growth here!
+              New Log details for {props.childData.name}
             </h2>
             <form onSubmit={handleSubmit}>
               <div>
                 <label className={`${styles.label} `}>Date:</label>
                 <input
-                   className={`${styles.inputLog}`}
+                  className={`${styles.inputLog}`}
                   type="date"
                   placeholder="Date of Input"
                   ref={dateRef}
@@ -70,7 +74,9 @@ const Log = (props) => {
                 />
               </div>
               <div>
-                <labe className={`${styles.label} `}>Head Circumference in cm:</labe>
+                <label className={`${styles.label} `}>
+                  Head Circumference in cm:
+                </label>
                 <input
                   className={`${styles.inputLog}`}
                   type="number"
@@ -78,9 +84,7 @@ const Log = (props) => {
                   ref={headCircRef}
                 />
               </div>
-              <Button type="submit" onClick={() => props.okayClicked()}>
-                Submit
-              </Button>
+              <Button type="submit">Submit</Button>
             </form>
           </div>
         </div>,

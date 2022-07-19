@@ -20,11 +20,12 @@ const Appointment = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      date: dateRef,
-      location: locationRef,
-      doctorName: doctorNameRef,
-      futureAppt: futureAppt,
-      reason: reasonRef,
+      childrenname: props.childData.name,
+      date: dateRef.current.value,
+      location: locationRef.current.value,
+      doctorName: doctorNameRef.current.value,
+      futureAppt: futureAppt.current,
+      reason: reasonRef.current.value,
     };
 
     const url = "/users/addAppt";
@@ -39,6 +40,8 @@ const Appointment = (props) => {
       alert(`Please enter Appointment details correctly`);
     }
     // input body into the api here
+    props.toSetShowApptModal(!props.showApptModal);
+    alert("New appointment added!");
   };
 
   return (
@@ -111,9 +114,7 @@ const Appointment = (props) => {
                   ref={reasonRef}
                 />
               </div>
-              <Button type="submit" onClick={() => props.okayClicked()}>
-                Submit
-              </Button>
+              <Button type="submit">Submit</Button>
             </form>
           </div>
         </div>,
