@@ -7,6 +7,7 @@ import WeightDisplay from "./WeightDisplay";
 import HeadCircDisplay from "./HeadCircDisplay";
 import EditLog from "./EditLog";
 import ButtonE from "./ButtonE";
+import ButtonDelete from "./ButtonDelete";
 
 const ChildData = (props) => {
   const [showHeightModal, setShowHeightModal] = useState(false);
@@ -72,7 +73,7 @@ const ChildData = (props) => {
             <div>
               Growth Logs:
               {props.childData.logs.length === 0 ? (
-                "Please add a log first!"
+                <p>"Please add a log first!"</p>
               ) : (
                 <table>
                   <thead>
@@ -92,9 +93,12 @@ const ChildData = (props) => {
                           <td>{log.weight}</td>
                           <td>{log.headCirc}</td>
                           <td>
-                            <button>Delete</button>
-                          </td>
-                          <td>
+                            <ButtonDelete
+                              id={log._id}
+                              toSetDeleteCounter={props.toSetDeleteCounter}
+                            >
+                              Delete
+                            </ButtonDelete>
                             <ButtonE
                               toSetShowEditLogModal={
                                 props.toSetShowEditLogModal
@@ -111,25 +115,27 @@ const ChildData = (props) => {
                   </tbody>
                 </table>
               )}
+              <br />
               <button
                 onClick={toSetShowHeightModal}
                 class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
               >
                 Show {props.childData.name}'s' Height Chart
               </button>
+              <br />
               <button
                 onClick={toSetShowWeightModal}
                 class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
               >
                 Show {props.childData.name}'s' Weight Chart
               </button>
+              <br />
               <button
                 onClick={toSetShowHeadCircModal}
                 class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
               >
                 Show {props.childData.name}'s' Head Circ Chart
               </button>
-
             </div>
             <br></br>
             <Button onClick={props.toSetShowChildDataModal} type="submit">

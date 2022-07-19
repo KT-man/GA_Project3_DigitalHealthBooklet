@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import Appointment from "./ModalComponents/Appointment";
-import Log from "./ModalComponents/Log";
+
 import AddChild from "./ModalComponents/AddChild";
 
 import ChildRow from "./ChildRow";
@@ -28,6 +27,11 @@ const WelcomePage = (props) => {
   const [showEditLogModal, setShowEditLogModal] = useState(false);
   const toSetShowEditLogModal = () => {
     setShowEditLogModal(!showEditLogModal);
+  };
+
+  const [deleteCounter, setDeleteCounter] = useState(0);
+  const toSetDeleteCounter = () => {
+    setDeleteCounter(deleteCounter + 1);
   };
 
   // showeditmodalstate
@@ -61,20 +65,28 @@ const WelcomePage = (props) => {
 
     fetchChildData(url, config);
     childDataRef.current = childData;
-  }, [childDataRef, showEditLogModal, showAddChildModal, showLogModal, showApptModal]);
+  }, [
+    childDataRef,
+    showEditLogModal,
+    showAddChildModal,
+    showLogModal,
+    showApptModal,
+    deleteCounter,
+  ]);
 
   return (
     <>
       <div>
         <header class="bg-aquamarine"></header>
         <h1>Welcome to your Digital Child Booklet</h1>
-
-        <button
-          onClick={toSetShowAddChildModal}
-          class="my-8 px-5 py-1 text-md text-white bg-plumish font-semibold rounded-full border border-plumish/40 hover:text-white hover:bg-white hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
-        >
-          Add Child
-        </button>
+        <div class="my-8">
+          <button
+            onClick={toSetShowAddChildModal}
+            class="px-5 py-1 text-md text-white bg-plumish font-semibold rounded-full border border-plumish/40 hover:text-white hover:bg-white hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+          >
+            Add Child
+          </button>
+        </div>
         <br />
         {childData.map((d, i) => {
           return (
@@ -84,10 +96,11 @@ const WelcomePage = (props) => {
               childData={d}
               showLogModal={showLogModal}
               showApptModal={showApptModal}
-              showEditLogModal = {showEditLogModal}
+              showEditLogModal={showEditLogModal}
               toSetShowApptModal={toSetShowApptModal}
               toSetShowLogModal={toSetShowLogModal}
               toSetShowEditLogModal={toSetShowEditLogModal}
+              toSetDeleteCounter={toSetDeleteCounter}
             ></ChildRow>
           );
         })}
