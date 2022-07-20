@@ -4,7 +4,6 @@ import ButtonE from "./ButtonE";
 import ButtonDelete from "./ButtonDelete";
 import EditAppt from "./EditAppt";
 const ChildDataApptRows = (props) => {
-  console.log(props);
   const [showEditApptModal, setShowEditApptModal] = useState(false);
   const toSetShowEditApptModal = () => {
     setShowEditApptModal(!showEditApptModal);
@@ -19,6 +18,7 @@ const ChildDataApptRows = (props) => {
           <ButtonDelete
             id={props.id}
             toSetDeleteCounter={props.toSetDeleteCounter}
+            type="appt"
           >
             Delete
           </ButtonDelete>

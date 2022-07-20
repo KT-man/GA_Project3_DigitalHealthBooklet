@@ -19,6 +19,7 @@ const ChildDataLogRows = (props) => {
           <ButtonDelete
             id={props.id}
             toSetDeleteCounter={props.toSetDeleteCounter}
+            type="log"
           >
             Delete
           </ButtonDelete>

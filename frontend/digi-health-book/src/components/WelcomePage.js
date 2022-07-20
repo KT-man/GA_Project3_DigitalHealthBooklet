@@ -20,7 +20,7 @@ const WelcomePage = (props) => {
     setDeleteCounter(deleteCounter + 1);
   };
 
-  // showeditmodalstate
+  // showeditmodalstate //
 
   const fetchChildData = async (url, config) => {
     try {
