@@ -6,17 +6,57 @@ import ReactDOM from "react-dom";
 import Button from "./Button";
 
 function HeightDisplay(props) {
-  const barColors = [
-    "#2A9ED6",
-    "#EF3935",
-    "#20A67A",
-    "#EFA92E",
-    "purple",
-    "#EF3935",
-  ];
   const hideModal = () => {
     props.toSetShowHeightModal(!props.showAddHeightModal);
   };
+
+  const options = {
+    plugins: {
+      legend: {
+        labels: {
+          color: "rgb(0,0,0)",
+          font: {
+            family: "Montserrat", // Add your font here to change the font of your legend label
+            size: 20,
+          },
+        },
+        tooltip: {
+          bodyFont: {
+            family: "Montserrat", // Add your font here to change the font of your tooltip body
+          },
+          titleFont: {
+            family: "Montserrat", // Add your font here to change the font of your tooltip title
+          },
+        },
+      },
+    },
+    scales: {
+      yAxes: {
+        grid: {
+          display: false,
+          color: "black",
+        },
+        ticks: {
+          color: "black",
+          font: {
+            family: "Montserrat", // Add your font here to change the font of your y axis
+            size: 16,
+          },
+        },
+      },
+      xAxes: {
+        ticks: {
+          padding: 0,
+          color: "black",
+          font: {
+            family: "Montserrat", // Add your font here to change the font of your x axis
+            size: 16,
+          },
+        },
+      },
+    },
+  };
+
   const xValues = props.childData.logs.map((data) => {
     return data.date.split("T")[0];
   });
@@ -36,10 +76,15 @@ function HeightDisplay(props) {
                 data={{
                   labels: xValues,
                   datasets: [
-                    { label: "height", borderColor: "black", data: yValues },
+                    {
+                      label: "Height",
+                      color: "rgb(0,0,0)",
+                      borderColor: "black",
+                      data: yValues,
+                    },
                   ],
                 }}
-                options={{ legend: { display: "Height" } }}
+                options={options}
               />
             </div>
 
