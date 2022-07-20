@@ -38,13 +38,11 @@ const ButtonDelete = (props) => {
         class="px-8 py-1 text-md text-white font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
         className={`btn ${styles.button} ${props.className}`}
         type="button"
-        // onClick={handleSubmitDeleteAppt}
         onClick={(e) => {
           props.type === "appt"
             ? handleSubmitDelete(apptPath, apptId)
             : handleSubmitDelete(logPath, logId);
         }}
-        // }console.log("appt") : console.log("log")
       >
         Delete
       </button>
