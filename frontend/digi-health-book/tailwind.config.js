@@ -2,7 +2,26 @@
 module.exports = {
   content: [
     "./src/components/SplashPage.js",
+    "./src/components/SplashText.js",
+    "./src/components/Register.js",
+    "./src/components/Login.js",
     "./src/components/Button.js",
+    "./src/components/ChildRow.js",
+    "./src/components/ModalComponents/ChildData.js",
+    "./src/components/ModalComponents/ChildDataLogRows.js",
+    "./src/components/ModalComponents/ChildDataApptRows.js",
+    "./src/components/ModalComponents/ButtonE.js",
+    "./src/components/ModalComponents/ButtonDelete.js",
+    "./src/components/ModalComponents/Button.js",
+    "./src/components/ModalComponents/Appointment.js",
+    "./src/components/ModalComponents/AddChild.js",
+    "./src/components/ModalComponents/EditAppt.js",
+    "./src/components/ModalComponents/EditLog.js",
+    "./src/components/ModalComponents/HeadCircDisplay.js",
+    "./src/components/ModalComponents/HeightDisplay.js",
+    "./src/components/ModalComponents/Log.js",
+    "./src/components/ModalComponents/WeightDisplay.js",
+
     "./src/components/ModalComponents/*",
   ],
   theme: {

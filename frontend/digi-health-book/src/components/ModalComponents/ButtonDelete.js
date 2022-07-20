@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, Children } from "react";
-import styles from "./Button.module.css";
+// import styles from "./Button.module.css";
 import EditLog from "./EditLog";
 
 const ButtonDelete = (props) => {
@@ -35,8 +35,8 @@ const ButtonDelete = (props) => {
   return (
     <>
       <button
-        class="px-8 py-1 mxtext-md text-white font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
-        className={`btn ${styles.button} ${props.className} `}
+        class="px-4 py-1 mxtext-md text-white font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish/60 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+        // className={`btn ${styles.button} ${props.className} `}
         id="black-bin"
         type="button"
         onClick={(e) => {
@@ -45,8 +45,7 @@ const ButtonDelete = (props) => {
             : handleSubmitDelete(logPath, logId);
         }}
       >
-        <div className="black-bin"></div>
-        {/* Delete */}
+        <div className="black-bin"></div>X
       </button>
     </>
   );

@@ -49,8 +49,10 @@ const WelcomePage = (props) => {
   return (
     <>
       <div>
-        <header class="bg-aquamarine">
-          <h1>Welcome to your Digital Child Booklet</h1>
+        <header>
+          <div class="bg-aquamarine">
+            <h1>Welcome to your Digital Child Booklet</h1>
+          </div>
         </header>
         <div class="my-8">
           <button

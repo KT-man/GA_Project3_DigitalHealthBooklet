@@ -94,8 +94,10 @@ const Log = (props) => {
                   ref={headCircRef}
                 />
               </div>
-              <Button type="submit">Submit</Button>
-              <Button onClick={hideModal}>Close X</Button>
+              <div class="px-4">
+                <Button type="submit">Submit</Button>
+                <Button onClick={hideModal}>Close X</Button>
+              </div>
             </form>
           </div>
         </div>,

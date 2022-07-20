@@ -19,14 +19,3 @@
 .button:focus {
   outline: none;
 }
-
-#black-bin {
-  background-image: url("https://cdn-icons-png.flaticon.com/512/484/484611.png");
-}
-.black-bin::after {
-  content: url("https://cdn-icons-png.flaticon.com/512/484/484611.png");
-}
-
-.black-bin:hover {
-  content: url("https://cdn-icons-png.flaticon.com/512/484/484662.png");
-}

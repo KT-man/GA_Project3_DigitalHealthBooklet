@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import ReactDOM from "react-dom";
 import styles from "./modal.module.css";
 import Button from "./Button";
@@ -46,12 +46,13 @@ const EditAppt = (props) => {
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modalLog}`}>
-            <span class="inline-flex">
+            <span class="flex-inline">
               <h2 className={styles.header}>Edit Appointment</h2>
               <Button onClick={props.toSetShowEditApptModal} type="submit">
                 Close X
               </Button>
             </span>
+
             <form onSubmit={handleSubmit}>
               <div>
                 <label className={`${styles.label} `}>Date:</label>

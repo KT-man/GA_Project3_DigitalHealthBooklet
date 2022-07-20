@@ -15,7 +15,7 @@
 }
 
 /* ========== MODALS */
-.modal {
+/* .modal {
   position: fixed;
   top: 10vh;
   left: 10%;
@@ -69,11 +69,12 @@
   color: #7d4183;
   padding: 10px;
   border-radius: 5px;
-  display: inline;
+  display: block;
+  width: 100%;
 }
 
 /* ======= INPUTS */
-
+/* 
 .inputName {
   padding: 1rem;
   font-size: 20px;
@@ -126,6 +127,9 @@
   margin: 0 auto;
   padding-left: 50px;
 }
+.label {
+  padding-left: 15px;
+}
 
 td {
   padding: 0.6em;
@@ -136,4 +140,4 @@ td {
     left: calc(50% - 20rem);
     width: 40rem;
   }
-}
+} */
