@@ -3,10 +3,10 @@ import styles from "./Button.module.css";
 import EditLog from "./EditLog";
 
 const ButtonDelete = (props) => {
-  console.log(props);
   //set state [isDeleted, setIsDeleted]= useState(false); //
 
   const handleSubmitDelete = async (e) => {
+    console.log(e);
     const url = "/users/deleteLog";
     const res = await fetch(url, {
       method: "DELETE",

@@ -11,7 +11,6 @@ const WelcomePage = (props) => {
 
   const [showAddChildModal, setShowAddChildModal] = useState(false);
   const toSetShowAddChildModal = () => {
-    console.log(`button is clickced`);
     setShowAddChildModal(!showAddChildModal);
   };
 
@@ -24,8 +23,6 @@ const WelcomePage = (props) => {
 
   const fetchChildData = async (url, config) => {
     try {
-      console.log("running fetchChildData");
-
       const url = `/users/children`; //=> to doublecheck
       const config = {
         method: "GET",
@@ -40,7 +37,7 @@ const WelcomePage = (props) => {
       if (res.status !== 200 && data.message === "no children found!") {
         throw new Error("Couldnt fetch child data");
       }
-      console.log(data);
+
       setChildData(data[0].children);
     } catch (err) {
       setError(err.message);
