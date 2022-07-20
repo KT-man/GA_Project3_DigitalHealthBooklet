@@ -1,0 +1,77 @@
+# Metadata for PHPC under National COVID-19 Vaccine Program
+---
+Identifier: '7ce134bb-ca55-44bf-9138-9b9dd56b4dc2'
+Name: 'phpc-under-national-covid-19-vaccine-program'
+Title: 'PHPC under National COVID-19 Vaccine Program'
+Description: 'Address of PHPC under National COVID-19 Vaccine Program'
+Topics:
+  - 'Health'
+Keywords:
+  - 'healthcare'
+Publisher:
+  Name: 'Ministry of Health'
+  Admin 1:
+    Name: 'wee kheng how'
+    Department: 'CSOG'
+    Email: 'wee_kheng_how@moh.gov.sg'
+Sources:
+  - 'Ministry of Health'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Monthly'
+Coverage: '2021-05-01 to 2022-07-13'
+Last Updated: '2022-07-13T15:13:04.373921'
+Resources:
+  -
+    Identifier: 'f179cb8a-20ad-4c91-b990-e315ed383018'
+    Title: 'Details of PHPC (as of 27 Jun 2022)'
+    Url: 'https://storage.data.gov.sg/phpc-under-national-covid-19-vaccine-program/resources/details-of-phpc-as-of-27-jun-2022-2022-06-28T23-44-40Z.csv'
+    Format: 'CSV'
+    Coverage: '2021-05-01 to 2022-06-27'
+    Description: 'contains address, name and type of vaccine offered'
+    Last Updated: '2022-06-28T23:44:40.691789'
+    Schema:
+      -
+        Name: 'name'
+        Title: 'Name'
+        Type: 'text'
+        Sub Type: 'general'
+        Description: 'Name of the clinic'
+      -
+        Name: 'address'
+        Title: 'Address'
+        Type: 'text'
+        Sub Type: 'general'
+        Description: 'address of the clinic'
+      -
+        Name: 'vaccine_type'
+        Title: 'Vaccine type'
+        Type: 'text'
+        Sub Type: 'general'
+        Description: 'vaccine offered by the clinc'
+  -
+    Identifier: '25123ba2-370b-40ca-adc7-179800b28c80'
+    Title: 'Details of PHPC (as of 13 Jul 2022)'
+    Url: 'https://storage.data.gov.sg/phpc-under-national-covid-19-vaccine-program/resources/details-of-phpc-as-of-13-jul-2022-2022-07-13T15-13-03Z.csv'
+    Format: 'CSV'
+    Coverage: '2021-05-01 to 2022-07-13'
+    Description: 'correctly error on clinic'
+    Last Updated: '2022-07-13T15:13:03.801577'
+    Schema:
+      -
+        Name: 'name'
+        Title: 'Name'
+        Type: 'text'
+        Sub Type: 'general'
+        Description: 'Name of Clinic'
+      -
+        Name: 'address'
+        Title: 'Address'
+        Type: 'text'
+        Sub Type: 'general'
+        Description: 'address of the clinic'
+      -
+        Name: 'vaccine_type'
+        Title: 'Vaccine type'
+        Type: 'text'
+        Sub Type: 'general'
+        Description: 'type of vaccine offered by the clinic'
