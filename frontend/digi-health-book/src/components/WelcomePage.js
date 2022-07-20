@@ -16,12 +16,6 @@ const WelcomePage = (props) => {
   const toSetDeleteCounter = () => {
     setDeleteCounter(deleteCounter + 1);
   };
-  // const [deleteCounter, setDeleteCounter] = useState(0);
-  // const toSetDeleteCounter = () => {
-  //   setDeleteCounter(deleteCounter + 1);
-  // };
-
-  // showeditmodalstate //
 
   const fetchChildData = async (url, config) => {
     try {
@@ -48,15 +42,6 @@ const WelcomePage = (props) => {
   };
 
   useEffect(() => {
-    //=> to doublecheck on url
-    // const url = `/users/children`; //=> to doublecheck
-    // const config = {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // };
-
     fetchChildData();
     childDataRef.current = childData;
   }, [childDataRef, showAddChildModal, deleteCounter]);

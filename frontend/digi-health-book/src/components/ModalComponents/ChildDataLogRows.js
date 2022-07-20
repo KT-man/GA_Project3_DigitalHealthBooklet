@@ -8,6 +8,8 @@ const ChildDataLogRows = (props) => {
   const toSetShowEditLogModal = () => {
     setShowEditLogModal(!showEditLogModal);
   };
+
+  console.log(props.id)
   return (
     <>
       <tr>

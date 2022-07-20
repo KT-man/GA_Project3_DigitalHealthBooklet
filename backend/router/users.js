@@ -364,6 +364,7 @@ router.get("/children", auth, async (req, res) => {
   }
 });
 
+
 // --------------- Add log
 router.patch("/addLog", auth, async (req, res) => {
   try {
@@ -447,7 +448,6 @@ router.delete("/deleteLog", auth, async (req, res) => {
       "children.logs": { $elemMatch: { _id: req.body.childLogId } },
     });
 
-    console.log(userLog);
 
     if (!userLog) {
       return res.status(400).json({
@@ -455,17 +455,6 @@ router.delete("/deleteLog", auth, async (req, res) => {
         message: "Please ensure there are existing logs to delete",
       });
     }
-    const isDeletedStatus = await User.findOneAndUpdate(
-      {
-        username: req.decoded.username,
-        "children.logs": { $elemMatch: { _id: req.body.childLogId } },
-      },
-      {
-        $set: {
-          "children.$.logs": { isDeleted: true },
-        },
-      }
-    );
 
     const deleteLog = await User.findOneAndUpdate(
       {
@@ -478,12 +467,14 @@ router.delete("/deleteLog", auth, async (req, res) => {
         },
       }
     );
-    res.json(deleteLog, isDeletedStatus);
+    res.json(deleteLog);
   } catch (error) {
     console.log(error);
     res.status(400).json({ status: "error", message: "error encountered" });
   }
 });
+
+
 
 // ----------------- Add appt
 router.patch("/addAppt", auth, async (req, res) => {
