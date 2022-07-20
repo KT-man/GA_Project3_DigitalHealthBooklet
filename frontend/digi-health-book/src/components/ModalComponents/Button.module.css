@@ -6,7 +6,7 @@
   color: white;
   padding: 0.25rem 1rem;
   cursor: pointer;
-  margin-left: 10em;
+  margin-left: 40%;
 }
 
 .button:hover,
@@ -19,3 +19,5 @@
 .button:focus {
   outline: none;
 }
+
+

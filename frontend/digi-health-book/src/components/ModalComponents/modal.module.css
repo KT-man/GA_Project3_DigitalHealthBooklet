@@ -14,9 +14,9 @@
   border-radius: 10px;
 }
 
-.chart {
-  color: black;
-}
+
+
+
 
 /* ========== MODALS */
 .modal {
@@ -29,6 +29,23 @@
   z-index: 100;
   overflow: scroll;
 }
+
+.modalChart {
+  position: fixed;
+  top: 10vh;
+  left: 10%;
+  width: 80%;
+  height: 60vh;
+  padding-left: 20px;
+  z-index: 100;
+}
+
+.modalBoard {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+}
+
 
 .modalLog {
   position: fixed;
@@ -123,3 +140,7 @@
     width: 40rem;
   }
 }
+
+
+
+

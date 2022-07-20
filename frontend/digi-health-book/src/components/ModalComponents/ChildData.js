@@ -26,9 +26,11 @@ const ChildData = (props) => {
   const toSetShowHeadCircModal = () => {
     setShowHeadCircModal(!showHeadCircModal);
   };
+
   let today = new Date();
   let birthDate = new Date(props.childData.DOB);
   const age = today.getFullYear() - birthDate.getFullYear();
+
 
   return (
     <>
@@ -46,6 +48,7 @@ const ChildData = (props) => {
             <div>Gender: {props.childData.isMale ? "Male" : "Female"}</div>
             <div>
               {props.childData.name}'s Birthday:{" "}
+              
               {props.childData.DOB.split("T")[0]}
             </div>
             <div>Age : {age}</div>

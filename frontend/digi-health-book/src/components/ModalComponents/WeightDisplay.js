@@ -14,7 +14,7 @@ function WeightDisplay(props) {
     plugins: {
       legend: {
         labels: {
-          color: "rgb(0,0,0)",
+          color: "maroon",
           font: {
             family: "Montserrat", // Add your font here to change the font of your legend label
             size: 20,
@@ -78,8 +78,7 @@ function WeightDisplay(props) {
                   datasets: [
                     {
                       label: "Weight",
-                      color: "rgb(0,0,0)",
-                      borderColor: "black",
+                      borderColor: "maroon",
                       data: yValues,
                     },
                   ],

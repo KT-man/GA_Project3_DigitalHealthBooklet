@@ -19,6 +19,8 @@ const ChildRow = (props) => {
     setShowApptModal(!showApptModal);
   };
 
+
+
   return (
     <div>
       <div className="card">
@@ -50,6 +52,7 @@ const ChildRow = (props) => {
       </div>
       {showChildDataModal && (
         <ChildData
+ 
           childData={props.childData}
           toSetShowChildDataModal={toSetShowChildDataModal}
           toSetDeleteCounter={props.toSetDeleteCounter}

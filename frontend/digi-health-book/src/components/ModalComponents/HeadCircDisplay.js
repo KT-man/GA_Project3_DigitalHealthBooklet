@@ -15,7 +15,7 @@ function HeadCircDisplay(props) {
     plugins: {
       legend: {
         labels: {
-          color: "rgb(0,0,0)",
+          color: "green",
           font: {
             family: "Montserrat", // Add your font here to change the font of your legend label
             size: 20,
@@ -81,8 +81,8 @@ function HeadCircDisplay(props) {
                   datasets: [
                     {
                       label: "Head Circumference",
-                      color: "rgb(0,0,0)",
-                      borderColor: "black",
+                      color: "green",
+                      borderColor: "green",
                       data: yValues,
                     },
                   ],
