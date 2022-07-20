@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./db/db");
 const users = require("./router/users");
+const clinics = require("./router/clinics");
 const cookieParser = require("cookie-parser");
 
 const app = express();
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/users", users);
-// Find out what this line does
+app.use("/clinics", clinics);
 
 const PORT = process.env.PORT || 5001;
 
