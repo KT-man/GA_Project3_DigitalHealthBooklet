@@ -9,6 +9,8 @@ const ButtonDelete = (props) => {
   const apptPath = "/users/deleteAppt";
   const logPath = "/users/deleteLog";
 
+  // const wasteBasketUnicode = \u1F5D1;
+
   const handleSubmitDelete = async (path, id) => {
     const url = path;
     const res = await fetch(url, {
@@ -45,8 +47,7 @@ const ButtonDelete = (props) => {
             : handleSubmitDelete(logPath, logId);
         }}
       >
-        <div className="black-bin"></div>
-        {/* Delete */}
+        X
       </button>
     </>
   );

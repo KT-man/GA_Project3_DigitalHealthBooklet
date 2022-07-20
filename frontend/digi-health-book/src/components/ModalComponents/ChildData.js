@@ -69,7 +69,7 @@ const ChildData = (props) => {
                 ) : (
                   <table>
                     <thead>
-                      <tr class="odd:bg-white even:bg-slate-50">
+                      <tr>
                         <td>
                           <span class="font-bold">Date</span>
                         </td>
