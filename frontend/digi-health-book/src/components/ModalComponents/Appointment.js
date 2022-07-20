@@ -49,6 +49,8 @@ const Appointment = (props) => {
     // input body into the api here
     hideApptModal();
     alert("New appointment added!");
+
+    props.fetchChildData();
   };
 
   return (

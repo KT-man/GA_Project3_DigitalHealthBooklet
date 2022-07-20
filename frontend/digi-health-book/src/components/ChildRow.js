@@ -46,6 +46,7 @@ const ChildRow = (props) => {
           childData={props.childData}
           toSetShowChildDataModal={toSetShowChildDataModal}
           toSetDeleteCounter={props.toSetDeleteCounter}
+          fetchChildData={props.fetchChildData}
         ></ChildData>
       )}
 
@@ -54,12 +55,14 @@ const ChildRow = (props) => {
           childData={props.childData}
           showLogModal={showLogModal}
           toSetShowLogModal={toSetShowLogModal}
+          fetchChildData={props.fetchChildData}
         ></Log>
       )}
       {showApptModal && (
         <Appointment
           childData={props.childData}
           toSetShowApptModal={toSetShowApptModal}
+          fetchChildData={props.fetchChildData}
         ></Appointment>
       )}
     </div>
