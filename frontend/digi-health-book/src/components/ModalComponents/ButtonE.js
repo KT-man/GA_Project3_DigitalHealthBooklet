@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 // import styles from "./Button.module.css";
+
 import EditLog from "./EditLog";
 
 const ButtonE = (props) => {

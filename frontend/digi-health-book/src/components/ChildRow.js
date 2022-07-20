@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import Appointment from "./ModalComponents/Appointment";
 import Log from "./ModalComponents/Log";
 import ChildData from "./ModalComponents/ChildData";

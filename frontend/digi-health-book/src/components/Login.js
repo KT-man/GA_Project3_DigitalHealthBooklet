@@ -37,11 +37,12 @@ function Login(props) {
   return (
     <div>
       <header class="bg-aquamarine flex">
-        <img src="./logo.png" alt="digiHealth logo"></img>
+        <img src="./2.png" alt="digiHealth logo"></img>
       </header>
-      <h1 class="text-3xl text-slate-600"> Welcome!</h1>
-      <h2>Please Login </h2>
-
+      <h1 class="text-3xl text-slate-600"> </h1>
+      <div class="block h-40">
+        <h2>Please enter username and password </h2>
+      </div>
       <div>
         <form onSubmit={handleOnSubmit}>
           <div class="block">
@@ -53,7 +54,7 @@ function Login(props) {
               placeholder="Username"
             />
           </div>
-          <div class="block">
+          <div class="block py-5 ">
             <label> Password </label>
             <input
               type="text"

@@ -20,11 +20,16 @@ h1 {
   font-size: xxx-large;
   background-color: rgba(116, 189, 203, 0.75);
 }
+image {
+  display: inline-flex;
+}
 
 .nav {
   text-align: right;
   width: 30vw;
   margin: 80px auto;
+  float: left;
+  display: inline;
 }
 .nav > ul > li {
   float: left;
@@ -83,7 +88,7 @@ div > ul {
 }
 
 /* ========== MODALS */
-.modal {
+/* .modal {
   position: fixed;
   top: 10vh;
   left: 10%;
@@ -139,11 +144,11 @@ div > ul {
   border-radius: 5px;
   display: block;
   width: 100%;
-}
+} */
 
 /* ======= INPUTS */
 
-.inputName {
+/* .inputName {
   padding: 1rem;
   font-size: 20px;
   border-color: black;
@@ -208,4 +213,4 @@ td {
     left: calc(50% - 20rem);
     width: 40rem;
   }
-}
+} */

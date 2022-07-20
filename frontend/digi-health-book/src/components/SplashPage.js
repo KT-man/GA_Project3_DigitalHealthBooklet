@@ -6,7 +6,7 @@ function SplashPage() {
     <div>
       <header class="px-5 py-5 bg-aquamarine">
         <img class=" w-40" src="../2.png" alt="digiHealth logo"></img>
-        {/* <h1 class="text-slate-600 p-static">digi Health Book SG</h1> */}
+        <h1 class="text-slate-600 p-static">digi Health Book SG</h1>
         <div class=" max-w-sm pt-4">
           <div>
             <a

@@ -15,7 +15,7 @@
 }
 
 /* ========== MODALS */
-/* .modal {
+.modal {
   position: fixed;
   top: 10vh;
   left: 10%;
@@ -74,7 +74,7 @@
 }
 
 /* ======= INPUTS */
-/* 
+
 .inputName {
   padding: 1rem;
   font-size: 20px;
@@ -140,4 +140,4 @@ td {
     left: calc(50% - 20rem);
     width: 40rem;
   }
-} */
+}

@@ -90,7 +90,7 @@ const ChildData = (props) => {
                             date={appt.date}
                             location={appt.location}
                             reason={appt.reason}
-                            deleteCounter = {props.deleteCounter}
+                            deleteCounter={props.deleteCounter}
                             toSetDeleteCounter={props.toSetDeleteCounter}
                             fetchChildData={props.fetchChildData}
                           ></ChildDataApptRows>
