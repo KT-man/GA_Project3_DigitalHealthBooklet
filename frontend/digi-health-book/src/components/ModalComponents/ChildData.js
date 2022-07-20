@@ -31,42 +31,54 @@ const ChildData = (props) => {
   let birthDate = new Date(props.childData.DOB);
   const age = today.getFullYear() - birthDate.getFullYear();
 
-
   return (
     <>
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modal}`}>
-            <div class="px-10 py-4">
-              <h3 className={styles.header}>
+            <div class="px-8 py-4">
+              <h3 class="px-4 py-4 text-lg bg-aquamarine">
                 {props.childData.name}'s Details
+                <span class="flex-inline text-sm">
+                  <Button onClick={props.toSetShowChildDataModal} type="submit">
+                    Close
+                  </Button>
+                </span>
               </h3>
-              <Button onClick={props.toSetShowChildDataModal} type="submit">
-                Close X
-              </Button>
             </div>
-            <div>Gender: {props.childData.isMale ? "Male" : "Female"}</div>
             <div>
-              {props.childData.name}'s Birthday:{" "}
-              
+              <span class="font-bold">Gender:</span>{" "}
+              {props.childData.isMale ? "Male" : "Female"}
+            </div>
+            <div>
+              <span class="font-bold">{props.childData.name}'s Birthday:</span>{" "}
               {props.childData.DOB.split("T")[0]}
             </div>
-            <div>Age : {age}</div>
+            <div>
+              <span class="font-bold">Age :</span> {age}
+            </div>
             <br></br>
             <hr></hr>
             <br></br>
             <div>
               <div>
-                Upcoming Appointments:
+                <span class="font-bold"> Upcoming Appointments:</span>
+                <br />
                 {props.childData.appointments.length === 0 ? (
                   "Please add an appointment first!"
                 ) : (
                   <table>
                     <thead>
-                      <tr>
-                        <td>Date</td>
-                        <td>Location</td>
-                        <td>Reason</td>
+                      <tr class="odd:bg-white even:bg-slate-50">
+                        <td>
+                          <span class="font-bold">Date</span>
+                        </td>
+                        <td>
+                          <span class="font-bold">Location</span>
+                        </td>
+                        <td>
+                          <span class="font-bold">Reason</span>
+                        </td>
                       </tr>
                     </thead>
                     <tbody>
@@ -92,17 +104,25 @@ const ChildData = (props) => {
               {/* Stretch goals afterwards to make the appointments / logs show most recent 5, then to scroll next page */}
               <br></br>
               <div>
-                Growth Logs:
+                <span class="font-bold">Growth Logs:</span>
                 {props.childData.logs.length === 0 ? (
                   <p>"Please add a log first!"</p>
                 ) : (
                   <table>
                     <thead>
                       <tr>
-                        <td>Date</td>
-                        <td>Height</td>
-                        <td>Weight</td>
-                        <td>Head Circumference</td>
+                        <td>
+                          <span class="font-bold">Date</span>
+                        </td>
+                        <td>
+                          <span class="font-bold">Height</span>
+                        </td>
+                        <td>
+                          <span class="font-bold">Weight</span>
+                        </td>
+                        <td>
+                          <span class="font-bold">Head Circumference</span>
+                        </td>
                       </tr>
                     </thead>
                     <tbody>

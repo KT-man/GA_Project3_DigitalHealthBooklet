@@ -46,7 +46,12 @@ const EditAppt = (props) => {
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modalLog}`}>
-            <h2 className={styles.header}>Edit Appointment</h2>
+            <span class="inline-flex">
+              <h2 className={styles.header}>Edit Appointment</h2>
+              <Button onClick={props.toSetShowEditApptModal} type="submit">
+                Close X
+              </Button>
+            </span>
             <form onSubmit={handleSubmit}>
               <div>
                 <label className={`${styles.label} `}>Date:</label>
@@ -75,7 +80,6 @@ const EditAppt = (props) => {
                   ref={reasonRef}
                 />
               </div>
-
               <Button type="submit">Submit</Button>
             </form>
           </div>

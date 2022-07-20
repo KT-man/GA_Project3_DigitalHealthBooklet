@@ -19,8 +19,6 @@ const ChildRow = (props) => {
     setShowApptModal(!showApptModal);
   };
 
-
-
   return (
     <div>
       <div className="card">
@@ -30,12 +28,9 @@ const ChildRow = (props) => {
         >
           {props.childData.name}
         </h1>
-        {/* <div>
-          <h2>View Child {props.index + 1}</h2>
-        </div> */}
         <div class="bg-plumish">
           <button
-            onClick={props.toSetShowLogModal}
+            onClick={toSetShowLogModal}
             class=" px-5 py-1 text-md text-white font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
           >
             Add New Log
@@ -52,7 +47,6 @@ const ChildRow = (props) => {
       </div>
       {showChildDataModal && (
         <ChildData
- 
           childData={props.childData}
           toSetShowChildDataModal={toSetShowChildDataModal}
           toSetDeleteCounter={props.toSetDeleteCounter}

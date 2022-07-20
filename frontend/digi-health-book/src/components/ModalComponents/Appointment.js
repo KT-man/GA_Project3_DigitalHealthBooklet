@@ -91,7 +91,9 @@ const Appointment = (props) => {
                 />
               </div>
               <div onChange={onChangeValue}>
-                <label className={`${styles.label} `}>Future Appointment</label>
+                <label class="" className={`${styles.label} `}>
+                  Future Appointment
+                </label>
                 <input
                   className={`${styles.inputGender}`}
                   type="radio"

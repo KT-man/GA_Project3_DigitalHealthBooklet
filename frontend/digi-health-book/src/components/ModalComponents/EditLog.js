@@ -49,7 +49,12 @@ const EditLog = (props) => {
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modalLog}`}>
-            <h2 className={styles.header}>Edit Log</h2>
+            <span class="flex-inline">
+              <h2 className={styles.header}>Edit Log</h2>
+              <Button onClick={props.toSetShowEditLogModal} type="submit">
+                Close X
+              </Button>
+            </span>
             <form onSubmit={handleSubmit}>
               <div>
                 <label className={`${styles.label} `}>Date:</label>

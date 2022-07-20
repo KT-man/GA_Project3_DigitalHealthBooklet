@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-
 import AddChild from "./ModalComponents/AddChild";
 
 import ChildRow from "./ChildRow";
@@ -75,6 +74,12 @@ const WelcomePage = (props) => {
           >
             Add Child
           </button>
+          <a
+            href="/login"
+            class="px-5 py-1 text-md text-white bg-plumish font-semibold rounded-full border border-plumish/40 hover:text-white hover:bg-white hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+          >
+            Back to Login
+          </a>
         </div>
         <br />
         {childData.map((d, i) => {

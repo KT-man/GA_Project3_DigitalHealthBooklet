@@ -14,17 +14,13 @@
   border-radius: 10px;
 }
 
-
-
-
-
 /* ========== MODALS */
 .modal {
   position: fixed;
   top: 10vh;
   left: 10%;
-  width: 80%;
-  height: 60vh;
+  width: 90vh;
+  height: 70vh;
   padding-left: 20px;
   z-index: 100;
   overflow: scroll;
@@ -45,7 +41,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 10px;
 }
-
 
 .modalLog {
   position: fixed;
@@ -72,11 +67,9 @@
 .header {
   background: #74bdcb;
   color: #7d4183;
-  padding: 2rem;
-  width: 100%;
-  height: 5vh;
+  padding: 10px;
   border-radius: 5px;
-  display: inline-block;
+  display: inline;
 }
 
 /* ======= INPUTS */
@@ -134,13 +127,13 @@
   padding-left: 50px;
 }
 
+td {
+  padding: 0.6em;
+}
+
 @media (min-width: 600px) {
   .modal {
     left: calc(50% - 20rem);
     width: 40rem;
   }
 }
-
-
-
-

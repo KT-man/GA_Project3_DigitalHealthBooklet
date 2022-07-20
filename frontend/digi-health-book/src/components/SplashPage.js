@@ -4,11 +4,11 @@ import SplashText from "./SplashText";
 function SplashPage() {
   return (
     <div>
-      <header class="px-5 py-5 bg-blueberry">
-        <img src="./logo.png" alt="digiHealth logo"></img>
+      <header class="px-5 py-5 bg-aquamarine">
+        <img class=" w-40" src="../2.png" alt="digiHealth logo"></img>
         {/* <h1 class="text-slate-600 p-static">digi Health Book SG</h1> */}
         <div class=" max-w-sm pt-4">
-          <form>
+          <div>
             <a
               href="/login"
               class="px-5 py-1 text-md text-white font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
@@ -22,7 +22,7 @@ function SplashPage() {
             >
               Register
             </a>
-          </form>
+          </div>
         </div>
       </header>
       <div class="w-full h-2 bg-plumish"></div>
