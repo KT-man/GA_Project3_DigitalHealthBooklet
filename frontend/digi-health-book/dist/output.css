@@ -549,45 +549,259 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.App {
-  text-align: center;
+.static {
+  position: static;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.inline {
+  display: inline;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.table {
+  display: table;
+}
+
+.grid {
+  display: grid;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+.w-40 {
+  width: 10rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.max-w-sm {
+  max-width: 24rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-white\/50 {
+  border-color: rgb(255 255 255 / 0.5);
+}
+
+.border-plumish\/75 {
+  border-color: rgb(142 77 150 / 0.75);
+}
+
+.bg-aquamarine {
+  --tw-bg-opacity: 1;
+  background-color: rgb(116 189 203 / var(--tw-bg-opacity));
+}
+
+.bg-plumish {
+  --tw-bg-opacity: 1;
+  background-color: rgb(142 77 150 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-slate-600 {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-plumish {
+  --tw-text-opacity: 1;
+  color: rgb(142 77 150 / var(--tw-text-opacity));
+}
+
+.outline {
+  outline-style: solid;
+}
+
+.App {
+  text-align: center;
+  font-size: large;
+}
+
+header {
+  /* min-height: 20vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #74bdcb;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  font-size: xxx-large;
+  background-color: rgba(116, 189, 203, 0.75);
 }
 
-@-webkit-keyframes App-logo-spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+.nav {
+  text-align: right;
+  width: 30vw;
+  margin: 80px auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
+.nav > ul > li {
+  float: left;
+  width: 100%;
+  height: 50px;
+}
 
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+p {
+  align-items: center;
+  margin: 2em 5em;
+  width: 90vw;
+}
+
+h2 {
+  background-color: #8e4d96;
+  font-size: larger;
+  color: aliceblue;
+  height: 2em;
+  vertical-align: middle;
+  font-weight: 800px;
+}
+
+h3 {
+  color: #7d4183;
+  font-weight: bold;
+  font-size: 20;
+  margin: 10px auto;
+}
+
+div > ul {
+  display: inline-block;
+  width: 20vw;
+}
+
+.card > div {
+  display: inline-block;
+  height: 15em;
+}
+
+.card {
+  width: 0 auto;
+}
+
+.hover\:border-transparent:hover {
+  border-color: transparent;
+}
+
+.hover\:bg-plumish:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(142 77 150 / var(--tw-bg-opacity));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus\:ring-2:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.focus\:ring-plumish:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(142 77 150 / var(--tw-ring-opacity));
+}
+
+.focus\:ring-offset-2:focus {
+  --tw-ring-offset-width: 2px;
 }

@@ -19,7 +19,7 @@ const WelcomePage = (props) => {
 
   const fetchChildData = async (url, config) => {
     try {
-      const url = `/users/children`; //=> to doublecheck
+      const url = `/users/children`;
       const config = {
         method: "GET",
         headers: {
