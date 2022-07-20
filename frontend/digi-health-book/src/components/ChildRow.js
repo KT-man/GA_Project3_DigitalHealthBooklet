@@ -21,21 +21,28 @@ const ChildRow = (props) => {
 
   return (
     <div>
-      <div>
-        <h1>{props.childData.name} </h1>
-        <h2 onClick={toSetShowChildDataModal}>Child {props.index + 1}</h2>
+      <div className="card">
+        <h1
+          onClick={toSetShowChildDataModal}
+          class="my-1 border border-plumish"
+        >
+          {props.childData.name}
+        </h1>
+        {/* <div>
+          <h2>View Child {props.index + 1}</h2>
+        </div> */}
         <div class="bg-plumish">
           <button
-            onClick={toSetShowLogModal}
-            class="px-5 py-1 text-md text-white font-semibold rounded-full border  border-white/50 hover:text-white hover:bg-white hover:border-white focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+            onClick={props.toSetShowLogModal}
+            class=" px-5 py-1 text-md text-white font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
           >
             Add New Log
           </button>
         </div>
         <div class="bg-plumish">
           <button
-            onClick={toSetShowApptModal}
-            class="inline px-5 py-1 text-md text-white font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
+            onClick={props.toSetShowApptModal}
+            class=" px-5 py-1 text-md text-white font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
           >
             Add New Appoinment
           </button>

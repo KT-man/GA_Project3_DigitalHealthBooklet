@@ -54,3 +54,11 @@ div > ul {
   display: inline-block;
   width: 20vw;
 }
+
+.card > div {
+  display: inline-block;
+  height: 15em;
+}
+.card {
+  width: 0 auto;
+}

@@ -4,7 +4,7 @@ import SplashText from "./SplashText";
 function SplashPage() {
   return (
     <div>
-      <header class="px-5 py-5 bg-aquamarine ">
+      <header class="px-5 py-5 bg-blueberry">
         <img src="./logo.png" alt="digiHealth logo"></img>
         {/* <h1 class="text-slate-600 p-static">digi Health Book SG</h1> */}
         <div class=" max-w-sm pt-4">

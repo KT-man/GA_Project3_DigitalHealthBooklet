@@ -3,8 +3,7 @@ module.exports = {
   content: [
     "./src/components/SplashPage.js",
     "./src/components/Button.js",
-    "./src/components/ModalComponents/",
-    " ./components/**/*.{html,js}",
+    "./src/components/ModalComponents/*",
   ],
   theme: {
     extend: {
