@@ -36,6 +36,7 @@ const ChildDataLogRows = (props) => {
           id={props.id}
           toSetShowEditLogModal={toSetShowEditLogModal}
           showEditLogModal={showEditLogModal}
+          fetchChildData={props.fetchChildData}
         ></EditLog>
       )}
     </>

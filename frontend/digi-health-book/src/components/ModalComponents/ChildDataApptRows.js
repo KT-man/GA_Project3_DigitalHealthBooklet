@@ -36,6 +36,7 @@ const ChildDataApptRows = (props) => {
           id={props.id}
           toSetShowEditApptModal={toSetShowEditApptModal}
           showEditApptModal={showEditApptModal}
+          fetchChildData={props.fetchChildData}
         ></EditAppt>
       )}
     </>

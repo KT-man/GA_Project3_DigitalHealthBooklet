@@ -37,6 +37,8 @@ const EditAppt = (props) => {
     }
     props.toSetShowEditApptModal(!props.showEditApptModal);
     alert("Appointment has been edited!");
+
+    props.fetchChildData();
   };
 
   return (

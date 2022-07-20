@@ -40,6 +40,8 @@ const EditLog = (props) => {
     }
     props.toSetShowEditLogModal(!props.showEditLogModal);
     alert("Log has been edited!");
+
+    props.fetchChildData();
   };
 
   return (

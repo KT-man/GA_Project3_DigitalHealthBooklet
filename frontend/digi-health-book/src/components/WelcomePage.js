@@ -25,6 +25,15 @@ const WelcomePage = (props) => {
   const fetchChildData = async (url, config) => {
     try {
       console.log("running fetchChildData");
+
+      const url = `/users/children`; //=> to doublecheck
+      const config = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
       const res = await fetch(url, config);
       const data = await res.json();
 
@@ -41,15 +50,15 @@ const WelcomePage = (props) => {
 
   useEffect(() => {
     //=> to doublecheck on url
-    const url = `/users/children`; //=> to doublecheck
-    const config = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+    // const url = `/users/children`; //=> to doublecheck
+    // const config = {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
 
-    fetchChildData(url, config);
+    fetchChildData();
     childDataRef.current = childData;
   }, [childDataRef, showAddChildModal, deleteCounter]);
 
@@ -74,6 +83,7 @@ const WelcomePage = (props) => {
               key={d._id}
               childData={d}
               toSetDeleteCounter={toSetDeleteCounter}
+              fetchChildData={fetchChildData}
             ></ChildRow>
           );
         })}

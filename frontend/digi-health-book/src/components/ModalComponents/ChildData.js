@@ -65,6 +65,7 @@ const ChildData = (props) => {
                             location={appt.location}
                             reason={appt.reason}
                             toSetDeleteCounter={props.toSetDeleteCounter}
+                            fetchChildData={props.fetchChildData}
                           ></ChildDataApptRows>
                         );
                       })}
@@ -101,6 +102,7 @@ const ChildData = (props) => {
                             weight={log.weight}
                             headCirc={log.headCirc}
                             toSetDeleteCounter={props.toSetDeleteCounter}
+                            fetchChildData={props.fetchChildData}
                           ></ChildDataLogRows>
                         );
                       })}

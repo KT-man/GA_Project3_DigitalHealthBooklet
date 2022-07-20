@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./modal.module.css";
 import Button from "./Button";
@@ -43,6 +43,8 @@ const Log = (props) => {
     }
     hideModal();
     alert("New Log Added!");
+
+    props.fetchChildData();
   };
 
   return (
