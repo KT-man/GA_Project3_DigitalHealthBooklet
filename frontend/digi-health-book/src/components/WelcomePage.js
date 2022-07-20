@@ -14,11 +14,14 @@ const WelcomePage = (props) => {
     console.log(`button is clickced`);
     setShowAddChildModal(!showAddChildModal);
   };
-
   const [deleteCounter, setDeleteCounter] = useState(0);
   const toSetDeleteCounter = () => {
     setDeleteCounter(deleteCounter + 1);
   };
+  // const [deleteCounter, setDeleteCounter] = useState(0);
+  // const toSetDeleteCounter = () => {
+  //   setDeleteCounter(deleteCounter + 1);
+  // };
 
   // showeditmodalstate
 
@@ -65,8 +68,9 @@ const WelcomePage = (props) => {
   return (
     <>
       <div>
-        <header class="bg-aquamarine"></header>
-        <h1>Welcome to your Digital Child Booklet</h1>
+        <header class="bg-aquamarine">
+          <h1>Welcome to your Digital Child Booklet</h1>
+        </header>
         <div class="my-8">
           <button
             onClick={toSetShowAddChildModal}

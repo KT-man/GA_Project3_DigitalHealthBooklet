@@ -32,7 +32,14 @@ const ChildData = (props) => {
       {ReactDOM.createPortal(
         <div className={styles.backdrop}>
           <div className={`${styles.board} ${styles.modal}`}>
-            <h3 className={styles.header}>{props.childData.name}'s Details</h3>
+            <div class="px-10 py-4">
+              <h3 className={styles.header}>
+                {props.childData.name}'s Details
+              </h3>
+              <Button onClick={props.toSetShowChildDataModal} type="submit">
+                Close X
+              </Button>
+            </div>
             <div>Gender: {props.childData.isMale ? "Male" : "Female"}</div>
             <div>
               {props.childData.name}'s Birthday:{" "}
@@ -115,27 +122,24 @@ const ChildData = (props) => {
                 onClick={toSetShowHeightModal}
                 class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
               >
-                Show {props.childData.name}'s' Height Chart
+                Height Chart
               </button>
-              <br />
+
               <button
                 onClick={toSetShowWeightModal}
                 class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
               >
-                Show {props.childData.name}'s' Weight Chart
+                Weight Chart
               </button>
-              <br />
+
               <button
                 onClick={toSetShowHeadCircModal}
                 class="my-8 px-5 py-1 text-md text-plumish font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
               >
-                Show {props.childData.name}'s' Head Circ Chart
+                Head Circ Chart
               </button>
             </div>
-            <br></br>
-            <Button onClick={props.toSetShowChildDataModal} type="submit">
-              Close X
-            </Button>
+            <br />
           </div>
         </div>,
         document.querySelector("#modal-root")

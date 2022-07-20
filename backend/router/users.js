@@ -383,6 +383,17 @@ router.delete("/deleteLog", auth, async (req, res) => {
         message: "Please ensure there are existing logs to delete",
       });
     }
+    const isDeletedStatus = await User.findOneAndUpdate(
+      {
+        username: req.decoded.username,
+        "children.logs": { $elemMatch: { _id: req.body.childLogId } },
+      },
+      {
+        $set: {
+          "children.$.logs": { isDeleted: true },
+        },
+      }
+    );
 
     const deleteLog = await User.findOneAndUpdate(
       {
@@ -395,7 +406,7 @@ router.delete("/deleteLog", auth, async (req, res) => {
         },
       }
     );
-    res.json(deleteLog);
+    res.json(deleteLog, isDeletedStatus);
   } catch (error) {
     console.log(error);
     res.status(400).json({ status: "error", message: "error encountered" });

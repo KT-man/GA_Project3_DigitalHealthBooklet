@@ -19,6 +19,7 @@ const ChildDataApptRows = (props) => {
           <ButtonDelete
             id={props.id}
             toSetDeleteCounter={props.toSetDeleteCounter}
+            type="appt"
           >
             Delete
           </ButtonDelete>

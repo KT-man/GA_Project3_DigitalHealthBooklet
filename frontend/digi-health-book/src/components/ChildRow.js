@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import Appointment from "./ModalComponents/Appointment";
 import Log from "./ModalComponents/Log";
 import ChildData from "./ModalComponents/ChildData";
@@ -41,7 +41,7 @@ const ChildRow = (props) => {
         </div>
         <div class="bg-plumish">
           <button
-            onClick={props.toSetShowApptModal}
+            onClick={toSetShowApptModal}
             class=" px-5 py-1 text-md text-white font-semibold rounded-full border border-white/50 hover:text-white hover:bg-plumish hover:border-transparent focus:outline-none focus:ring-2 focus:ring-plumish focus:ring-offset-2"
           >
             Add New Appoinment

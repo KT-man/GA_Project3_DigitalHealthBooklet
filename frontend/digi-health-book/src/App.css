@@ -14,10 +14,11 @@ header {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #74bdcb;
+  background-color: #74bdcb;
 }
 h1 {
   font-size: xxx-large;
+  background-color: rgba(116, 189, 203, 0.75);
 }
 
 .nav {
