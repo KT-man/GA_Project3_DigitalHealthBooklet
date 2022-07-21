@@ -360,10 +360,9 @@ router.get("/children", auth, async (req, res) => {
     return res.json(children);
   } catch (error) {
     console.log(error);
-    res.status(400).json({ status: "error", message: "error encountered" });
+    res.status(400).json({});
   }
 });
-
 
 // --------------- Add log
 router.patch("/addLog", auth, async (req, res) => {
@@ -448,7 +447,6 @@ router.delete("/deleteLog", auth, async (req, res) => {
       "children.logs": { $elemMatch: { _id: req.body.childLogId } },
     });
 
-
     if (!userLog) {
       return res.status(400).json({
         status: "Error!",
@@ -473,8 +471,6 @@ router.delete("/deleteLog", auth, async (req, res) => {
     res.status(400).json({ status: "error", message: "error encountered" });
   }
 });
-
-
 
 // ----------------- Add appt
 router.patch("/addAppt", auth, async (req, res) => {

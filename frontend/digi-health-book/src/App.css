@@ -32,12 +32,11 @@ image {
   display: inline;
 }
 .nav > ul > li {
-  float: left;
+  /* float: right; */
   height: 70px;
 }
 p {
   align-items: center;
-  margin: 2em 6em;
   width: 90vw;
   margin: 1em;
   display: block;
