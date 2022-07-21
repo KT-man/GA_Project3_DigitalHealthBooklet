@@ -32,7 +32,6 @@ image {
   display: inline;
 }
 .nav > ul > li {
-  /* float: right; */
   height: 70px;
 }
 p {
