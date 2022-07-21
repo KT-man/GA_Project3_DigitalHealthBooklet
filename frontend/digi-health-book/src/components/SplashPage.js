@@ -27,39 +27,39 @@ function SplashPage() {
         </div>
       </header>
       <div class="w-full h-2 bg-plumish"></div>
-      <p className="image">
+      <div class=" w-max-lg flex h-150 ">
         <img
-          class=" w-max-lg flex h-150 "
           src="https://img.freepik.com/free-vector/pediatrician-doctor-woman-examining-baby-boy_3446-535.jpg?t=st=1657858868~exp=1657859468~hmac=f2f9e8770eb5abb6673c6cbcaa4d0025b31785423b3b3275804257fbd824428e"
           alt="pediatrician and baby"
         ></img>
-      </p>
-      <div className="nav">
-        <ul>
-          <li class="px-5 py-1 text-md text-white bg-plumish font-semibold border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent">
-            Menu
-          </li>
-          <li class="px-5 py-1 text-md text-plumish bg-white font-semibold border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent">
-            <a href="#what" class="text-slate-500-2xl ">
-              What is it?
-            </a>
-          </li>
+        <div className="nav">
+          <ul>
+            <li class="px-5 py-1 text-md text-white bg-plumish font-semibold border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent">
+              Menu
+            </li>
+            <li class="px-5 py-1 text-md text-plumish bg-white font-semibold border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent">
+              <a href="#what" class="text-slate-500-2xl ">
+                What is it?
+              </a>
+            </li>
 
-          <li class="px-5 py-1 text-md text-plumish font-semibold border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent">
-            <a href="#why" class="text-slate-500-2xl">
-              Why go digital
-            </a>
-          </li>
+            <li class="px-5 py-1 text-md text-plumish font-semibold border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent">
+              <a href="#why" class="text-slate-500-2xl">
+                Why go digital
+              </a>
+            </li>
 
-          <li class="px-5 py-1 text-md text-plumish font-semibold border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent">
-            <a href="#how">How to use</a>
-          </li>
+            <li class="px-5 py-1 text-md text-plumish font-semibold border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent">
+              <a href="#how">How to use</a>
+            </li>
 
-          <li class="px-5 py-1 text-md text-plumish font-semibold border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent">
-            <a href="#contact">Who are we?</a>
-          </li>
-        </ul>
+            <li class="px-5 py-1 text-md text-plumish font-semibold border border-plumish/75 hover:text-white hover:bg-plumish hover:border-transparent">
+              <a href="#contact">Who are we?</a>
+            </li>
+          </ul>
+        </div>
       </div>
+
       <SplashText />
     </div>
   );
