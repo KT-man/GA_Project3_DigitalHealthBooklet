@@ -134,6 +134,7 @@ router.get("/seed", async (req, res) => {
               },
               {
                 date: "1995-01-25",
+                location: "Singapore General Hospital",
                 doctorName: "Dr Tan",
                 futureAppt: false,
                 reason: "Routine Checkup",
