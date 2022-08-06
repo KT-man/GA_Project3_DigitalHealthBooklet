@@ -45,7 +45,8 @@ const ButtonDelete = (props) => {
             : handleSubmitDelete(logPath, logId);
         }}
       >
-        <div className="black-bin"></div>X
+        <i class="bi bi-trash"></i>
+        {/* <div className="black-bin"></div>X */}
       </button>
     </>
   );
